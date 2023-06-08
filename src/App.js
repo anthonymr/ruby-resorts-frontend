@@ -1,16 +1,23 @@
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
+import NavigationPanel from './components/navigation/navigationPanel';
+import MainPage from './components/mainPage';
+import ReservePage from './components/reservePage';
 
 const App = () => (
-  <div className="App">
-    <Box
-      sx={{
-        border: { xs: 'solid 1px black', lg: 'solid 1px blue' },
-      }}
-    >
-      Hello
-    </Box>
-  </div>
+  <Box
+    id="App"
+    sx={{
+      display: 'flex',
+    }}
+  >
+    <NavigationPanel />
+    <Routes>
+      <Route index element={<MainPage />} />
+      <Route path="reservepage" element={<ReservePage />} />
+    </Routes>
+  </Box>
 );
 
 export default App;
