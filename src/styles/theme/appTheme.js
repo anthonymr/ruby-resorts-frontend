@@ -10,7 +10,7 @@ const theme = createTheme({
     },
     text: {
       first: '#ffffff',
-      second: '#2c2c2c',
+      second: '#454545',
       third: '#cfcdce',
     },
   },

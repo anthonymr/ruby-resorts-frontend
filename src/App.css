@@ -2,21 +2,30 @@
   text-align: center;
 }
 
-#nav-panel-list a{
+#nav-panel-list a {
   width: 100%;
   text-decoration: none;
-  color: #2c2c2c;
+  color: #454545;
   font-weight: 800;
   padding: 1rem;
 }
 
 #nav-panel-list a.active {
-background-color: #96bf01;
-color: #ffffff;
+  background-color: #96bf01;
+  color: #fff;
 }
 
 #nav-app-logo {
-  height: 7rem;
-  width: 10rem;
+  height: 15vh;
+  width: 100%;
   object-fit: contain;
+}
+
+#nav-social-icons path {
+  fill: #454545;
+}
+
+#nav-social-icons svg {
+  height: 15px;
+  width: 15px;
 }
