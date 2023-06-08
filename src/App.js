@@ -9,7 +9,8 @@ const App = () => (
   <Box
     id="App"
     sx={{
-      display: 'flex',
+      display: { sx: 'block', sm: 'flex' },
+      position: 'relative',
     }}
   >
     <NavigationPanel />
