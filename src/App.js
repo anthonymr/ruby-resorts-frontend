@@ -1,8 +1,15 @@
 import './App.css';
+import { Box } from '@mui/material';
 
 const App = () => (
   <div className="App">
-    <h1>Hello</h1>
+    <Box
+      sx={{
+        border: { xs: 'solid 1px black', lg: 'solid 1px blue' },
+      }}
+    >
+      Hello
+    </Box>
   </div>
 );
 
