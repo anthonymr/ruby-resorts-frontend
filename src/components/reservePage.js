@@ -3,7 +3,12 @@ import { Box, Typography } from '@mui/material';
 const ReservePage = () => (
   <Box
     sx={{
-      width: { xs: '100%', sm: '80%', md: '90%' },
+      width: {
+        xs: '100%',
+        sm: '80%',
+        md: '85%',
+        lg: '88%',
+      },
       height: '100vh',
       padding: { xs: '5% 0 0 0', sm: '0' },
       display: 'flex',

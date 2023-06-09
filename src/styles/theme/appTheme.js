@@ -14,11 +14,11 @@ const theme = createTheme({
       third: '#a1a1a1',
     },
   },
-  // typography: {
-  //   allVariants: {
-  //     fontFamily: montserrat.style.fontFamily,
-  //   },
-  // },
+  typography: {
+    allVariants: {
+      fontFamily: "'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell'",
+    },
+  },
 });
 
 const appTheme = responsiveFontSizes(theme);

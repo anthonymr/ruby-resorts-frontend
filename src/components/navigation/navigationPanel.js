@@ -33,7 +33,8 @@ const NavigationPanel = () => {
           flexDirection: { sm: 'column' },
           width: {
             sm: '20%',
-            md: '10%',
+            md: '15%',
+            lg: '12%',
           },
           borderRight: 'solid 1px #dcdcdc',
           height: '100vh',
