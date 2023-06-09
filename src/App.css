@@ -25,6 +25,12 @@
   fill: #454545;
 }
 
+.carousel-button-left svg,
+.carousel-button-right svg {
+  height: 32px;
+  width: 32px;
+}
+
 #nav-social-icons svg {
   cursor: pointer;
   height: 15px;
@@ -45,13 +51,6 @@
   border: none;
   display: flex;
 }
-
-.carousel-button-left svg,
-.carousel-button-right svg {
-  height: 32px;
-  width: 32px;
-}
-
 
 .carousel-button-left {
   justify-content: center;
