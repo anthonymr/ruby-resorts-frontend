@@ -29,3 +29,48 @@
   height: 15px;
   width: 15px;
 }
+
+.carousel-button-group {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel-button-left,
+.carousel-button-right {
+  color: #96bf01;
+  border-radius: none;
+  cursor: pointer;
+}
+
+.carousel-button-left {
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.carousel-button-right {
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.main-carousel-container {
+  height: 50vh;
+  border: solid 1px red;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.disable-button {
+  color: #d3d3d3;
+}
+
+@media screen and (min-width: 600px) {
+  .carousel-button-group {
+    top: 50%;
+    left: 0;
+    right: 0;
+  }
+}

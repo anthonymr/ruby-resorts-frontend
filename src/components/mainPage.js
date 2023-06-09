@@ -1,24 +1,47 @@
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
+import { PropTypes } from 'prop-types';
 
-const MainPage = () => {
-  const { rooms, status } = useSelector((state) => state.rooms);
-  console.log(status);
-  console.log(rooms);
+const responsive = {
+  large: {
+    breakpoint: { max: 3000, min: 1200 },
+    items: 3,
+  },
+  medium: {
+    breakpoint: { max: 1200, min: 900 },
+    items: 2,
+  },
+  mobile: {
+    breakpoint: { max: 900, min: 0 },
+    items: 1,
+  },
+};
+
+const ButtonGroup = ({
+  next,
+  previous,
+  goToSlide,
+  ...rest
+}) => {
+  const {
+    carouselState: { currentSlide },
+  } = rest;
   return (
-    <Box
-      sx={{
-        width: '100%',
-        height: '100vh',
-        padding: { xs: '5% 0 0 0', sm: '0' },
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-      }}
-    >
-      <Button
+    <div className="carousel-button-group">
+      <button
+        onClick={() => previous()}
+        className={currentSlide === 0 ? 'disable-button' : ''}
+        type="button"
+      >
+        <ArrowLeftOutlinedIcon color="primary" />
+      </button>
+      {/* <Button
+        className={currentSlide === 0 ? 'disable-button' : ''}
+        onClick={() => previous()}
         sx={{
           background: '#96bf01',
           '&:hover': { background: '#96bf01' },
@@ -27,27 +50,15 @@ const MainPage = () => {
           borderBottomRightRadius: '50px',
         }}
       >
-        <ArrowLeftOutlinedIcon
-          color="primary"
-          sx={{
-            fontSize: { xs: '1.2rem', md: '2rem' },
-            padding: { xs: '0.5rem 0', md: '0.5rem 1.5rem' },
-          }}
-        />
-      </Button>
+        <ArrowLeftOutlinedIcon color="primary" />
+      </Button> */}
 
-      <Box
-        className="main-page-container"
-        sx={{
-          border: 'solid 1px red',
-          height: { xs: '60%', sm: '80%' },
-          width: '90%',
-        }}
-      >
-        Will have content
-      </Box>
+      <button onClick={() => next()} type="button">
+        <ArrowRightOutlinedIcon color="primary" />
+      </button>
 
-      <Button
+      {/* <Button
+        onClick={() => next()}
         sx={{
           background: '#96bf01',
           '&:hover': { background: '#96bf01' },
@@ -56,18 +67,57 @@ const MainPage = () => {
           borderBottomLeftRadius: '50px',
         }}
       >
-        <ArrowRightOutlinedIcon
-          color="primary"
-          sx={{
-            fontSize: { xs: '1.2rem', md: '2rem' },
-            padding: { xs: '0.5rem 0', md: '0.5rem 1.5rem' },
-          }}
-        />
-      </Button>
+        <ArrowRightOutlinedIcon color="primary" />
+      </Button> */}
+    </div>
+  );
+};
 
-      {/* <CircularProgress /> */}
+const MainPage = () => {
+  const { rooms, status } = useSelector((state) => state.rooms);
+  console.log(status);
+  console.log(rooms);
+
+  return (
+    <Box
+      sx={{
+        width: { xs: '100%', sm: '80%', md: '90%' },
+        height: '100vh',
+        margin: '0 auto',
+        padding: { xs: '5% 0 0', sm: '0' },
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        position: 'relative',
+      }}
+    >
+      <div className="main-carousel-container">
+        <Carousel
+          arrows={false}
+          renderButtonGroupOutside
+          responsive={responsive}
+          customButtonGroup={<ButtonGroup />}
+        >
+          {rooms.map((room) => (
+            <div key={room.id}>{room.name}</div>
+          ))}
+        </Carousel>
+      </div>
     </Box>
   );
+};
+
+ButtonGroup.propTypes = {
+  next: PropTypes.func,
+  previous: PropTypes.func,
+  goToSlide: PropTypes.func,
+};
+
+ButtonGroup.defaultProps = {
+  next: (e) => e,
+  previous: (e) => e,
+  goToSlide: (e) => e,
 };
 
 export default MainPage;

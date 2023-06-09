@@ -33,8 +33,7 @@ const NavigationPanel = () => {
           flexDirection: { sm: 'column' },
           width: {
             sm: '20%',
-            md: '15%',
-            lg: '12%',
+            md: '10%',
           },
           borderRight: 'solid 1px #dcdcdc',
           height: '100vh',
@@ -44,7 +43,12 @@ const NavigationPanel = () => {
       </Box>
       <Button
         onClick={handleToggleDrawer}
-        sx={{ display: { sm: 'none' }, position: 'absolute', left: 0 }}
+        sx={{
+          display: { sm: 'none' },
+          position: 'absolute',
+          left: 0,
+          zIndex: 99,
+        }}
       >
         <MenuRoundedIcon
           fontSize="large"
