@@ -1,10 +1,11 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
 import { PropTypes } from 'prop-types';
+import roomImage from '../styles/images/room1.jpg';
 
 const responsive = {
   large: {
@@ -21,62 +22,57 @@ const responsive = {
   },
 };
 
-const ButtonGroup = ({
-  next,
-  previous,
-  goToSlide,
-  ...rest
-}) => {
-  const {
-    carouselState: { currentSlide },
-  } = rest;
-  return (
-    <div className="carousel-button-group">
-      <button
-        onClick={() => previous()}
-        className={currentSlide === 0 ? 'disable-button' : ''}
-        type="button"
-      >
-        <ArrowLeftOutlinedIcon color="primary" />
-      </button>
-      {/* <Button
-        className={currentSlide === 0 ? 'disable-button' : ''}
-        onClick={() => previous()}
-        sx={{
-          background: '#96bf01',
-          '&:hover': { background: '#96bf01' },
-          borderRadius: 'none',
-          borderTopRightRadius: '50px',
-          borderBottomRightRadius: '50px',
-        }}
-      >
-        <ArrowLeftOutlinedIcon color="primary" />
-      </Button> */}
-
-      <button onClick={() => next()} type="button">
-        <ArrowRightOutlinedIcon color="primary" />
-      </button>
-
-      {/* <Button
-        onClick={() => next()}
-        sx={{
-          background: '#96bf01',
-          '&:hover': { background: '#96bf01' },
-          borderRadius: 'none',
-          borderTopLeftRadius: '50px',
-          borderBottomLeftRadius: '50px',
-        }}
-      >
-        <ArrowRightOutlinedIcon color="primary" />
-      </Button> */}
-    </div>
-  );
-};
-
 const MainPage = () => {
-  const { rooms, status } = useSelector((state) => state.rooms);
-  console.log(status);
-  console.log(rooms);
+  const { rooms } = useSelector((state) => state.rooms);
+  const ButtonGroup = ({
+    next,
+    previous,
+    goToSlide,
+    ...rest
+  }) => {
+    const {
+      carouselState: { currentSlide },
+    } = rest;
+    return (
+      <div className="carousel-button-group">
+        <button
+          onClick={() => previous()}
+          className={
+            currentSlide === 0
+              ? 'carousel-button-left disable-button'
+              : 'carousel-button-left'
+          }
+          type="button"
+        >
+          <ArrowLeftOutlinedIcon color="primary" />
+        </button>
+
+        <button
+          onClick={() => next()}
+          type="button"
+          className={
+            currentSlide === 2
+              ? 'carousel-button-right disable-button'
+              : 'carousel-button-right'
+          }
+        >
+          <ArrowRightOutlinedIcon color="primary" />
+        </button>
+      </div>
+    );
+  };
+
+  ButtonGroup.propTypes = {
+    next: PropTypes.func,
+    previous: PropTypes.func,
+    goToSlide: PropTypes.func,
+  };
+
+  ButtonGroup.defaultProps = {
+    next: (e) => e,
+    previous: (e) => e,
+    goToSlide: (e) => e,
+  };
 
   return (
     <Box
@@ -84,14 +80,27 @@ const MainPage = () => {
         width: { xs: '100%', sm: '80%', md: '90%' },
         height: '100vh',
         margin: '0 auto',
-        padding: { xs: '5% 0 0', sm: '0' },
+        padding: { xs: '15% 0 0', sm: '0' },
         display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
+        justifyContent: { xs: 'start', sm: 'center' },
         alignItems: 'center',
         position: 'relative',
       }}
     >
+      <Typography variant="h5" fontWeight={800} color="black">
+        OUR SUITES
+      </Typography>
+      <Typography variant="body1" fontWeight={600} color="text.third">
+        Please select a Suite
+      </Typography>
+      <Box
+        sx={{
+          borderBottom: '2px dotted #a1a1a1',
+          width: '10%',
+          margin: '1rem',
+        }}
+      />
       <div className="main-carousel-container">
         <Carousel
           arrows={false}
@@ -100,24 +109,40 @@ const MainPage = () => {
           customButtonGroup={<ButtonGroup />}
         >
           {rooms.map((room) => (
-            <div key={room.id}>{room.name}</div>
+            <div className="corousel-item" key={room.id}>
+              <div className="corousel-item-pic-container">
+                <img src={roomImage} alt="room" />
+              </div>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  width: '70%',
+                  margin: '0 auto',
+                }}
+              >
+                <Typography variant="h6" fontSize="1rem" fontWeight={700}>
+                  {room.name}
+                </Typography>
+                <Box
+                  sx={{
+                    borderBottom: '2px dotted #a1a1a1',
+                    width: '10%',
+                    margin: '0.8rem 0 0.4rem',
+                  }}
+                />
+                <Typography variant="body1" color="text.third">{room.description}</Typography>
+              </Box>
+              <Box>
+                Icons
+              </Box>
+            </div>
           ))}
         </Carousel>
       </div>
     </Box>
   );
-};
-
-ButtonGroup.propTypes = {
-  next: PropTypes.func,
-  previous: PropTypes.func,
-  goToSlide: PropTypes.func,
-};
-
-ButtonGroup.defaultProps = {
-  next: (e) => e,
-  previous: (e) => e,
-  goToSlide: (e) => e,
 };
 
 export default MainPage;

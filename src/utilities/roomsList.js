@@ -1,37 +1,37 @@
 const roomsList = [
   {
     id: 1,
-    name: 'Ruby Suit',
+    name: 'Ruby',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     image: '',
   },
   {
     id: 2,
-    name: 'Emerald Suit',
+    name: 'Emerald',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     image: '',
   },
   {
     id: 3,
-    name: 'Diamond Suit',
+    name: 'Diamond',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     image: '',
   },
   {
     id: 4,
-    name: 'Gold Suit',
+    name: 'Gold',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     image: '',
   },
   {
     id: 5,
-    name: 'Silver Suit',
+    name: 'Silver',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor',
     image: '',
   },
 ];

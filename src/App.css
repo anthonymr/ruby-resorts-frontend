@@ -41,30 +41,45 @@
 
 .carousel-button-left,
 .carousel-button-right {
-  color: #96bf01;
-  border-radius: none;
+  width: 3rem;
+  padding: 1rem 2rem;
+  background: #96bf01;
+  border-radius: 0;
   cursor: pointer;
+  border: none;
+  display: flex;
 }
 
 .carousel-button-left {
+  justify-content: start;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
 }
 
 .carousel-button-right {
+  justify-content: end;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
 }
 
 .main-carousel-container {
-  height: 50vh;
-  border: solid 1px red;
   width: 90%;
   margin: 0 auto;
 }
 
+.corousel-item-pic-container {
+  padding: 2rem 0;
+}
+
+.corousel-item-pic-container img {
+  border-radius: 50%;
+  height: 15rem;
+  width: 15rem;
+  object-fit: cover;
+}
+
 .disable-button {
-  color: #d3d3d3;
+  background: #a1a1a1;
 }
 
 @media screen and (min-width: 600px) {
@@ -72,5 +87,10 @@
     top: 50%;
     left: 0;
     right: 0;
+  }
+
+  .corousel-item-pic-container img {
+    height: 20rem;
+    width: 20rem;
   }
 }
