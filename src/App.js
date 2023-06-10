@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
-import ReservePage from './components/newReservePage';
+import ReservePage from './newreservation/newReservePage';
 
 const App = () => (
   <Box
@@ -17,7 +17,7 @@ const App = () => (
       <Route element={<Layout />}>
         <Route index element={<MainPage />} />
       </Route>
-      <Route path="newreservepage" element={<ReservePage />} />
+      <Route path="newreservepage/:roomId" element={<ReservePage />} />
     </Routes>
   </Box>
 );

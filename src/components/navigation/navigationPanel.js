@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, Button, Drawer } from '@mui/material';
-import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
+import { MenuAltGreenIcon } from '../../utilities/icons';
 import NavigationItems from './navigationItems';
 
 const NavigationPanel = () => {
@@ -8,8 +8,6 @@ const NavigationPanel = () => {
   const handleToggleDrawer = () => {
     setMobileMenu((prevState) => !prevState);
   };
-  const drawerWidth = '75%';
-  const container = undefined;
 
   const mobileDrawer = (
     <Box
@@ -47,22 +45,15 @@ const NavigationPanel = () => {
         sx={{
           display: { sm: 'none' },
           position: 'absolute',
-          left: 0,
+          left: '1rem',
+          top: '1rem',
           zIndex: 99,
         }}
       >
-        <MenuRoundedIcon
-          fontSize="large"
-          color="secondary"
-          sx={{
-            stroke: '#96bf01',
-            strokeWidth: 1,
-          }}
-        />
+        <MenuAltGreenIcon />
       </Button>
       <Box component="nav">
         <Drawer
-          container={container}
           anchor="left"
           variant="temporary"
           open={mobileMenu}
@@ -72,7 +63,7 @@ const NavigationPanel = () => {
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: drawerWidth,
+              width: '75%',
             },
           }}
         >
