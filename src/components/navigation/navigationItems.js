@@ -36,7 +36,7 @@ const NavigationItems = () => (
           <NavLink to="/">SUITES</NavLink>
         </ListItem>
         <ListItem sx={{ margin: 0, padding: 0 }}>
-          <NavLink to="reservepage">RESERVE</NavLink>
+          <NavLink to="newreservepage">RESERVE</NavLink>
         </ListItem>
       </List>
     </Box>

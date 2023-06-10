@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-const ReservePage = () => (
+const NewReservePage = () => (
   <Box
     sx={{
       width: {
@@ -20,4 +20,4 @@ const ReservePage = () => (
   </Box>
 );
 
-export default ReservePage;
+export default NewReservePage;

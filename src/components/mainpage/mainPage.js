@@ -12,10 +12,10 @@ const MainPage = () => (
       },
       height: '100vh',
       margin: '0 auto',
-      padding: { xs: '15% 0 0', sm: '0' },
+      padding: { xs: '25% 0 0', sm: '0' },
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
+      justifyContent: { xs: 'start', sm: 'center' },
       alignItems: 'center',
       position: 'relative',
     }}

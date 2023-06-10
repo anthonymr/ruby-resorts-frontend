@@ -117,8 +117,8 @@
 
 @media screen and (min-width: 900px) {
   .corousel-item-pic-container img {
-    height: 10rem;
-    width: 10rem;
+    height: 8rem;
+    width: 8rem;
   }
 
   #nav-social-icons svg {
@@ -129,7 +129,7 @@
 
 @media screen and (min-width: 1200px) {
   .corousel-item-pic-container img {
-    height: 14rem;
-    width: 14rem;
+    height: 10rem;
+    width: 10rem;
   }
 }
