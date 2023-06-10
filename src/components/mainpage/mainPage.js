@@ -10,7 +10,7 @@ const MainPage = () => (
         md: '85%',
         lg: '88%',
       },
-      height: '100vh',
+      minHeight: '100vh',
       margin: '0 auto',
       padding: { xs: '25% 0 0', sm: '0' },
       display: 'flex',

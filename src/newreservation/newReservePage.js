@@ -5,6 +5,7 @@ import {
   Divider,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import ReservationForm from './reservationForm';
 import bgImage from '../styles/images/room1.jpg';
 import { MenuAltWhiteIcon, ArrowLeftWhiteIcon } from '../utilities/icons';
 
@@ -12,7 +13,7 @@ const NewReservePage = () => (
   <Box
     sx={{
       width: '100%',
-      height: '100vh',
+      minHeight: '100vh',
       overflow: 'auto',
       background: `url(${bgImage}) no-repeat center`,
       backgroundSize: { xs: '90% 80%', md: 'auto 80%' },
@@ -50,7 +51,7 @@ const NewReservePage = () => (
     <Box
       sx={{
         width: '100%',
-        height: '100%',
+        minHeight: '95vh',
         background: 'rgba(150,190,38,0.9)',
         display: 'flex',
         flexDirection: 'column',
@@ -99,6 +100,7 @@ const NewReservePage = () => (
           to family-friendly water parks, our Resorts offer a variety for guests
           of all ages to enjoy during their stay.
         </Typography>
+        <ReservationForm />
       </Box>
     </Box>
   </Box>

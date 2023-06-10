@@ -35,7 +35,7 @@ const NavigationPanel = () => {
             lg: '12%',
           },
           borderRight: 'solid 1px #dcdcdc',
-          height: '100vh',
+          minHeight: '100vh',
         }}
       >
         <NavigationItems />
