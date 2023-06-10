@@ -25,7 +25,111 @@
   fill: #454545;
 }
 
+.carousel-button-left svg,
+.carousel-button-right svg {
+  height: 32px;
+  width: 32px;
+}
+
 #nav-social-icons svg {
+  cursor: pointer;
   height: 15px;
   width: 15px;
+}
+
+.carousel-button-group {
+  display: none;
+}
+
+.carousel-button-left,
+.carousel-button-right {
+  width: 3rem;
+  padding: 1rem 2rem;
+  background: #96bf01;
+  border-radius: 0;
+  cursor: pointer;
+  border: none;
+  display: flex;
+}
+
+.carousel-button-left {
+  justify-content: center;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.carousel-button-right {
+  justify-content: center;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.main-carousel-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.corousel-item-pic-container {
+  margin: 1rem 0;
+}
+
+.corousel-item-pic-container img {
+  border-radius: 50%;
+  height: 13rem;
+  width: 13rem;
+  object-fit: cover;
+}
+
+.disable-button {
+  background: #a1a1a1;
+}
+
+#round-icons-container svg {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+
+#round-icons-container path {
+  fill: #a1a1a1;
+}
+
+@media screen and (min-width: 600px) {
+  .carousel-button-group {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .corousel-item-pic-container img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  #round-icons-container svg {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .corousel-item-pic-container img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  #nav-social-icons svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .corousel-item-pic-container img {
+    height: 14rem;
+    width: 14rem;
+  }
 }

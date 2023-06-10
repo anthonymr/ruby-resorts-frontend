@@ -42,13 +42,19 @@ const NavigationPanel = () => {
       >
         <NavigationItems />
       </Box>
-      <Button onClick={handleToggleDrawer}>
+      <Button
+        onClick={handleToggleDrawer}
+        sx={{
+          display: { sm: 'none' },
+          position: 'absolute',
+          left: 0,
+          zIndex: 99,
+        }}
+      >
         <MenuRoundedIcon
           fontSize="large"
           color="secondary"
           sx={{
-            display: { sm: 'none' },
-            float: 'left',
             stroke: '#96bf01',
             strokeWidth: 1,
           }}
