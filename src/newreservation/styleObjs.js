@@ -1,8 +1,7 @@
 export const innerFormContainer = {
   display: 'flex',
   flexDirection: { xs: 'column', md: 'row' },
-  justifyContent: { md: 'center' },
-  border: 'solid 1px red',
+  alignItems: { md: 'start' },
 };
 
 export const selectContainerStyle = {
@@ -14,10 +13,30 @@ export const selectContainerStyle = {
     lg: '1fr 1fr 1fr',
     xl: '1fr 1fr 1fr 1fr',
   },
-  border: 'solid 1px yellow',
 };
 
 const selectStyle = {
+  border: '2px solid #ffffff',
+  borderRadius: '50px',
+  padding: '0',
+  color: 'text.first',
+  fontWeight: '700',
+  width: { xs: '15rem', md: '10rem' },
+  '.MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(228, 219, 233, 0.25)',
+  },
+  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(228, 219, 233, 0.25)',
+  },
+  '&:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(228, 219, 233, 0.25)',
+  },
+  '.MuiSvgIcon-root ': {
+    fill: 'white !important',
+  },
+};
+
+export const datePickerStyle = {
   border: '2px solid #ffffff',
   borderRadius: '50px',
   padding: '0',
@@ -48,7 +67,7 @@ export const menuItemStyle = {
 
 export const formSubmitStyle = {
   width: { xs: '15rem', md: '10rem' },
-  margin: { xs: '1rem 0', xl: '0 1rem' },
+  margin: { xs: '1rem 0', md: '0 1rem' },
   border: '2px solid #ffffff',
   borderRadius: '50px',
   fontWeight: 700,

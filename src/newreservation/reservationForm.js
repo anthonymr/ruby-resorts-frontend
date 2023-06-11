@@ -6,8 +6,15 @@ import {
   Button,
   Box,
 } from '@mui/material';
+import {
+  DatePicker,
+  LocalizationProvider,
+} from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
 import { useSelector } from 'react-redux';
 import selectStyle, {
+  datePickerStyle,
   formSubmitStyle,
   innerFormContainer,
   menuItemStyle,
@@ -20,6 +27,8 @@ const ReservationForm = () => {
   const { rooms } = useSelector((state) => state.rooms);
   const [location, setLocation] = useState(0);
   const [room, setRoom] = useState(roomId);
+  const [fromDate, setFromDate] = useState(dayjs());
+  const [toDate, setToDate] = useState(dayjs().add(1, 'day'));
 
   const handleRoomChange = (e) => {
     setRoom(e.target.value);
@@ -64,8 +73,27 @@ const ReservationForm = () => {
               </MenuItem>
             ))}
           </Select>
-        </Box>
 
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              id="from-date-picker"
+              sx={datePickerStyle}
+              value={fromDate}
+              disablePast
+              maxDate={fromDate.add(45, 'day')}
+              onChange={(newFromDate) => setFromDate(newFromDate)}
+            />
+            <DatePicker
+              id="to-date-picker"
+              sx={datePickerStyle}
+              value={toDate}
+              disablePast
+              minDate={fromDate.add(1, 'day')}
+              maxDate={toDate.add(45, 'day')}
+              onChange={(newToDate) => setToDate(newToDate)}
+            />
+          </LocalizationProvider>
+        </Box>
         <Button
           type="submit"
           color="primary"
