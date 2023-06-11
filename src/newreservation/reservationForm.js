@@ -6,6 +6,7 @@ import {
   Button,
   Box,
   Typography,
+  TextField,
 } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -17,6 +18,7 @@ import selectStyle, {
   innerFormContainer,
   menuItemStyle,
   selectContainerStyle,
+  textFieldStyle,
 } from './styleObjs';
 
 const ReservationForm = () => {
@@ -55,6 +57,15 @@ const ReservationForm = () => {
       <form id="reservation-form" method="post" onSubmit={handleSubmit}>
         <Box sx={innerFormContainer}>
           <Box sx={selectContainerStyle}>
+            <TextField
+              id="username-input"
+              defaultValue="username"
+              sx={textFieldStyle}
+              InputProps={{
+                inputProps: { style: { padding: '1rem' } },
+                readOnly: true,
+              }}
+            />
             <Select
               value={room}
               id="rooms-list"
@@ -118,7 +129,9 @@ const ReservationForm = () => {
           </Button>
         </Box>
       </form>
-      <Typography variant="h6" color="text.first" sx={{ marginTop: '1rem' }}>{errorMsg}</Typography>
+      <Typography variant="h6" color="text.first" sx={{ marginTop: '1rem' }}>
+        {errorMsg}
+      </Typography>
     </>
   );
 };

@@ -47,9 +47,6 @@ export const datePickerStyle = {
     fontWeight: 800,
   },
   width: { xs: '15rem', md: '13rem' },
-  '.MuiInputBase-inputAdornedEnd': {
-    padding: '1rem',
-  },
 
   '.MuiOutlinedInput-notchedOutline': {
     borderColor: 'rgba(228, 219, 233, 0.25)',
@@ -65,6 +62,32 @@ export const datePickerStyle = {
   },
   '.MuiSvgIcon-root ': {
     fill: 'white !important',
+  },
+};
+
+export const textFieldStyle = {
+  border: '2px solid #ffffff',
+  borderRadius: '50px',
+  input: { color: '#ffffff', fontWeight: '800' },
+  '.MuiInputLabel-formControl': {
+    color: '#ffffff',
+    padding: 'none',
+    margin: 'none',
+    fontWeight: 800,
+  },
+  width: { xs: '15rem', md: '13rem' },
+
+  '.MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(228, 219, 233, 0.25)',
+    border: 'none',
+  },
+  '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(228, 219, 233, 0.25)',
+    border: 'none',
+  },
+  '&:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'rgba(228, 219, 233, 0.25)',
+    border: 'none',
   },
 };
 
