@@ -18,10 +18,10 @@ export const selectContainerStyle = {
 const selectStyle = {
   border: '2px solid #ffffff',
   borderRadius: '50px',
-  padding: '0',
   color: 'text.first',
+  padding: '0.5rem',
   fontWeight: '700',
-  width: { xs: '15rem', md: '10rem' },
+  width: { xs: '15rem', md: '13rem' },
   '.MuiOutlinedInput-notchedOutline': {
     borderColor: 'rgba(228, 219, 233, 0.25)',
   },
@@ -39,18 +39,29 @@ const selectStyle = {
 export const datePickerStyle = {
   border: '2px solid #ffffff',
   borderRadius: '50px',
-  padding: '0',
-  color: 'text.first',
-  fontWeight: '700',
-  width: { xs: '15rem', md: '10rem' },
+  input: { color: '#ffffff', fontWeight: '600' },
+  '.MuiInputLabel-formControl': {
+    color: '#ffffff',
+    padding: 'none',
+    margin: 'none',
+    fontWeight: 800,
+  },
+  width: { xs: '15rem', md: '13rem' },
+  '.MuiInputBase-inputAdornedEnd': {
+    padding: '1rem',
+  },
+
   '.MuiOutlinedInput-notchedOutline': {
     borderColor: 'rgba(228, 219, 233, 0.25)',
+    border: 'none',
   },
   '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
     borderColor: 'rgba(228, 219, 233, 0.25)',
+    border: 'none',
   },
   '&:hover .MuiOutlinedInput-notchedOutline': {
     borderColor: 'rgba(228, 219, 233, 0.25)',
+    border: 'none',
   },
   '.MuiSvgIcon-root ': {
     fill: 'white !important',
@@ -71,7 +82,7 @@ export const formSubmitStyle = {
   border: '2px solid #ffffff',
   borderRadius: '50px',
   fontWeight: 700,
-  padding: '0.5rem',
+  padding: '1rem',
   color: 'text.fourth',
   '&:hover': {
     background: '#96bf01',
