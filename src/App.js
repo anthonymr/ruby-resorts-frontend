@@ -5,6 +5,7 @@ import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
 import ReservePage from './newreservation/newReservePage';
 import Details from './components/detailspage/Details';
+import AddRoom from './components/addRoom/AddRoom';
 
 const App = () => (
   <Box
@@ -20,6 +21,7 @@ const App = () => (
       </Route>
       <Route path="newreservepage/:roomId" element={<ReservePage />} />
       <Route exact path="/details/:roomId" element={<Details />} />
+      <Route exact path="/add" element={<AddRoom />} />
     </Routes>
   </Box>
 );
