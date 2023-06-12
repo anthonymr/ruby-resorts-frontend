@@ -1,9 +1,9 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
-import NavigationPanel from './components/navigation/navigationPanel';
+import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
-import ReservePage from './components/reservePage';
+import ReservePage from './newreservation/newReservePage';
 
 const App = () => (
   <Box
@@ -13,10 +13,11 @@ const App = () => (
       position: 'relative',
     }}
   >
-    <NavigationPanel />
     <Routes>
-      <Route index element={<MainPage />} />
-      <Route path="reservepage" element={<ReservePage />} />
+      <Route element={<Layout />}>
+        <Route index element={<MainPage />} />
+      </Route>
+      <Route path="newreservepage/:roomId" element={<ReservePage />} />
     </Routes>
   </Box>
 );

@@ -94,6 +94,15 @@
   fill: #a1a1a1;
 }
 
+#reservation-form {
+  margin-top: 3rem;
+}
+
+#cities-list,
+#rooms-list {
+  padding: 0.5rem;
+}
+
 @media screen and (min-width: 600px) {
   .carousel-button-group {
     position: absolute;
@@ -117,8 +126,8 @@
 
 @media screen and (min-width: 900px) {
   .corousel-item-pic-container img {
-    height: 10rem;
-    width: 10rem;
+    height: 8rem;
+    width: 8rem;
   }
 
   #nav-social-icons svg {
@@ -129,7 +138,7 @@
 
 @media screen and (min-width: 1200px) {
   .corousel-item-pic-container img {
-    height: 14rem;
-    width: 14rem;
+    height: 10rem;
+    width: 10rem;
   }
 }
