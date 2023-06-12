@@ -1,39 +1,65 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState = { accessToken: '', error: '', status: 'loggedout' };
+const token = localStorage.getItem('accessToken')
+  ? localStorage.getItem('accessToken')
+  : null;
+const initialState = {
+  accessToken: token,
+  error: '',
+  authStatus: token ? 'loggedin' : 'loggedout',
+};
 const url = 'http://127.0.0.1:3000/api/v1/authentication';
 
 export const fetchUserToken = createAsyncThunk(
   'token/fetchUserToken',
-  async (credentials) => {
-    const response = await axios.post(url, {
-      username: credentials.username,
-      password: credentials.password,
-    });
-    return response;
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(url, {
+        username: credentials.username,
+        password: credentials.password,
+      });
+      localStorage.setItem('accessToken', data.token);
+      return data;
+    } catch (error) {
+      if (error.response && error.response.data.errors) {
+        return rejectWithValue(error.response.data.errors);
+      }
+      return rejectWithValue(error.message);
+    }
   },
 );
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
-  extraReducers(builder) {
-    builder.addCase(fetchUserToken.fulfilled, (state, { payload }) => {
-      console.log(payload.data);
-      const newState = {
+  reducers: {
+    logout: (state) => {
+      localStorage.removeItem('accessToken');
+      return {
         ...state,
-        accessToken: payload.data,
-        status: 'loggedin',
+        accessToken: null,
+        error: '',
+        authStatus: 'loggedout',
       };
-      return newState;
-    });
-    // .addCase(fetchUserToken.rejected, (state, { payload }) => {
-    //   const newState = { ...state };
-    //   return newState;
-    // });
+    },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchUserToken.fulfilled, (state, { payload }) => {
+        const newState = {
+          ...state,
+          accessToken: payload.data,
+          authStatus: 'loggedin',
+        };
+        return newState;
+      })
+      .addCase(fetchUserToken.rejected, (state, { payload }) => {
+        const newState = { ...state, authStatus: 'loggedout', error: payload };
+        return newState;
+      });
   },
 });
 
+export const { logout } = userSlice.actions;
 export default userSlice.reducer;

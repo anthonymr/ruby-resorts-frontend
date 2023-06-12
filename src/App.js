@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
 import LoginPage from './components/loginpage/loginPage';
+import LogoutPage from './components/logoutPage';
 import ReservePage from './newreservation/newReservePage';
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<LoginPage />} />
+        <Route path="logoutpage" element={<LogoutPage />} />
         <Route path="mainpage" element={<MainPage />} />
       </Route>
       <Route path="newreservepage/:roomId" element={<ReservePage />} />

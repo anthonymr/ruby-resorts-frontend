@@ -15,8 +15,8 @@ import TwitterIcon, {
 import logoImage from '../../styles/images/app_logo.jpeg';
 
 const NavigationItems = () => {
-  const { status } = useSelector((state) => state.user);
-  const loggedin = status === 'loggedin';
+  const { authStatus } = useSelector((state) => state.user);
+  const loggedin = authStatus === 'loggedin';
   return (
     <Box
       sx={{
@@ -38,14 +38,17 @@ const NavigationItems = () => {
 
         <List id="nav-panel-list">
           {loggedin && (
-            <ListItem sx={{ margin: 0, padding: 0 }}>
-              <NavLink to="mainpage">SUITES</NavLink>
-            </ListItem>
-          )}
-          {loggedin && (
-            <ListItem sx={{ margin: 0, padding: 0 }}>
-              <NavLink to="newreservepage/0">RESERVE</NavLink>
-            </ListItem>
+            <>
+              <ListItem sx={{ margin: 0, padding: 0 }}>
+                <NavLink to="mainpage">SUITES</NavLink>
+              </ListItem>
+              <ListItem sx={{ margin: 0, padding: 0 }}>
+                <NavLink to="newreservepage/0">RESERVE</NavLink>
+              </ListItem>
+              <ListItem sx={{ margin: 0, padding: 0 }}>
+                <NavLink to="logoutpage">LOGOUT</NavLink>
+              </ListItem>
+            </>
           )}
           {!loggedin && (
             <ListItem sx={{ margin: 0, padding: 0 }}>

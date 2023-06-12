@@ -16,14 +16,14 @@ import { fetchUserToken } from '../../redux/login/userSlice';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
-  const { status } = useSelector((state) => state.user);
+  const { authStatus, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (status === 'loggedin') {
+    if (authStatus === 'loggedin') {
       navigate('/mainpage');
     }
-  }, [navigate, status]);
+  }, [navigate, authStatus]);
 
   const [loginCredentials, setLoginCredentials] = useState({
     username: '',
@@ -80,7 +80,7 @@ const LoginPage = () => {
           </Button>
         </Box>
       </form>
-      <Typography variant="h6">{}</Typography>
+      <Typography variant="h6" color="text.fourth">{error}</Typography>
     </Box>
   );
 };

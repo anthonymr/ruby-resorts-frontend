@@ -5,13 +5,13 @@ import { useSelector } from 'react-redux';
 import CustomCarousel from './customCarousel';
 
 const MainPage = () => {
-  const { status } = useSelector((state) => state.user);
+  const { authStatus } = useSelector((state) => state.user);
   const navigate = useNavigate();
   useEffect(() => {
-    if (status !== 'loggedin') {
+    if (authStatus !== 'loggedin') {
       navigate('/');
     }
-  }, [navigate, status]);
+  }, [navigate, authStatus]);
   return (
     <Box
       sx={{
