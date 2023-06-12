@@ -14,7 +14,7 @@ const AddRoom = () => (
     <Grid>
       <Card style={{ maxWidth: 450, padding: '20px 5px', margin: '0 auto' }}>
         <CardContent>
-          <Typography gutterBottom variant="h5">
+          <Typography sx={{fontWeight: "bold", fontSize:"30px"}} gutterBottom variant="h5">
             Add New Room
           </Typography>
           <form onSubmit={handleSubmit}>
@@ -43,7 +43,7 @@ const AddRoom = () => (
 
               </Grid>
               <Grid item xs={12}>
-                <Button type="submit" variant="contained" color="secondary" fullWidth>Submit</Button>
+                <Button type="submit" variant="contained" color="secondary" fullWidth sx={{borderRadius: "20px", color: "white", fontSize: "20px"}}>Submit</Button>
               </Grid>
 
             </Grid>
