@@ -44,7 +44,6 @@ export const reservationprice = {
   paddingTop: '10px',
 };
 
-// ArrowCircleRight, ArrowCircleRightOutlined, ArrowCircleRightRounded, ArrowCircleRightSharp, ArrowCircleRightTwoTone, ArrowCircleUp, ArrowCircleUpOutlined, ArrowCircleUpRounded, ArrowCircleUpSharp, ArrowCircleUpTwoTone,
 export const rightBox = {
   display: 'flex',
   flexDirection: 'column',
@@ -95,4 +94,3 @@ export const aprLeft = {
 export const aprRight = {
   fontSize: '12px',
 };
-
