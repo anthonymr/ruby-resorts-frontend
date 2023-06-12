@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import {
   Box,
   Typography,
@@ -9,10 +11,26 @@ import loginPageStyle, {
   loginSubmitBtn,
   loginTextFieldStyle,
 } from './loginStyleObjs';
+import { fetchUserToken } from '../../redux/login/userSlice';
 
 const LoginPage = () => {
+  const dispatch = useDispatch();
+  const [loginCredentials, setLoginCredentials] = useState({
+    username: '',
+    password: '',
+  });
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(fetchUserToken(loginCredentials));
+  };
+
+  const handleCredentialsChange = (e) => {
+    if (e.target.id === 'username') {
+      setLoginCredentials({ ...loginCredentials, username: e.target.value });
+    }
+    if (e.target.id === 'password') {
+      setLoginCredentials({ ...loginCredentials, password: e.target.value });
+    }
   };
   return (
     <Box sx={loginPageStyle}>
@@ -31,6 +49,7 @@ const LoginPage = () => {
             label="Username"
             sx={loginTextFieldStyle}
             required
+            onChange={handleCredentialsChange}
           />
           <TextField
             id="password"
@@ -38,6 +57,7 @@ const LoginPage = () => {
             label="password"
             sx={loginTextFieldStyle}
             required
+            onChange={handleCredentialsChange}
           />
           <Button
             type="submit"
@@ -49,6 +69,7 @@ const LoginPage = () => {
           </Button>
         </Box>
       </form>
+      <Typography variant="h6">{}</Typography>
     </Box>
   );
 };

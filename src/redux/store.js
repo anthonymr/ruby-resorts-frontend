@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
-import logger from 'redux-logger';
 import roomsReducer from './mainPage/roomsSlice';
 import citiesReducer from './newReservePage/citiesSlice';
+import userReducer from './login/userSlice';
 
 const store = configureStore({
   reducer: {
     rooms: roomsReducer,
     cities: citiesReducer,
+    user: userReducer,
   },
-  middleware: (getDefaultMiddleWare) => getDefaultMiddleWare().concat(logger),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });
 
 export default store;
