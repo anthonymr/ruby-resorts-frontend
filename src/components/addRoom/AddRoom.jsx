@@ -1,20 +1,22 @@
-import React from 'react'
-import { Container, Grid, TextField, Button, Card, CardContent, Typography } from '@mui/material';
-const handleSubmit = ()=>{
-}
+import React from 'react';
+import {
+  Container, Grid, TextField, Button, Card, CardContent, Typography,
+} from '@mui/material';
 
-const AddRoom = () => {
-  return (
-    <Container maxWidth="sm">
+const handleSubmit = () => {
+};
+
+const AddRoom = () => (
+  <Container maxWidth="sm">
     <Typography gutterBottom variant="h3" align="center">
       Ruby Resorts
-     </Typography>
+    </Typography>
     <Grid>
-      <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}>
+      <Card style={{ maxWidth: 450, padding: '20px 5px', margin: '0 auto' }}>
         <CardContent>
           <Typography gutterBottom variant="h5">
-          Add New Room
-        </Typography> 
+            Add New Room
+          </Typography>
           <form onSubmit={handleSubmit}>
             <Grid container spacing={1}>
               <Grid xs={12} item>
@@ -36,7 +38,10 @@ const AddRoom = () => {
                 <TextField label="Description" multiline rows={4} placeholder="Type your description here" variant="outlined" fullWidth required />
               </Grid>
               <Grid item xs={12}>
-              <input type="file"  name="roomimage" accept="image/*" />              </Grid>
+                <input type="file" name="roomimage" accept="image/*" />
+                {' '}
+
+              </Grid>
               <Grid item xs={12}>
                 <Button type="submit" variant="contained" color="secondary" fullWidth>Submit</Button>
               </Grid>
@@ -47,7 +52,6 @@ const AddRoom = () => {
       </Card>
     </Grid>
   </Container>
-  )
-}
+);
 
-export default AddRoom
+export default AddRoom;
