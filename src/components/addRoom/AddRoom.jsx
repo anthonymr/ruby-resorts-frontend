@@ -1,11 +1,11 @@
 import React from 'react'
-import { Box, Grid, TextField, Button, Card, CardContent, Typography } from '@mui/material';
+import { Container, Grid, TextField, Button, Card, CardContent, Typography } from '@mui/material';
 const handleSubmit = ()=>{
 }
 
 const AddRoom = () => {
   return (
-    <Box > 
+    <Container maxWidth="sm">
     <Typography gutterBottom variant="h3" align="center">
       Ruby Resorts
      </Typography>
@@ -36,6 +36,8 @@ const AddRoom = () => {
                 <TextField label="Description" multiline rows={4} placeholder="Type your description here" variant="outlined" fullWidth required />
               </Grid>
               <Grid item xs={12}>
+              <input type="file"  name="roomimage" accept="image/*" />              </Grid>
+              <Grid item xs={12}>
                 <Button type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
               </Grid>
 
@@ -44,7 +46,7 @@ const AddRoom = () => {
         </CardContent>
       </Card>
     </Grid>
-  </Box>
+  </Container>
   )
 }
 
