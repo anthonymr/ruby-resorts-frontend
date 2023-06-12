@@ -38,7 +38,7 @@ const AddRoom = () => {
               <Grid item xs={12}>
               <input type="file"  name="roomimage" accept="image/*" />              </Grid>
               <Grid item xs={12}>
-                <Button type="submit" variant="contained" color="primary" fullWidth>Submit</Button>
+                <Button type="submit" variant="contained" color="secondary" fullWidth>Submit</Button>
               </Grid>
 
             </Grid>
