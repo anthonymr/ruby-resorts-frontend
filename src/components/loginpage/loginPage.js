@@ -4,16 +4,18 @@ import {
   TextField,
   Button,
 } from '@mui/material';
-import loginPageStyle, { loginFormContainerStyle, loginSubmitBtn, loginTextFieldStyle } from './loginStyleObjs';
+import loginPageStyle, {
+  loginFormContainerStyle,
+  loginSubmitBtn,
+  loginTextFieldStyle,
+} from './loginStyleObjs';
 
 const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
   return (
-    <Box
-      sx={loginPageStyle}
-    >
+    <Box sx={loginPageStyle}>
       <Typography
         variant="h4"
         letterSpacing="3px"
@@ -24,9 +26,25 @@ const LoginPage = () => {
       </Typography>
       <form id="login-form" onSubmit={handleSubmit}>
         <Box sx={loginFormContainerStyle}>
-          <TextField id="username" label="Username" sx={loginTextFieldStyle} />
-          <TextField id="password" type="password" label="password" sx={loginTextFieldStyle} />
-          <Button type="submit" color="secondary" variant="contained" sx={loginSubmitBtn}>
+          <TextField
+            id="username"
+            label="Username"
+            sx={loginTextFieldStyle}
+            required
+          />
+          <TextField
+            id="password"
+            type="password"
+            label="password"
+            sx={loginTextFieldStyle}
+            required
+          />
+          <Button
+            type="submit"
+            color="secondary"
+            variant="contained"
+            sx={loginSubmitBtn}
+          >
             Log In
           </Button>
         </Box>
