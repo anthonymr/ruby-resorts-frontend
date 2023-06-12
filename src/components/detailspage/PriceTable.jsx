@@ -6,7 +6,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import {detailsTable} from '../styles/styles'
+import {detailsTable} from './styles'
 const StyledTableCell = styled(TableCell)(() => ({
     [`&.${tableCellClasses.body}`]: {
       fontSize: 16,

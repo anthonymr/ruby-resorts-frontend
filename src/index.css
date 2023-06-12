@@ -11,3 +11,9 @@ body {
     'Helvetica Neue',
     sans-serif;
 }
+
+.roomImg{
+  width: 60%;
+  height: 'auto';
+  border-radius: 50%;
+}

@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
 import ReservePage from './newreservation/newReservePage';
+import Details from './components/detailspage/Details';
 
 const App = () => (
   <Box
@@ -18,6 +19,7 @@ const App = () => (
         <Route index element={<MainPage />} />
       </Route>
       <Route path="newreservepage/:roomId" element={<ReservePage />} />
+      <Route exact path="/details/:roomId" element={<Details />} />
     </Routes>
   </Box>
 );

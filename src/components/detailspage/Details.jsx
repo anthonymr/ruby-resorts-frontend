@@ -1,12 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Typography, Box, Button } from '@mui/material';
 import { ArrowCircleRightOutlined, CallEndSharp } from '@mui/icons-material';
-import Rating from '../components/Rating';
-import PriceTable from '../components/PriceTable';
+import Rating from './Rating';
+import PriceTable from './PriceTable';
+import NavigationPanel from '../navigation/navigationPanel';
 
 import {
   roomName,
-  nav,
   detailsBox,
   reservationprice,
   rightBox,
@@ -16,47 +17,60 @@ import {
   arrow,
   apr,
   aprLeft,
-  aprRight
-} from '../styles/styles';
+  aprRight,
+} from './styles';
 
 const Details = () => {
+  const {rooms} = useSelector((state) => state.rooms);
+  let room = rooms[0]
   return (
+    <>
+    <NavigationPanel />
     <Box sx={detailsBox}>
-      <Box sx={nav}></Box>
       <img
         className='roomImg'
-        src='https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG90ZWwlMjByb29tfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60'
+        src= {room.image}
         alt=''
       />
       <Box sx={rightBox}>
         <Typography variant='h3' sx={roomName}>
-          Hotal Name
+          {room.name}
         </Typography>
         <Typography variant='p' sx={reservationprice}>
-          This is Deposit price
+          Reservation Price ${room.reservation_price}
         </Typography>
         <Box>
           <PriceTable />
           <Box sx={apr}>
-          <Typography sx={aprLeft} varient='p'>5.9% APR</Typography>
-          <Typography sx={aprRight} varient='p'>Representative</Typography>
+            <Typography sx={aprLeft} varient='p'>
+              5.9% APR
+            </Typography>
+            <Typography sx={aprRight} varient='p'>
+              Representative
+            </Typography>
           </Box>
-          
         </Box>
         <Box sx={ratingBox}>
-        <Button variant='text' endIcon={<ArrowCircleRightOutlined sx={arrow}  />} sx={discoverBtn}>Discover More Rooms</Button>
-        <Rating rating={3.2} />
-        <Button
-          variant='contained'
-          startIcon={<CallEndSharp />}
-          endIcon={<ArrowCircleRightOutlined />}
-          sx={revervationBtn}
-        >
-          Book Now
-        </Button>
+          <Button
+            variant='text'
+            endIcon={<ArrowCircleRightOutlined sx={arrow} />}
+            sx={discoverBtn}
+          >
+            Discover More Rooms
+          </Button>
+          <Rating rating={room.rating} />
+          <Button
+            variant='contained'
+            startIcon={<CallEndSharp />}
+            endIcon={<ArrowCircleRightOutlined />}
+            sx={revervationBtn}
+          >
+            Book Now
+          </Button>
         </Box>
       </Box>
     </Box>
+    </>
   );
 };
 
