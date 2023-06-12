@@ -16,8 +16,8 @@ const App = () => (
   >
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<MainPage />} />
-        <Route path="login" element={<LoginPage />} />
+        <Route index element={<LoginPage />} />
+        <Route path="mainpage" element={<MainPage />} />
       </Route>
       <Route path="newreservepage/:roomId" element={<ReservePage />} />
     </Routes>

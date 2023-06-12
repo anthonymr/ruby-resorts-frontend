@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -15,10 +16,20 @@ import { fetchUserToken } from '../../redux/login/userSlice';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const { status } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (status === 'loggedin') {
+      navigate('/mainpage');
+    }
+  }, [navigate, status]);
+
   const [loginCredentials, setLoginCredentials] = useState({
     username: '',
     password: '',
   });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(fetchUserToken(loginCredentials));

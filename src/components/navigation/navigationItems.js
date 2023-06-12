@@ -5,6 +5,7 @@ import {
   Typography,
 } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import TwitterIcon, {
   FacebookIcon,
   InstagramIcon,
@@ -13,56 +14,67 @@ import TwitterIcon, {
 } from '../../utilities/icons';
 import logoImage from '../../styles/images/app_logo.jpeg';
 
-const NavigationItems = () => (
-  <Box
-    sx={{
-      width: '100%',
-      height: '100%',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-    }}
-  >
-    <Box>
-      <Box
-        sx={{
-          padding: '1rem 0',
-        }}
-      >
-        <img id="nav-app-logo" src={logoImage} alt="Ruby resorts logo" />
+const NavigationItems = () => {
+  const { status } = useSelector((state) => state.user);
+  const loggedin = status === 'loggedin';
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}
+    >
+      <Box>
+        <Box
+          sx={{
+            padding: '1rem 0',
+          }}
+        >
+          <img id="nav-app-logo" src={logoImage} alt="Ruby resorts logo" />
+        </Box>
+
+        <List id="nav-panel-list">
+          {loggedin && (
+            <ListItem sx={{ margin: 0, padding: 0 }}>
+              <NavLink to="mainpage">SUITES</NavLink>
+            </ListItem>
+          )}
+          {loggedin && (
+            <ListItem sx={{ margin: 0, padding: 0 }}>
+              <NavLink to="newreservepage/0">RESERVE</NavLink>
+            </ListItem>
+          )}
+          {!loggedin && (
+            <ListItem sx={{ margin: 0, padding: 0 }}>
+              <NavLink to="/">LOGIN</NavLink>
+            </ListItem>
+          )}
+        </List>
       </Box>
-      <List id="nav-panel-list">
-        <ListItem sx={{ margin: 0, padding: 0 }}>
-          <NavLink to="/">SUITES</NavLink>
-        </ListItem>
-        <ListItem sx={{ margin: 0, padding: 0 }}>
-          <NavLink to="newreservepage/0">RESERVE</NavLink>
-        </ListItem>
-        <ListItem sx={{ margin: 0, padding: 0 }}>
-          <NavLink to="login">LOGIN</NavLink>
-        </ListItem>
-      </List>
-    </Box>
-    <Box sx={{ margin: '1rem 0' }}>
-      <Box
-        id="nav-social-icons"
-        sx={{
-          padding: '0.5rem',
-          display: 'flex',
-          justifyContent: 'space-around',
-        }}
-      >
-        <FacebookIcon />
-        <TwitterIcon />
-        <InstagramIcon />
-        <VimeoIcon />
-        <SnapIcon />
+      <Box sx={{ margin: '1rem 0' }}>
+        <Box
+          id="nav-social-icons"
+          sx={{
+            padding: '0.5rem',
+            display: 'flex',
+            justifyContent: 'space-around',
+          }}
+        >
+          <FacebookIcon />
+          <TwitterIcon />
+          <InstagramIcon />
+          <VimeoIcon />
+          <SnapIcon />
+        </Box>
+        <Typography variant="subtitle1" textAlign="center" color="text.second">
+          Ruby Resorts Inc.
+        </Typography>
       </Box>
-      <Typography variant="subtitle1" textAlign="center" color="text.second">
-        Ruby Resorts Inc.
-      </Typography>
     </Box>
-  </Box>
-);
+  );
+};
 
 export default NavigationItems;

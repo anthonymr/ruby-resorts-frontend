@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const initialState = { accessToken: '', error: '' };
+const initialState = { accessToken: '', error: '', status: 'loggedout' };
 const url = 'http://127.0.0.1:3000/api/v1/authentication';
 
 export const fetchUserToken = createAsyncThunk(
@@ -11,7 +11,6 @@ export const fetchUserToken = createAsyncThunk(
       username: credentials.username,
       password: credentials.password,
     });
-    console.log(response);
     return response;
   },
 );
@@ -21,16 +20,19 @@ const userSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers(builder) {
-    builder
-      .addCase(fetchUserToken.fulfilled, (state, { payload }) => {
-        const newState = { ...state, accessToken: payload.data };
-        return newState;
-      })
-      .addCase(fetchUserToken.rejected, (state, { payload }) => {
-        console.log(`payload -- ${payload}`);
-        const newState = { ...state };
-        return newState;
-      });
+    builder.addCase(fetchUserToken.fulfilled, (state, { payload }) => {
+      console.log(payload.data);
+      const newState = {
+        ...state,
+        accessToken: payload.data,
+        status: 'loggedin',
+      };
+      return newState;
+    });
+    // .addCase(fetchUserToken.rejected, (state, { payload }) => {
+    //   const newState = { ...state };
+    //   return newState;
+    // });
   },
 });
 

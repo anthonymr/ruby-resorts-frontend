@@ -2,7 +2,7 @@ import store from '../redux/store';
 
 const userLoggedIn = () => {
   const { user } = store.getState();
-  if (user) {
+  if (user.accessToken !== '') {
     return true;
   }
   return false;
