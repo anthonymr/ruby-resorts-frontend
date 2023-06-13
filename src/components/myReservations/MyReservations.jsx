@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import {
-  Container, Typography, Box, useMediaQuery, useTheme,
+  Container, Typography, Box, useMediaQuery, useTheme, Button,
 } from '@mui/material';
 
 const MyReservations = () => {
@@ -15,6 +15,11 @@ const MyReservations = () => {
       totalPrice += reservation.full_price;
     });
     return totalPrice;
+  };
+
+  const handleCancelReservation = (reservationId) => {
+    // Handle cancel reservation logic here
+    console.log(`Cancel reservation with ID: ${reservationId}`);
   };
 
   return (
@@ -32,59 +37,42 @@ const MyReservations = () => {
           border="1px solid #ccc"
           margin={2}
         >
-          {isMobile ? (
-            <>
-              <img src={reservation.image} alt={reservation.name} style={{ width: '200px', height: '150px', borderRadius: '50%' }} />
-              <Box textAlign="center" marginTop={2}>
-                <Typography variant="h4" component="h4">
-                  {reservation.name}
-                </Typography>
-                <Typography variant="h5" component="h5">
-                  {reservation.name}
-                </Typography>
-                <Typography variant="body1">
-                  Reservation Dates: date here
-                  {/* {reservation.startDate} - {reservation.endDate} */}
-                </Typography>
-                <Typography variant="body1">
-                  Price Paid: $
-                  {reservation.full_price}
-                </Typography>
-              </Box>
-            </>
-          ) : (
-            <>
-              <Box display="flex" alignItems="center">
-                <img src={reservation.image} alt={reservation.roomName} style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
-                <Box marginLeft={2}>
-                  <Typography variant="h4" component="h4">
-                    {reservation.name}
-                  </Typography>
-                  <Typography variant="h5" component="h5">
-                    {reservation.name}
-                  </Typography>
-                </Box>
-              </Box>
-              <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="center"
-                flexGrow={1}
-                marginTop={7}
-                marginLeft={2}
-              >
-                <Typography variant="body1">
-                  Reservation Dates: date here
-                  {/* {reservation.startDate} - {reservation.endDate} */}
-                </Typography>
-                <Typography variant="body1">
-                  Price Paid: $
-                  {reservation.full_price}
-                </Typography>
-              </Box>
-            </>
-          )}
+          <Box
+            display="flex"
+            alignItems="center"
+            flexGrow={1}
+            flexDirection={isMobile ? 'column' : 'row'}
+            sx={{gap: '20px'}}
+          >
+            <img src={reservation.image} alt={reservation.roomName} style={{ width: isMobile ? '150px' : '200px', height: isMobile ? '150px' : '150px', borderRadius: '50%' }} />
+            <Box marginLeft={isMobile ? 2 : 0} marginTop={isMobile ? 0 : 2}>
+              <Typography variant="h4" component="h4">
+                {reservation.name}
+              </Typography>
+              <Typography variant="h5" component="h5">
+                {reservation.name}
+              </Typography>
+            </Box>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection= 'column'
+            justifyContent={isMobile ? 'center' : 'flex-end'}
+            alignItems={isMobile ? 'center' : 'flex-end'}
+            flexGrow={1}
+            marginTop={isMobile ? 2 : 7}
+            marginLeft={isMobile ? 0 : 2}
+            sx={{gap: '10px'}}
+          >
+              <Typography variant="body1">
+                Reservation Dates: date here
+                {/* {reservation.startDate} - {reservation.endDate} */}
+              </Typography>
+              <Typography variant="body1" style={{ marginTop: isMobile ? 1 : 0 }}>
+                Price Paid: $
+                {reservation.full_price}
+              </Typography>
+            </Box>
         </Box>
       ))}
       <Box textAlign="center" marginTop={2}>
