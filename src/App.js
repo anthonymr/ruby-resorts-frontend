@@ -7,6 +7,7 @@ import ReservePage from './newreservation/newReservePage';
 import Details from './components/detailspage/Details';
 import AddRoom from './components/addRoom/AddRoom';
 import DeleteRoom from './components/deleteRoom/DeleteRoom';
+import MyReservations from './components/myReservations/MyReservations';
 
 const App = () => (
   <Box
@@ -24,6 +25,7 @@ const App = () => (
       <Route exact path="/details/:roomId" element={<Details />} />
       <Route exact path="/add" element={<AddRoom />} />
       <Route exact path="/delete" element={<DeleteRoom />} />
+      <Route exact path="/myreservations" element={<MyReservations />} />
     </Routes>
   </Box>
 );
