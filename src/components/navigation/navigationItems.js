@@ -41,6 +41,9 @@ const NavigationItems = () => (
         <ListItem sx={{ margin: 0, padding: 0 }}>
           <NavLink to="add">Add Room</NavLink>
         </ListItem>
+        <ListItem sx={{ margin: 0, padding: 0 }}>
+          <NavLink to="delete">Delete Room</NavLink>
+        </ListItem>
       </List>
     </Box>
     <Box sx={{ margin: '1rem 0' }}>

@@ -6,6 +6,7 @@ import MainPage from './components/mainpage/mainPage';
 import ReservePage from './newreservation/newReservePage';
 import Details from './components/detailspage/Details';
 import AddRoom from './components/addRoom/AddRoom';
+import DeleteRoom from './components/deleteRoom/DeleteRoom';
 
 const App = () => (
   <Box
@@ -22,6 +23,7 @@ const App = () => (
       <Route path="newreservepage/:roomId" element={<ReservePage />} />
       <Route exact path="/details/:roomId" element={<Details />} />
       <Route exact path="/add" element={<AddRoom />} />
+      <Route exact path="/delete" element={<DeleteRoom />} />
     </Routes>
   </Box>
 );
