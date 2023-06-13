@@ -1,7 +1,18 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  Typography,
+  Container,
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from '@mui/material';
 import { deleteRoom } from '../../redux/detailsPage/detailsSlice';
-import { Typography, Container, Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 const DeleteRoom = () => {
   const { rooms } = useSelector((state) => state.rooms);
@@ -20,27 +31,27 @@ const DeleteRoom = () => {
         Delete the Rooms
       </Typography>
       <TableContainer component={Paper} sx={{ margin: '0 auto', maxWidth: 600 }}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Room Name</TableCell>
-            <TableCell>Action</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rooms.map((room) => (
-            <TableRow key={room.id}>
-              <TableCell>{room.name}</TableCell>
-              <TableCell>
-                <Button variant="contained" color="secondary" onClick={() => handleDelete(room)}>
-                  Delete
-                </Button>
-              </TableCell>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Room Name</TableCell>
+              <TableCell>Action</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rooms.map((room) => (
+              <TableRow key={room.id}>
+                <TableCell>{room.name}</TableCell>
+                <TableCell>
+                  <Button variant="contained" color="secondary" onClick={() => handleDelete(room)}>
+                    Delete
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Container>
   );
 };
