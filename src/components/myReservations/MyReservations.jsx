@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Container, Typography, Box, useMediaQuery, useTheme } from '@mui/material';
+import {
+  Container, Typography, Box, useMediaQuery, useTheme,
+} from '@mui/material';
 
 const MyReservations = () => {
   const theme = useTheme();
@@ -44,12 +46,15 @@ const MyReservations = () => {
                   Reservation Dates: date here
                   {/* {reservation.startDate} - {reservation.endDate} */}
                 </Typography>
-                <Typography variant="body1">Price Paid: ${reservation.full_price}</Typography>
+                <Typography variant="body1">
+                  Price Paid: $
+                  {reservation.full_price}
+                </Typography>
               </Box>
             </>
           ) : (
             <>
-              <Box  display="flex" alignItems="center">
+              <Box display="flex" alignItems="center">
                 <img src={reservation.image} alt={reservation.roomName} style={{ width: '150px', height: '150px', borderRadius: '50%' }} />
                 <Box marginLeft={2}>
                   <Typography variant="h4" component="h4">
@@ -73,7 +78,10 @@ const MyReservations = () => {
                   Reservation Dates: date here
                   {/* {reservation.startDate} - {reservation.endDate} */}
                 </Typography>
-                <Typography variant="body1">Price Paid: ${reservation.full_price}</Typography>
+                <Typography variant="body1">
+                  Price Paid: $
+                  {reservation.full_price}
+                </Typography>
               </Box>
             </>
           )}
@@ -81,7 +89,8 @@ const MyReservations = () => {
       ))}
       <Box textAlign="center" marginTop={2}>
         <Typography variant="h5" component="h5">
-          Total Price: ${getTotalPrice()}
+          Total Price: $
+          {getTotalPrice()}
         </Typography>
       </Box>
     </Container>
