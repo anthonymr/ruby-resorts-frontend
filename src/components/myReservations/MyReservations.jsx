@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import {
   Container, Typography, Box, useMediaQuery, useTheme, Button,
 } from '@mui/material';
+import NavigationPanel from '../navigation/navigationPanel';
 
 const MyReservations = () => {
   const theme = useTheme();
@@ -23,6 +24,8 @@ const MyReservations = () => {
   };
 
   return (
+    <>
+    <NavigationPanel />
     <Container>
       <Typography variant="h1" component="h1" align="center">
         My Reservations
@@ -82,6 +85,7 @@ const MyReservations = () => {
         </Typography>
       </Box>
     </Container>
+    </>
   );
 };
 
