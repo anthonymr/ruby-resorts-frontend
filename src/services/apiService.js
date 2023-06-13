@@ -20,7 +20,13 @@ export const authApi = createApi({
         method: 'GET',
       }),
     }),
+    getRoomsList: builder.query({
+      query: () => ({
+        url: 'api/v1/rooms',
+        method: 'GET',
+      }),
+    }),
   }),
 });
 
-export const { useGetUserInfoQuery } = authApi;
+export const { useGetUserInfoQuery, useGetRoomsListQuery } = authApi;

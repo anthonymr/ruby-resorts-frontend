@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authApi } from '../services/authService';
+import { authApi } from '../services/apiService';
 import roomsReducer from './mainPage/roomsSlice';
 import citiesReducer from './newReservePage/citiesSlice';
 import userReducer from './login/userSlice';
