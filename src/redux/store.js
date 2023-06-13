@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authApi } from '../services/apiService';
+import { appApi } from '../services/apiService';
 import roomsReducer from './mainPage/roomsSlice';
 import citiesReducer from './newReservePage/citiesSlice';
 import userReducer from './login/userSlice';
@@ -9,11 +9,11 @@ const store = configureStore({
     rooms: roomsReducer,
     cities: citiesReducer,
     user: userReducer,
-    [authApi.reducerPath]: authApi.reducer,
+    [appApi.reducerPath]: appApi.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
-  }).concat(authApi.middleware),
+  }).concat(appApi.middleware),
 });
 
 export default store;

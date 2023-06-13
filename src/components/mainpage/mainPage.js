@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUserInfo } from '../../redux/login/userSlice';
-import { useGetUserInfoQuery, useGetRoomsListQuery } from '../../services/apiService';
+import {
+  useGetUserInfoQuery,
+  useGetRoomsListQuery,
+} from '../../services/apiService';
 import CustomCarousel from './customCarousel';
 
 const MainPage = () => {
@@ -16,12 +19,12 @@ const MainPage = () => {
   }, [navigate, authStatus]);
 
   const dispatch = useDispatch();
-  const response = useGetUserInfoQuery('userDetails');
+  const userResponse = useGetUserInfoQuery('userDetails');
   useEffect(() => {
-    if (response.data) dispatch(addUserInfo(response.data));
-  }, [dispatch, response.data]);
-  const response1 = useGetRoomsListQuery('roomsList');
-  console.log(response1);
+    if (userResponse.data) dispatch(addUserInfo(userResponse.data));
+  }, [dispatch, userResponse.data]);
+  const roomsResponse = useGetRoomsListQuery('roomsList');
+  console.log(roomsResponse);
   return (
     <Box
       sx={{

@@ -2,10 +2,12 @@ import { Box, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDeleteUserTokenQuery } from '../services/apiService';
 import { logout } from '../redux/login/userSlice';
 
 const LogoutPage = () => {
   const dispatch = useDispatch();
+  const response = useDeleteUserTokenQuery('deleteToken');
   useEffect(() => {
     dispatch(logout());
   });
@@ -32,6 +34,12 @@ const LogoutPage = () => {
       <Typography variant="h4" color="text.fourth">
         Thank you for your stay!!!
       </Typography>
+      {response.data && (
+        <Typography variant="h6" color="text.fourth" sx={{ margin: '2rem' }}>
+          {response.data.message}
+        </Typography>
+      )}
+
       <Typography variant="h6" color="text.fourth" sx={{ margin: '2rem' }}>
         Would you like to
         <Link to="/"> Login Again?</Link>
