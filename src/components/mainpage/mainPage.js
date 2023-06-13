@@ -1,7 +1,9 @@
 import { Box, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addUserInfo } from '../../redux/login/userSlice';
+import { useGetUserInfoQuery } from '../../services/authService';
 import CustomCarousel from './customCarousel';
 
 const MainPage = () => {
@@ -12,6 +14,12 @@ const MainPage = () => {
       navigate('/');
     }
   }, [navigate, authStatus]);
+
+  const dispatch = useDispatch();
+  const { data } = useGetUserInfoQuery('userDetails');
+  useEffect(() => {
+    if (data) dispatch(addUserInfo(data));
+  }, [dispatch, data]);
   return (
     <Box
       sx={{

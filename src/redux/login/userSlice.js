@@ -6,6 +6,7 @@ const token = localStorage.getItem('accessToken')
   : null;
 const initialState = {
   accessToken: token,
+  userinfo: {},
   error: '',
   authStatus: token ? 'loggedin' : 'loggedout',
 };
@@ -34,6 +35,9 @@ const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    addUserInfo: (state, { payload }) => {
+      state.userinfo = payload;
+    },
     logout: (state) => {
       localStorage.removeItem('accessToken');
       return {
@@ -61,5 +65,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { addUserInfo, logout } = userSlice.actions;
 export default userSlice.reducer;

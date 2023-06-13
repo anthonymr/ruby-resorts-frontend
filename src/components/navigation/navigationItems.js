@@ -15,8 +15,9 @@ import TwitterIcon, {
 import logoImage from '../../styles/images/app_logo.jpeg';
 
 const NavigationItems = () => {
-  const { authStatus } = useSelector((state) => state.user);
+  const { authStatus, userinfo } = useSelector((state) => state.user);
   const loggedin = authStatus === 'loggedin';
+  // const isAdmin = userinfo.role === 'admin';
   return (
     <Box
       sx={{
@@ -35,7 +36,16 @@ const NavigationItems = () => {
         >
           <img id="nav-app-logo" src={logoImage} alt="Ruby resorts logo" />
         </Box>
-
+        {loggedin && (
+          <Typography
+            variant="h6"
+            color="text.secondary"
+            fontWeight={700}
+            sx={{ textAlign: 'center' }}
+          >
+            {userinfo.username}
+          </Typography>
+        )}
         <List id="nav-panel-list">
           {loggedin && (
             <>
