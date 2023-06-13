@@ -5,7 +5,7 @@ import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
 import LoginPage from './components/loginpage/loginPage';
 import LogoutPage from './components/logoutPage';
-import ReservePage from './newreservation/newReservePage';
+import ReservePage from './components/newreservationPage/newReservePage';
 
 const App = () => (
   <Box

@@ -8,8 +8,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ReservationForm from './reservationForm';
-import bgImage from '../styles/images/room1.jpg';
-import { MenuAltWhiteIcon, ArrowLeftWhiteIcon } from '../utilities/icons';
+import bgImage from '../../styles/images/room1.jpg';
+import { MenuAltWhiteIcon, ArrowLeftWhiteIcon } from '../../utilities/icons';
 
 const NewReservePage = () => {
   const { authStatus } = useSelector((state) => state.user);
