@@ -1,14 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const token = localStorage.getItem('accessToken')
+const accessToken = localStorage.getItem('accessToken')
   ? localStorage.getItem('accessToken')
   : null;
 const initialState = {
-  accessToken: token,
+  accessToken,
   userinfo: {},
   error: '',
-  authStatus: token ? 'loggedin' : 'loggedout',
+  authStatus: accessToken ? 'loggedin' : 'loggedout',
 };
 const url = 'http://127.0.0.1:3000/api/v1/authentication';
 
@@ -43,6 +43,7 @@ const userSlice = createSlice({
       return {
         ...state,
         accessToken: null,
+        userinfo: {},
         error: '',
         authStatus: 'loggedout',
       };
@@ -53,7 +54,7 @@ const userSlice = createSlice({
       .addCase(fetchUserToken.fulfilled, (state, { payload }) => {
         const newState = {
           ...state,
-          accessToken: payload.data,
+          accessToken: payload.token,
           authStatus: 'loggedin',
         };
         return newState;

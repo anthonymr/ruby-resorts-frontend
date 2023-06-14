@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addUserInfo } from '../../redux/login/userSlice';
 import {
   useGetUserInfoQuery,
-  useGetRoomsListQuery,
 } from '../../services/apiService';
 import CustomCarousel from './customCarousel';
 
@@ -19,12 +18,11 @@ const MainPage = () => {
   }, [navigate, authStatus]);
 
   const dispatch = useDispatch();
-  const userResponse = useGetUserInfoQuery('userDetails');
+  const { data, refetch } = useGetUserInfoQuery('userDetails', { pollingInterval: 900000 });
   useEffect(() => {
-    if (userResponse.data) dispatch(addUserInfo(userResponse.data));
-  }, [dispatch, userResponse.data]);
-  const roomsResponse = useGetRoomsListQuery('roomsList');
-  console.log(roomsResponse);
+    refetch();
+    if (data) dispatch(addUserInfo(data));
+  }, [data, dispatch, refetch]);
   return (
     <Box
       sx={{

@@ -4,8 +4,8 @@ export const appApi = createApi({
   reducerPath: 'appApi',
   baseQuery: fetchBaseQuery({
     baseUrl: 'http://127.0.0.1:3000/',
-    prepareHeaders: (headers) => {
-      const token = localStorage.getItem('accessToken');
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().user.accessToken;
       if (token) {
         headers.set('Authorization', `Bearer ${token}`);
         return headers;
