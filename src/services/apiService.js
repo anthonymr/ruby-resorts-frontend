@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const appApi = createApi({
   reducerPath: 'appApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://127.0.0.1:3000/',
+    baseUrl: 'http://127.0.0.1:3000/api/v1/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().user.accessToken;
       if (token) {
@@ -17,14 +17,14 @@ export const appApi = createApi({
     // api endpoint to get user's info
     getUserInfo: builder.query({
       query: () => ({
-        url: 'api/v1/authentication',
+        url: 'authentication',
         method: 'GET',
       }),
     }),
     // api endpoint to get Rooms list
     getRoomsList: builder.query({
       query: () => ({
-        url: 'api/v1/rooms',
+        url: 'rooms',
         method: 'GET',
       }),
     }),
@@ -39,7 +39,7 @@ export const appApi = createApi({
     // api endpoint to post new room
     addNewRoom: builder.query({
       query: (payload) => ({
-        url: 'api/v1/rooms',
+        url: 'rooms',
         method: 'POST',
         body: payload,
       }),
@@ -48,7 +48,7 @@ export const appApi = createApi({
     // api endpoint to delete a room
     deleteRoom: builder.query({
       query: (roomId) => ({
-        url: `api/v1/rooms/${roomId}`,
+        url: `rooms/${roomId}`,
         method: 'DELETE',
       }),
     }),
@@ -56,21 +56,21 @@ export const appApi = createApi({
     // api endpoint to get Hotels list
     getHotelsList: builder.query({
       query: () => ({
-        url: 'api/v1/hotels',
+        url: 'hotels',
         method: 'GET',
       }),
     }),
     // api endpoint to get Reservation list
     getReservationList: builder.query({
       query: () => ({
-        url: 'api/v1/reservations',
+        url: 'reservations',
         method: 'GET',
       }),
     }),
     // api endpoint to get post new reservation
     addNewReservation: builder.query({
       query: (payload) => ({
-        url: 'api/v1/reservations',
+        url: 'reservations',
         method: 'POST',
         body: payload,
       }),
@@ -79,7 +79,7 @@ export const appApi = createApi({
     // api endpoint to delete user token
     deleteUserToken: builder.query({
       query: () => ({
-        url: 'api/v1/authentication',
+        url: 'authentication',
         method: 'DELETE',
       }),
     }),

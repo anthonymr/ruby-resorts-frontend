@@ -1,5 +1,6 @@
 import { Box, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
@@ -96,9 +97,12 @@ const CustomCarousel = () => {
     >
       {rooms.map((room) => (
         <div className="corousel-item" key={room.id}>
-          <div className="corousel-item-pic-container">
-            <img src={room.image} alt="room" />
-          </div>
+          <NavLink to={`/details/${room.id}`}>
+            <div className="corousel-item-pic-container">
+              <img src={room.image} alt="room" />
+            </div>
+          </NavLink>
+
           <Box
             sx={{
               display: 'flex',
