@@ -24,7 +24,7 @@ import selectStyle, {
 const ReservationForm = () => {
   const { roomId } = useParams();
   const { userinfo } = useSelector((state) => state.user);
-  const { cities } = useSelector((state) => state.cities);
+  const { hotels } = useSelector((state) => state.cities);
   const { rooms } = useSelector((state) => state.rooms);
   const [location, setLocation] = useState(0);
   const [room, setRoom] = useState(roomId);
@@ -92,9 +92,9 @@ const ReservationForm = () => {
               <MenuItem value={0}>
                 <em>Location..</em>
               </MenuItem>
-              {cities.map((city) => (
-                <MenuItem key={city.id} value={city.id} sx={menuItemStyle}>
-                  {city.name}
+              {hotels.map((hotel) => (
+                <MenuItem key={hotel.id} value={hotel.id} sx={menuItemStyle}>
+                  {hotel.name}
                 </MenuItem>
               ))}
             </Select>

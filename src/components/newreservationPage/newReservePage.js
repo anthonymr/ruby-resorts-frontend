@@ -6,10 +6,12 @@ import {
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ReservationForm from './reservationForm';
 import bgImage from '../../styles/images/room1.jpg';
 import { MenuAltWhiteIcon, ArrowLeftWhiteIcon } from '../../utilities/icons';
+import { useGetHotelsListQuery } from '../../services/apiService';
+import { addHotelList } from '../../redux/newReservePage/citiesSlice';
 
 const NewReservePage = () => {
   const { authStatus } = useSelector((state) => state.user);
@@ -19,6 +21,13 @@ const NewReservePage = () => {
       navigate('/');
     }
   }, [navigate, authStatus]);
+
+  const dispatch = useDispatch();
+  const { data, refetch } = useGetHotelsListQuery('hotelList');
+  useEffect(() => {
+    refetch();
+    if (data) dispatch(addHotelList(data));
+  }, [data, dispatch, refetch]);
   return (
     <Box
       sx={{

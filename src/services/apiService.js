@@ -36,10 +36,10 @@ export const appApi = createApi({
       }),
     }),
 
-    // api endpoint to get post new room
+    // api endpoint to post new room
     addNewRoom: builder.query({
       query: (payload) => ({
-        url: 'api/v1/roomss',
+        url: 'api/v1/rooms',
         method: 'POST',
         body: payload,
       }),

@@ -4,9 +4,13 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUserInfo } from '../../redux/login/userSlice';
 import {
+  useGetHotelsListQuery,
+  useGetRoomsListQuery,
   useGetUserInfoQuery,
 } from '../../services/apiService';
 import CustomCarousel from './customCarousel';
+import { getRoomsList } from '../../redux/mainPage/roomsSlice';
+import { addHotelList } from '../../redux/newReservePage/citiesSlice';
 
 const MainPage = () => {
   const { authStatus } = useSelector((state) => state.user);
@@ -18,11 +22,31 @@ const MainPage = () => {
   }, [navigate, authStatus]);
 
   const dispatch = useDispatch();
-  const { data, refetch } = useGetUserInfoQuery('userDetails', { pollingInterval: 900000 });
+  const { data, refetch } = useGetUserInfoQuery('userDetails');
   useEffect(() => {
     refetch();
     if (data) dispatch(addUserInfo(data));
   }, [data, dispatch, refetch]);
+
+  const roomsResponse = useGetRoomsListQuery('roomsList');
+  useEffect(
+    () => {
+      roomsResponse.refetch();
+      if (roomsResponse.data) {
+        dispatch(getRoomsList(roomsResponse.data));
+      }
+    },
+    [roomsResponse.data, dispatch],
+    roomsResponse,
+  );
+
+  const hotelsResponse = useGetHotelsListQuery('hotelsList');
+  useEffect(() => {
+    if (hotelsResponse.data) {
+      dispatch(addHotelList(hotelsResponse.data));
+    }
+  }, [hotelsResponse.data, dispatch, hotelsResponse]);
+
   return (
     <Box
       sx={{
