@@ -1,84 +1,133 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import {
-  Container, Typography, Box, useMediaQuery, useTheme,
-} from '@mui/material';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Typography, Box, Divider } from '@mui/material';
+import dayjs from 'dayjs';
+import { useGetReservationListQuery } from '../../services/apiService';
+import { getReservationsList } from '../../redux/myReservationsPage/reservationsSlice';
 
 const MyReservations = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const { rooms } = useSelector((state) => state.rooms);
+  const { reservations } = useSelector((state) => state.reservations);
 
-  const getTotalPrice = () => {
-    let totalPrice = 0;
-    rooms.forEach((reservation) => {
-      totalPrice += reservation.full_price;
-    });
-    return totalPrice;
-  };
+  const dispatch = useDispatch();
+  const { data, refetch } = useGetReservationListQuery('reservationsList');
+  useEffect(() => {
+    refetch();
+    if (data) dispatch(getReservationsList(data));
+  }, [data, dispatch, refetch]);
+
+  const isEmpty = reservations.length === 0;
 
   return (
-    <>
-      <Container>
-        <Typography variant="h1" component="h1" align="center">
-          My Reservations
-        </Typography>
-        {rooms.map((reservation) => (
-          <Box
-            key={reservation.id}
-            display="flex"
-            flexDirection={isMobile ? 'column' : 'row'}
-            alignItems={isMobile ? 'center' : 'flex-start'}
-            padding={2}
-            border="1px solid #ccc"
-            margin={2}
-          >
+    <Box
+      sx={{
+        width: {
+          xs: '100%',
+          sm: '80%',
+          md: '85%',
+          lg: '88%',
+        },
+        minHeight: '100vh',
+        margin: '0 auto',
+        padding: { xs: '25% 0 0', sm: '0' },
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: { xs: 'start', sm: 'center' },
+        alignItems: 'center',
+        position: 'relative',
+      }}
+    >
+      <Typography
+        variant="h4"
+        fontWeight={900}
+        color="black"
+        letterSpacing="3px"
+        sx={{ margin: '2rem' }}
+      >
+        YOUR BOOKINGS
+      </Typography>
+      <Box
+        sx={{
+          width: '90%',
+        }}
+      >
+        {isEmpty && (
+          <Typography variant="h5" color="text.fourth" fontWeight={700}>
+            You have no previous Bookings with us. Please head to &quot;Book
+            Now&quot; to book your first stay with US
+          </Typography>
+        )}
+        {reservations.map((reservation) => (
+          <Box key={reservation.id}>
             <Box
-              display="flex"
-              alignItems="center"
-              flexGrow={1}
-              flexDirection={isMobile ? 'column' : 'row'}
-              sx={{ gap: '20px' }}
+              sx={{
+                display: 'grid',
+                gridTemplateColumns: {
+                  xs: '1fr',
+                  md: '1fr 1fr',
+                  lg: '0.7fr 1.3fr 1.5fr 0.5fr',
+                  gap: { xs: '0.5rem', md: '2rem' },
+                  padding: '1rem 0',
+                },
+              }}
             >
-              <img src={reservation.image} alt={reservation.roomName} style={{ width: isMobile ? '150px' : '200px', height: isMobile ? '150px' : '150px', borderRadius: '50%' }} />
-              <Box marginLeft={isMobile ? 2 : 0} marginTop={isMobile ? 0 : 2}>
-                <Typography variant="h4" component="h4">
-                  {reservation.name}
-                </Typography>
-                <Typography variant="h5" component="h5">
-                  {reservation.name}
-                </Typography>
-              </Box>
-            </Box>
-            <Box
-              display="flex"
-              flexDirection="column"
-              justifyContent={isMobile ? 'center' : 'flex-end'}
-              alignItems={isMobile ? 'center' : 'flex-end'}
-              flexGrow={1}
-              marginTop={isMobile ? 2 : 7}
-              marginLeft={isMobile ? 0 : 2}
-              sx={{ gap: '10px' }}
-            >
-              <Typography variant="body1">
-                Reservation Dates: date here
-                {/* {reservation.startDate} - {reservation.endDate} */}
+              <Typography
+                variant="h6"
+                color="text.second"
+                fontWeight={700}
+                sx={{
+                  textAlign: { xs: 'center', md: 'left' },
+                  padding: '0.5rem',
+                }}
+              >
+                {`${reservation.room.name} Suite`}
               </Typography>
-              <Typography variant="body1" style={{ marginTop: isMobile ? 1 : 0 }}>
-                Price Paid: $
-                {reservation.full_price}
+              <Typography
+                variant="h6"
+                color="text.second"
+                fontWeight={700}
+                sx={{
+                  textAlign: { xs: 'center', md: 'left' },
+                  padding: '0.5rem',
+                }}
+              >
+                {`@ ${reservation.hotel.name}, ${reservation.hotel.city}`}
+              </Typography>
+              <Typography
+                variant="h6"
+                color="text.fourth"
+                fontWeight={700}
+                sx={{
+                  textAlign: { xs: 'center', md: 'left' },
+                  padding: '0.5rem',
+                }}
+              >
+                {`${dayjs(reservation.start_date).format(
+                  'DD-MMM-YYYY',
+                )} to ${dayjs(reservation.end_date).format('DD-MMM-YYYY')}`}
+              </Typography>
+              <Typography
+                variant="h6"
+                color="text.fourth"
+                fontWeight={800}
+                sx={{
+                  textAlign: { xs: 'center', md: 'left' },
+                  padding: '0.5rem',
+                }}
+              >
+                {`Paid: € ${reservation.amount}`}
               </Typography>
             </Box>
+            <Divider
+              sx={{
+                borderBottom: '1px dashed #a1a1a1 ',
+                width: { xs: '70%', md: '100%' },
+                margin: '0 auto',
+              }}
+            />
           </Box>
         ))}
-        <Box textAlign="center" marginTop={2}>
-          <Typography variant="h5" component="h5">
-            Total Price: $
-            {getTotalPrice()}
-          </Typography>
-        </Box>
-      </Container>
-    </>
+      </Box>
+    </Box>
   );
 };
 

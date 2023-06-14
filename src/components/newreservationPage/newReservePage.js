@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ReservationForm from './reservationForm';
 import bgImage from '../../styles/images/room1.jpg';
-import { MenuAltWhiteIcon, ArrowLeftWhiteIcon } from '../../utilities/icons';
+import { ArrowLeftWhiteIcon } from '../../utilities/icons';
 import { useGetHotelsListQuery } from '../../services/apiService';
 import { addHotelList } from '../../redux/newReservePage/citiesSlice';
 
@@ -46,18 +46,6 @@ const NewReservePage = () => {
         border: { xs: '0.6rem solid #ffffff', md: '1rem solid #ffffff' },
       }}
     >
-      <Button
-        sx={{
-          border: 'none',
-          position: 'absolute',
-          left: '1rem',
-          top: '1rem',
-          padding: '0.5rem 0',
-        }}
-      >
-        <MenuAltWhiteIcon />
-      </Button>
-
       <Link to="/">
         <Button
           sx={{

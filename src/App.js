@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
-import LoginPage from './components/loginpage/loginPage';
+import LoginPage from './components/loginPage/loginPage';
 import LogoutPage from './components/logoutPage';
 import ReservePage from './components/newreservationPage/newReservePage';
 import Details from './components/detailspage/Details';
