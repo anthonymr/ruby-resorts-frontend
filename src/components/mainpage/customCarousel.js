@@ -99,7 +99,7 @@ const CustomCarousel = () => {
         <div className="corousel-item" key={room.id}>
           <NavLink to={`/details/${room.id}`}>
             <div className="corousel-item-pic-container">
-              <img src={room.image} alt="room" />
+              <img src={room.image_url} alt="room" />
             </div>
           </NavLink>
 

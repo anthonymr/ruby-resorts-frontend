@@ -31,7 +31,12 @@ const NewReservePage = () => {
   return (
     <Box
       sx={{
-        width: '100%',
+        width: {
+          xs: '100%',
+          sm: '80%',
+          md: '85%',
+          lg: '88%',
+        },
         minHeight: '100vh',
         overflow: 'auto',
         background: `url(${bgImage}) no-repeat center`,

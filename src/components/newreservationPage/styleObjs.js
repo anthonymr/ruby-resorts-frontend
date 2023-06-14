@@ -64,6 +64,15 @@ export const textFieldStyle = {
   },
 };
 
+export const usernameFieldStyle = {
+  border: '2px solid #ffffff',
+  borderRadius: '50px',
+  color: '#ffffff',
+  fontWeight: '800',
+  padding: '1rem 0rem',
+  width: { xs: '15rem', md: '13rem' },
+};
+
 export const menuItemStyle = {
   border: 'none',
   fontWeight: '700',

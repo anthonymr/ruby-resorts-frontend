@@ -21,15 +21,15 @@ const App = () => (
   >
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<LoginPage />} />
-        <Route path="logoutpage" element={<LogoutPage />} />
+        <Route path="newreservepage/:roomId" element={<ReservePage />} />
         <Route path="mainpage" element={<MainPage />} />
         <Route exact path="/details/:roomId" element={<Details />} />
         <Route exact path="/add" element={<AddRoom />} />
         <Route exact path="/delete" element={<DeleteRoom />} />
         <Route exact path="/myreservations" element={<MyReservations />} />
       </Route>
-      <Route path="newreservepage/:roomId" element={<ReservePage />} />
+      <Route index element={<LoginPage />} />
+      <Route path="logoutpage" element={<LogoutPage />} />
     </Routes>
   </Box>
 );

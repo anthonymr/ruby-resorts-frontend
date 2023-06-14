@@ -37,7 +37,7 @@ export const appApi = createApi({
     }),
 
     // api endpoint to post new room
-    addNewRoom: builder.query({
+    addNewRoom: builder.mutation({
       query: (payload) => ({
         url: 'rooms',
         method: 'POST',
@@ -68,7 +68,7 @@ export const appApi = createApi({
       }),
     }),
     // api endpoint to get post new reservation
-    addNewReservation: builder.query({
+    addNewReservation: builder.mutation({
       query: (payload) => ({
         url: 'reservations',
         method: 'POST',
@@ -90,10 +90,10 @@ export const {
   useGetUserInfoQuery,
   useGetRoomsListQuery,
   useGetRoomDetailQuery,
-  useAddNewRoomQuery,
+  useAddNewRoomMutation,
   useDeleteRoomQuery,
   useGetHotelsListQuery,
   useGetReservationListQuery,
-  useAddNewReservationQuery,
+  useAddNewReservationMutation,
   useDeleteUserTokenQuery,
 } = appApi;

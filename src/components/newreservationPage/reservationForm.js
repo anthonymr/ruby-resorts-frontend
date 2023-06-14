@@ -6,7 +6,6 @@ import {
   Button,
   Box,
   Typography,
-  TextField,
 } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -18,8 +17,9 @@ import selectStyle, {
   innerFormContainer,
   menuItemStyle,
   selectContainerStyle,
-  textFieldStyle,
+  usernameFieldStyle,
 } from './styleObjs';
+import { useAddNewReservationMutation } from '../../services/apiService';
 
 const ReservationForm = () => {
   const { roomId } = useParams();
@@ -31,8 +31,7 @@ const ReservationForm = () => {
   const [fromDate, setFromDate] = useState(dayjs());
   const [toDate, setToDate] = useState(dayjs().add(1, 'day'));
   const [errorMsg, setErrorMsg] = useState(' ');
-  // const navigate = useNavigate();
-
+  const [addNewReservation, status] = useAddNewReservationMutation();
   const handleRoomChange = (e) => {
     setRoom(e.target.value);
   };
@@ -46,11 +45,20 @@ const ReservationForm = () => {
     setErrorMsg(' ');
     const roomId = parseInt(room, 10);
     const hotelId = parseInt(location, 10);
+    const from = fromDate.format('YYYY/MM/DD');
+    const to = toDate.format('YYYY/MM/DD');
     if (roomId === 0) setErrorMsg('Please select a Suite');
     else if (hotelId === 0) setErrorMsg('Please select a Location');
-    console.log(fromDate.format('YYYY/MM/DD'));
-    console.log(toDate.format('YYYY/MM/DD'));
-    // navigate('/');
+    else {
+      const formData = {
+        user_id: userinfo.id,
+        room_id: roomId,
+        hotel_id: hotelId,
+        start_date: from,
+        end_date: to,
+      };
+      addNewReservation(formData);
+    }
   };
 
   return (
@@ -58,15 +66,8 @@ const ReservationForm = () => {
       <form id="reservation-form" method="post" onSubmit={handleSubmit}>
         <Box sx={innerFormContainer}>
           <Box sx={selectContainerStyle}>
-            <TextField
-              id="username-input"
-              defaultValue={userinfo.username}
-              sx={textFieldStyle}
-              InputProps={{
-                inputProps: { style: { padding: '1rem' } },
-                readOnly: true,
-              }}
-            />
+            <Box sx={usernameFieldStyle}>{userinfo.username}</Box>
+
             <Select
               value={room}
               id="rooms-list"
@@ -130,6 +131,11 @@ const ReservationForm = () => {
           </Button>
         </Box>
       </form>
+      { status.isSuccess && (
+        <Typography variant="h6" color="text.first" sx={{ marginTop: '1rem' }}>
+          Reservation is successful
+        </Typography>
+      )}
       <Typography variant="h6" color="text.first" sx={{ marginTop: '1rem' }}>
         {errorMsg}
       </Typography>
