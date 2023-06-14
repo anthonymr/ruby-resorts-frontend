@@ -3,7 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
-import ReservePage from './newreservation/newReservePage';
+import LoginPage from './components/loginpage/loginPage';
+import LogoutPage from './components/logoutPage';
+import ReservePage from './components/newreservationPage/newReservePage';
 import Details from './components/detailspage/Details';
 import AddRoom from './components/addRoom/AddRoom';
 import DeleteRoom from './components/deleteRoom/DeleteRoom';
@@ -19,13 +21,15 @@ const App = () => (
   >
     <Routes>
       <Route element={<Layout />}>
-        <Route index element={<MainPage />} />
+        <Route index element={<LoginPage />} />
+        <Route path="logoutpage" element={<LogoutPage />} />
+        <Route path="mainpage" element={<MainPage />} />
+        <Route exact path="/details/:roomId" element={<Details />} />
+        <Route exact path="/add" element={<AddRoom />} />
+        <Route exact path="/delete" element={<DeleteRoom />} />
+        <Route exact path="/myreservations" element={<MyReservations />} />
       </Route>
       <Route path="newreservepage/:roomId" element={<ReservePage />} />
-      <Route exact path="/details/:roomId" element={<Details />} />
-      <Route exact path="/add" element={<AddRoom />} />
-      <Route exact path="/delete" element={<DeleteRoom />} />
-      <Route exact path="/myreservations" element={<MyReservations />} />
     </Routes>
   </Box>
 );

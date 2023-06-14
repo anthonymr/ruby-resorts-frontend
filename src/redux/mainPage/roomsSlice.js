@@ -1,8 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import roomsList from '../../utilities/roomsList';
 
-const initialState = { rooms: roomsList, status: 'loading' };
+const initialState = { rooms: [], status: 'loading' };
 
-const roomsSlice = createSlice({ name: 'rooms', initialState });
+const roomsSlice = createSlice({
+  name: 'rooms',
+  initialState,
+  reducers: {
+    getRoomsList: (state, { payload }) => {
+      const newState = { ...state, rooms: payload, status: 'completed' };
+      return newState;
+    },
+  },
+});
 
+export const { getRoomsList } = roomsSlice.actions;
 export default roomsSlice.reducer;

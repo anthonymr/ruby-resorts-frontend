@@ -23,7 +23,8 @@ import selectStyle, {
 
 const ReservationForm = () => {
   const { roomId } = useParams();
-  const { cities } = useSelector((state) => state.cities);
+  const { userinfo } = useSelector((state) => state.user);
+  const { hotels } = useSelector((state) => state.cities);
   const { rooms } = useSelector((state) => state.rooms);
   const [location, setLocation] = useState(0);
   const [room, setRoom] = useState(roomId);
@@ -59,7 +60,7 @@ const ReservationForm = () => {
           <Box sx={selectContainerStyle}>
             <TextField
               id="username-input"
-              defaultValue="username"
+              defaultValue={userinfo.username}
               sx={textFieldStyle}
               InputProps={{
                 inputProps: { style: { padding: '1rem' } },
@@ -91,9 +92,9 @@ const ReservationForm = () => {
               <MenuItem value={0}>
                 <em>Location..</em>
               </MenuItem>
-              {cities.map((city) => (
-                <MenuItem key={city.id} value={city.id} sx={menuItemStyle}>
-                  {city.name}
+              {hotels.map((hotel) => (
+                <MenuItem key={hotel.id} value={hotel.id} sx={menuItemStyle}>
+                  {hotel.name}
                 </MenuItem>
               ))}
             </Select>
