@@ -1,9 +1,4 @@
-import {
-  Box,
-  List,
-  ListItem,
-  Typography,
-} from '@mui/material';
+import { Box, List, ListItem, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TwitterIcon, {
@@ -54,6 +49,15 @@ const NavigationItems = () => {
               </ListItem>
               <ListItem sx={{ margin: 0, padding: 0 }}>
                 <NavLink to="newreservepage/0">RESERVE</NavLink>
+              </ListItem>
+              <ListItem sx={{ margin: 0, padding: 0 }}>
+                <NavLink to="add">Add Room</NavLink>
+              </ListItem>
+              <ListItem sx={{ margin: 0, padding: 0 }}>
+                <NavLink to="delete">Delete Room</NavLink>
+              </ListItem>
+              <ListItem sx={{ margin: 0, padding: 0 }}>
+                <NavLink to="myreservations">MyReservations</NavLink>
               </ListItem>
               <ListItem sx={{ margin: 0, padding: 0 }}>
                 <NavLink to="logoutpage">LOGOUT</NavLink>

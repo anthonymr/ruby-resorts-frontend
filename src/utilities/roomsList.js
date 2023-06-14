@@ -2,6 +2,10 @@ const roomsList = [
   {
     id: 1,
     name: 'Ruby',
+    full_price: 244.50,
+    reservation_price: 122,
+    reservation_fee: 50,
+    rating: 3.5,
     description:
       'Ruby Suites offer the best we at Ruby Resorts have to offer. The suites come with 5-star amenities',
     image: '/images/room1.jpg',
