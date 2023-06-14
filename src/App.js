@@ -24,12 +24,12 @@ const App = () => (
         <Route index element={<LoginPage />} />
         <Route path="logoutpage" element={<LogoutPage />} />
         <Route path="mainpage" element={<MainPage />} />
+        <Route exact path="/details/:roomId" element={<Details />} />
+        <Route exact path="/add" element={<AddRoom />} />
+        <Route exact path="/delete" element={<DeleteRoom />} />
+        <Route exact path="/myreservations" element={<MyReservations />} />
       </Route>
       <Route path="newreservepage/:roomId" element={<ReservePage />} />
-      <Route exact path="/details/:roomId" element={<Details />} />
-      <Route exact path="/add" element={<AddRoom />} />
-      <Route exact path="/delete" element={<DeleteRoom />} />
-      <Route exact path="/myreservations" element={<MyReservations />} />
     </Routes>
   </Box>
 );

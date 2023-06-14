@@ -1,4 +1,9 @@
-import { Box, List, ListItem, Typography } from '@mui/material';
+import {
+  Box,
+  List,
+  ListItem,
+  Typography,
+} from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import TwitterIcon, {
@@ -12,7 +17,7 @@ import logoImage from '../../styles/images/app_logo.jpeg';
 const NavigationItems = () => {
   const { authStatus, userinfo } = useSelector((state) => state.user);
   const loggedin = authStatus === 'loggedin';
-  // const isAdmin = userinfo.role === 'admin';
+  const isAdmin = userinfo.role === 'admin';
   return (
     <Box
       sx={{
@@ -51,14 +56,19 @@ const NavigationItems = () => {
                 <NavLink to="newreservepage/0">RESERVE</NavLink>
               </ListItem>
               <ListItem sx={{ margin: 0, padding: 0 }}>
-                <NavLink to="add">Add Room</NavLink>
+                <NavLink to="myreservations">MY BOOKINGS</NavLink>
               </ListItem>
-              <ListItem sx={{ margin: 0, padding: 0 }}>
-                <NavLink to="delete">Delete Room</NavLink>
-              </ListItem>
-              <ListItem sx={{ margin: 0, padding: 0 }}>
-                <NavLink to="myreservations">MyReservations</NavLink>
-              </ListItem>
+              {isAdmin && (
+                <>
+                  <ListItem sx={{ margin: 0, padding: 0 }}>
+                    <NavLink to="add">ADD ROOM</NavLink>
+                  </ListItem>
+                  <ListItem sx={{ margin: 0, padding: 0 }}>
+                    <NavLink to="delete">DELETE ROOM</NavLink>
+                  </ListItem>
+                </>
+              )}
+
               <ListItem sx={{ margin: 0, padding: 0 }}>
                 <NavLink to="logoutpage">LOGOUT</NavLink>
               </ListItem>
