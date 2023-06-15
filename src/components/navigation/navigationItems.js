@@ -61,10 +61,10 @@ const NavigationItems = () => {
               {isAdmin && (
                 <>
                   <ListItem sx={{ margin: 0, padding: 0 }}>
-                    <NavLink to="add">ADD ROOM</NavLink>
+                    <NavLink to="add">ADD SUITE</NavLink>
                   </ListItem>
                   <ListItem sx={{ margin: 0, padding: 0 }}>
-                    <NavLink to="delete">DELETE ROOM</NavLink>
+                    <NavLink to="delete">DELETE SUITE</NavLink>
                   </ListItem>
                 </>
               )}

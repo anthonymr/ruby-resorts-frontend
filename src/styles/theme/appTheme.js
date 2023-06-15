@@ -13,6 +13,7 @@ const theme = createTheme({
       second: '#454545',
       third: '#a1a1a1',
       fourth: '#96bf01',
+      error: '#cc0000',
     },
   },
   typography: {

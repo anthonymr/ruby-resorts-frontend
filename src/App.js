@@ -5,11 +5,11 @@ import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
 import LoginPage from './components/loginPage/loginPage';
 import LogoutPage from './components/logoutPage';
-import ReservePage from './components/newreservationPage/newReservePage';
+import ReservePage from './components/newReservationPage/newReservePage';
 import Details from './components/detailspage/Details';
 import AddRoom from './components/addRoom/AddRoom';
-import DeleteRoom from './components/deleteRoom/DeleteRoom';
-import MyReservations from './components/myReservations/MyReservations';
+import DeleteRoom from './components/deleteRoomPage/DeleteRoom';
+import MyReservations from './components/myReservationsPage/MyReservations';
 
 const App = () => (
   <Box

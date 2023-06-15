@@ -46,7 +46,7 @@ export const appApi = createApi({
     }),
 
     // api endpoint to delete a room
-    deleteRoom: builder.query({
+    deleteRoom: builder.mutation({
       query: (roomId) => ({
         url: `rooms/${roomId}`,
         method: 'DELETE',
@@ -91,7 +91,7 @@ export const {
   useGetRoomsListQuery,
   useGetRoomDetailQuery,
   useAddNewRoomMutation,
-  useDeleteRoomQuery,
+  useDeleteRoomMutation,
   useGetHotelsListQuery,
   useGetReservationListQuery,
   useAddNewReservationMutation,
