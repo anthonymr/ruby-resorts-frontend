@@ -15,6 +15,22 @@ export const appApi = createApi({
     },
   }),
   endpoints: (builder) => ({
+    // api endpoint to authenticate user using JWT
+    authenticateUser: builder.mutation({
+      query: (payload) => ({
+        url: 'authentication',
+        method: 'POST',
+        body: payload,
+      }),
+    }),
+    // api endpoint to sign up a new user
+    createUserSignUp: builder.mutation({
+      query: (payload) => ({
+        url: 'users',
+        method: 'POST',
+        body: payload,
+      }),
+    }),
     // api endpoint to get user's info
     getUserInfo: builder.query({
       query: () => ({
@@ -88,6 +104,8 @@ export const appApi = createApi({
 });
 
 export const {
+  useAuthenticateUserMutation,
+  useCreateUserSignUpMutation,
   useGetUserInfoQuery,
   useGetRoomsListQuery,
   useGetRoomDetailQuery,

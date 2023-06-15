@@ -1,5 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 
 const accessToken = localStorage.getItem('accessToken')
   ? localStorage.getItem('accessToken')
@@ -10,35 +9,24 @@ const initialState = {
   error: '',
   authStatus: accessToken ? 'loggedin' : 'loggedout',
 };
-const url = 'http://127.0.0.1:3000/api/v1/authentication';
-
-export const fetchUserToken = createAsyncThunk(
-  'token/fetchUserToken',
-  async (credentials, { rejectWithValue }) => {
-    try {
-      const { data } = await axios.post(url, {
-        username: credentials.username,
-        password: credentials.password,
-      });
-      localStorage.setItem('accessToken', data.token);
-      return data;
-    } catch (error) {
-      if (error.response && error.response.data.errors) {
-        return rejectWithValue(error.response.data.errors);
-      }
-      return rejectWithValue(error.message);
-    }
-  },
-);
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    saveLoginToken: (state, { payload }) => {
+      localStorage.setItem('accessToken', payload.token);
+      const newState = {
+        ...state,
+        accessToken: payload.token,
+        authStatus: 'loggedin',
+      };
+      return newState;
+    },
     addUserInfo: (state, { payload }) => {
       state.userinfo = payload;
     },
-    logout: (state) => {
+    logoutUser: (state) => {
       localStorage.removeItem('accessToken');
       return {
         ...state,
@@ -49,22 +37,7 @@ const userSlice = createSlice({
       };
     },
   },
-  extraReducers(builder) {
-    builder
-      .addCase(fetchUserToken.fulfilled, (state, { payload }) => {
-        const newState = {
-          ...state,
-          accessToken: payload.token,
-          authStatus: 'loggedin',
-        };
-        return newState;
-      })
-      .addCase(fetchUserToken.rejected, (state, { payload }) => {
-        const newState = { ...state, authStatus: 'loggedout', error: payload };
-        return newState;
-      });
-  },
 });
 
-export const { addUserInfo, logout } = userSlice.actions;
+export const { saveLoginToken, addUserInfo, logoutUser } = userSlice.actions;
 export default userSlice.reducer;
