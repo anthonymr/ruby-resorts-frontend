@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-  Select, MenuItem, Button, Box, Typography,
+  Select,
+  MenuItem,
+  Button,
+  Box,
+  Typography,
 } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -59,7 +63,6 @@ const ReservationForm = () => {
     else if (hotelId === 0) setErrorMsg('Please select a Location');
     else {
       const formData = {
-        user_id: userinfo.id,
         room_id: roomId,
         hotel_id: hotelId,
         start_date: from,
@@ -117,6 +120,7 @@ const ReservationForm = () => {
                 maxDate={fromDate.add(45, 'day')}
                 onChange={(newFromDate) => setFromDate(newFromDate)}
               />
+
               <DatePicker
                 id="to-date-picker"
                 sx={datePickerStyle}

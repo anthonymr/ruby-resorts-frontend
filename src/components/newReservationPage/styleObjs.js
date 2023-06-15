@@ -42,6 +42,7 @@ export const datePickerStyle = {
   '.MuiOutlinedInput-notchedOutline': {
     borderRadius: '50px',
   },
+
   '.MuiSvgIcon-root ': {
     fill: 'white !important',
   },

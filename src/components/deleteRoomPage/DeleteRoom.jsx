@@ -14,19 +14,32 @@ import {
 } from '@mui/material';
 import { useDeleteRoomMutation } from '../../services/apiService';
 import { deleteFromList } from '../../redux/mainPage/roomsSlice';
+import ConfirmationDialog from '../confrimationDialog';
 
 const DeleteRoom = () => {
   const { rooms } = useSelector((state) => state.rooms);
   const [roomId, setRoomId] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
   const [deleteRoom, response] = useDeleteRoomMutation('delteRoom');
+
+  const confirmation = 'Are you sure you want to delete?';
+  const handleOk = () => {
+    deleteRoom(roomId);
+    setIsOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsOpen(false);
+  };
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (response.isSuccess) dispatch(deleteFromList(roomId));
-  }, [dispatch, response, roomId]);
+  }, [dispatch, response]);
 
   const handleDelete = (roomId) => {
     setRoomId(roomId);
-    deleteRoom(roomId);
+    setIsOpen(true);
   };
 
   return (
@@ -109,6 +122,12 @@ const DeleteRoom = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <ConfirmationDialog
+        ctext={confirmation}
+        isOpen={isOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      />
       {response.isSuccess && (
         <Typography
           variant="h6"

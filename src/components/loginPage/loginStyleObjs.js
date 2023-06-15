@@ -55,6 +55,17 @@ export const loginTextFieldStyle = {
   '.MuiOutlinedInput-notchedOutline': {
     border: 'none',
   },
+
+  '.MuiInputLabel-root': {
+    color: '#96bf01 !important',
+    textAlign: 'center',
+  },
+  '& .MuiInputLabel-shrink': {
+    color: '#96bf01 !important',
+    width: '100%',
+    textAlign: 'center',
+    padding: '0.5rem',
+  },
 };
 
 export const loginSubmitBtn = {

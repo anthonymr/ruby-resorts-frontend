@@ -114,7 +114,7 @@ const MyReservations = () => {
                   padding: '0.5rem',
                 }}
               >
-                {`Paid: € ${reservation.amount}`}
+                {`Price: € ${reservation.amount}`}
               </Typography>
             </Box>
             <Divider
