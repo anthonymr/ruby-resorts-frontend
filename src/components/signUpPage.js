@@ -10,7 +10,7 @@ import {
   loginSubmitBtn,
   loginTextFieldStyle,
 } from './loginPage/loginStyleObjs';
-import logo from '../styles/images/app_logo.jpeg';
+import logo from '../styles/images/app_logo.svg';
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({});

@@ -48,7 +48,12 @@
 }
 
 .carousel-button-group {
-  display: none;
+  top: 70%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .carousel-button-left,
@@ -115,12 +120,7 @@
 
 @media screen and (min-width: 600px) {
   .carousel-button-group {
-    position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
   }
 
   .corousel-item-pic-container img {

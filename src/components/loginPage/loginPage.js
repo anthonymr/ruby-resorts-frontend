@@ -11,7 +11,7 @@ import loginPageStyle, {
 } from './loginStyleObjs';
 import { useAuthenticateUserMutation } from '../../services/apiService';
 import { saveLoginToken } from '../../redux/login/userSlice';
-import logo from '../../styles/images/app_logo.jpeg';
+import logo from '../../styles/images/app_logo.svg';
 
 const LoginPage = () => {
   const navigate = useNavigate();

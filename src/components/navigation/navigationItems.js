@@ -11,7 +11,7 @@ import TwitterIcon, {
   VimeoIcon,
   SnapIcon,
 } from '../../utilities/icons';
-import logoImage from '../../styles/images/app_logo.jpeg';
+import logoImage from '../../styles/images/app_logo.svg';
 import { useDeleteUserTokenMutation } from '../../services/apiService';
 
 const NavigationItems = () => {
