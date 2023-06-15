@@ -40,6 +40,7 @@ const MainPage = () => {
     roomsResponse,
   );
 
+
   const hotelsResponse = useGetHotelsListQuery('hotelsList');
   useEffect(() => {
     if (hotelsResponse.data) {

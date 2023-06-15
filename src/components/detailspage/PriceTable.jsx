@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,6 +9,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { detailsTable } from './styles';
+import {useGetRoomDetailQuery} from '../../services/apiService';
+import { getRoomDetails } from '../../redux/detailsPage/detailsSlice';
 
 const StyledTableCell = styled(TableCell)(() => ({
   [`&.${tableCellClasses.body}`]: {
@@ -18,24 +22,32 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
   ' td, th': {
     border: 0,
   },
 }));
 
-function createData(name, price) {
-  return { name, price };
-}
+const PriceTable = () => {
 
-const rows = [
-  createData('Price', 100),
-  createData('Transaction fee', 237),
-  createData('Total amount', 262),
-  createData('Duraiton', 305),
-];
+  const { roomDetails } = useSelector((state) => state.details);
 
-const PriceTable = () => (
+  function createData(name, value) {
+    return { name, value };
+  }
+  
+  const rows = [
+    createData('Price', roomDetails.full_price),
+    createData('Transaction fee', roomDetails.reservation_fee),
+    createData(
+      'Total amount',
+      parseFloat(roomDetails.full_price) +
+        parseFloat(roomDetails.reservation_fee) +
+        parseFloat(roomDetails.reservation_price)
+    ),
+    createData('Duraiton', 305),
+  ];
+
+return (
   <TableContainer component={Paper}>
     <Table sx={detailsTable}>
       <TableBody>
@@ -44,12 +56,13 @@ const PriceTable = () => (
             <StyledTableCell component="th" scope="row">
               {row.name}
             </StyledTableCell>
-            <StyledTableCell align="right">{row.price}</StyledTableCell>
+            <StyledTableCell align="right">{row.value}</StyledTableCell>
           </StyledTableRow>
         ))}
       </TableBody>
     </Table>
   </TableContainer>
 );
+};
 
 export default PriceTable;

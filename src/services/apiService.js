@@ -31,13 +31,14 @@ export const appApi = createApi({
     // api endpoint to get a room's detail with ID
     getRoomDetail: builder.query({
       query: (roomId) => ({
-        url: `api/v1/rooms/${roomId}`,
+        url: `rooms/${roomId}`,
         method: 'GET',
       }),
     }),
 
     // api endpoint to post new room
-    addNewRoom: builder.query({
+
+    addNewRoom: builder.mutation({
       query: (payload) => ({
         url: 'rooms',
         method: 'POST',
@@ -90,7 +91,7 @@ export const {
   useGetUserInfoQuery,
   useGetRoomsListQuery,
   useGetRoomDetailQuery,
-  useAddNewRoomQuery,
+  useAddNewRoomMutation,
   useDeleteRoomQuery,
   useGetHotelsListQuery,
   useGetReservationListQuery,
