@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
   Select, MenuItem, Button, Box, Typography,
 } from '@mui/material';
@@ -28,9 +28,18 @@ const ReservationForm = () => {
   const [toDate, setToDate] = useState(dayjs().add(1, 'day'));
   const [errorMsg, setErrorMsg] = useState(' ');
   const [addNewReservation, status] = useAddNewReservationMutation();
+  const navigate = useNavigate();
+
   if (status.isError) {
     setErrorMsg('Something went wrong. Please try again later');
   }
+
+  if (status.isSuccess) {
+    setTimeout(() => {
+      navigate('/myreservations');
+    }, 1000);
+  }
+
   const handleRoomChange = (e) => {
     setRoom(e.target.value);
   };
@@ -131,7 +140,12 @@ const ReservationForm = () => {
         </Box>
       </form>
       {status.isSuccess && (
-        <Typography variant="h6" color="text.first" sx={{ marginTop: '1rem' }}>
+        <Typography
+          variant="h6"
+          fontWeight={700}
+          color="text.first"
+          sx={{ marginTop: '1rem' }}
+        >
           Reservation is successful
         </Typography>
       )}

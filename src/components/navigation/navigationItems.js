@@ -1,11 +1,9 @@
 import {
-  Box,
-  List,
-  ListItem,
-  Typography,
+  Box, Button, List, ListItem, Typography,
 } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import TwitterIcon, {
   FacebookIcon,
   InstagramIcon,
@@ -13,11 +11,22 @@ import TwitterIcon, {
   SnapIcon,
 } from '../../utilities/icons';
 import logoImage from '../../styles/images/app_logo.jpeg';
+import { useDeleteUserTokenMutation } from '../../services/apiService';
 
 const NavigationItems = () => {
   const { authStatus, userinfo } = useSelector((state) => state.user);
   const loggedin = authStatus === 'loggedin';
   const isAdmin = userinfo.role === 'admin';
+  const [deleteUserToken, status] = useDeleteUserTokenMutation();
+  console.log(status);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (status.isSuccess) navigate('/');
+  }, [status]);
+  const handleLogout = () => {
+    deleteUserToken();
+  };
+
   return (
     <Box
       sx={{
@@ -70,14 +79,12 @@ const NavigationItems = () => {
               )}
 
               <ListItem sx={{ margin: 0, padding: 0 }}>
-                <NavLink to="logoutpage">LOGOUT</NavLink>
+                {/* <NavLink to="logoutpage">LOGOUT</NavLink> */}
+                <Button color="secondary" onClick={handleLogout}>
+                  Logout
+                </Button>
               </ListItem>
             </>
-          )}
-          {!loggedin && (
-            <ListItem sx={{ margin: 0, padding: 0 }}>
-              <NavLink to="/">LOGIN</NavLink>
-            </ListItem>
           )}
         </List>
       </Box>

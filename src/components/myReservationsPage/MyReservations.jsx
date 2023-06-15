@@ -53,7 +53,7 @@ const MyReservations = () => {
         {isEmpty && (
           <Typography variant="h5" color="text.fourth" fontWeight={700}>
             You have no previous Bookings with us. Please head to &quot;Book
-            Now&quot; to book your first stay with US
+            Now&quot; to book your first stay with us.
           </Typography>
         )}
         {reservations.map((reservation) => (

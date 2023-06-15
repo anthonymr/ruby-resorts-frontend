@@ -10,6 +10,7 @@ export const appApi = createApi({
         headers.set('Authorization', `Bearer ${token}`);
         return headers;
       }
+      headers.set('Content', 'Content-Type: application/json');
       return headers;
     },
   }),
@@ -31,7 +32,7 @@ export const appApi = createApi({
     // api endpoint to get a room's detail with ID
     getRoomDetail: builder.query({
       query: (roomId) => ({
-        url: `api/v1/rooms/${roomId}`,
+        url: `rooms/${roomId}`,
         method: 'GET',
       }),
     }),
@@ -77,7 +78,7 @@ export const appApi = createApi({
     }),
 
     // api endpoint to delete user token
-    deleteUserToken: builder.query({
+    deleteUserToken: builder.mutation({
       query: () => ({
         url: 'authentication',
         method: 'DELETE',
@@ -95,5 +96,5 @@ export const {
   useGetHotelsListQuery,
   useGetReservationListQuery,
   useAddNewReservationMutation,
-  useDeleteUserTokenQuery,
+  useDeleteUserTokenMutation,
 } = appApi;

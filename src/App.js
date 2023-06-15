@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import Layout from './components/layout';
 import MainPage from './components/mainpage/mainPage';
 import LoginPage from './components/loginPage/loginPage';
-import LogoutPage from './components/logoutPage';
+// import LogoutPage from './components/logoutPage';
 import ReservePage from './components/newReservationPage/newReservePage';
 import Details from './components/detailspage/Details';
 import AddRoom from './components/addRoom/AddRoom';
@@ -29,7 +29,7 @@ const App = () => (
         <Route exact path="/myreservations" element={<MyReservations />} />
       </Route>
       <Route index element={<LoginPage />} />
-      <Route path="logoutpage" element={<LogoutPage />} />
+      {/* <Route path="logoutpage" element={<LogoutPage />} /> */}
     </Routes>
   </Box>
 );
