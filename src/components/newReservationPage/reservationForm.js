@@ -1,11 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
-  Select,
-  MenuItem,
-  Button,
-  Box,
-  Typography,
+  Select, MenuItem, Button, Box, Typography,
 } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -20,6 +16,7 @@ import selectStyle, {
   usernameFieldStyle,
 } from './styleObjs';
 import { useAddNewReservationMutation } from '../../services/apiService';
+import ConfirmationDialog from '../confrimationDialog';
 
 const ReservationForm = () => {
   const { roomId } = useParams();
@@ -31,18 +28,23 @@ const ReservationForm = () => {
   const [fromDate, setFromDate] = useState(dayjs());
   const [toDate, setToDate] = useState(dayjs().add(1, 'day'));
   const [errorMsg, setErrorMsg] = useState(' ');
+  const [isOpen, setIsOpen] = useState(false);
   const [addNewReservation, status] = useAddNewReservationMutation();
   const navigate = useNavigate();
+  const confirmMsg = 'Are you sure you want to proceed with the booking?';
+  const [formdata, setFormdata] = useState({});
 
-  if (status.isError) {
-    setErrorMsg('Something went wrong. Please try again later');
-  }
+  useEffect(() => {
+    if (status.isError) {
+      setErrorMsg('Something went wrong. Please try again later');
+    }
 
-  if (status.isSuccess) {
-    setTimeout(() => {
-      navigate('/myreservations');
-    }, 1000);
-  }
+    if (status.isSuccess) {
+      setTimeout(() => {
+        navigate('/myreservations');
+      }, 1000);
+    }
+  }, [navigate, status]);
 
   const handleRoomChange = (e) => {
     setRoom(e.target.value);
@@ -50,6 +52,15 @@ const ReservationForm = () => {
 
   const handleLocationChange = (e) => {
     setLocation(e.target.value);
+  };
+
+  const handleOk = () => {
+    addNewReservation(formdata);
+    setIsOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsOpen(false);
   };
 
   const handleSubmit = (e) => {
@@ -62,13 +73,14 @@ const ReservationForm = () => {
     if (roomId === 0) setErrorMsg('Please select a Suite');
     else if (hotelId === 0) setErrorMsg('Please select a Location');
     else {
-      const formData = {
+      const data = {
         room_id: roomId,
         hotel_id: hotelId,
         start_date: from,
         end_date: to,
       };
-      addNewReservation(formData);
+      setFormdata(data);
+      setIsOpen(true);
     }
   };
 
@@ -81,6 +93,7 @@ const ReservationForm = () => {
 
             <Select
               value={room}
+              name="roomId"
               id="rooms-list"
               sx={selectStyle}
               onChange={handleRoomChange}
@@ -97,6 +110,7 @@ const ReservationForm = () => {
 
             <Select
               value={location}
+              name="hotelId"
               id="cities-list"
               sx={selectStyle}
               onChange={handleLocationChange}
@@ -113,6 +127,7 @@ const ReservationForm = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 id="from-date-picker"
+                name="fromDate"
                 sx={datePickerStyle}
                 label="From"
                 format="YYYY/MM/DD"
@@ -123,6 +138,7 @@ const ReservationForm = () => {
 
               <DatePicker
                 id="to-date-picker"
+                name="fromDate"
                 sx={datePickerStyle}
                 label="To"
                 format="YYYY/MM/DD"
@@ -143,6 +159,12 @@ const ReservationForm = () => {
           </Button>
         </Box>
       </form>
+      <ConfirmationDialog
+        ctext={confirmMsg}
+        isOpen={isOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      />
       {status.isSuccess && (
         <Typography
           variant="h6"
