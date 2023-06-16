@@ -26,6 +26,7 @@ a {
   width: 70%;
   object-fit: contain;
   margin-left: 20px;
+  height: 80vh;
 }
 
 .back-btn {
