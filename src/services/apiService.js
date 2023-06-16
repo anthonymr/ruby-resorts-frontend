@@ -54,10 +54,6 @@ export const appApi = createApi({
     }),
 
     // api endpoint to post new room
-<<<<<<< HEAD
-=======
-
->>>>>>> api-integration
     addNewRoom: builder.mutation({
       query: (payload) => ({
         url: 'rooms',
@@ -114,11 +110,7 @@ export const {
   useGetRoomsListQuery,
   useGetRoomDetailQuery,
   useAddNewRoomMutation,
-<<<<<<< HEAD
   useDeleteRoomMutation,
-=======
-  useDeleteRoomQuery,
->>>>>>> api-integration
   useGetHotelsListQuery,
   useGetReservationListQuery,
   useAddNewReservationMutation,
