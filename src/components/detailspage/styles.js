@@ -10,11 +10,11 @@ export const roomName = {
   },
 };
 
-export const mainBox = { 
+export const mainBox = {
   margin: 0,
   padding: 0,
   width: '100%',
-}
+};
 
 export const deposit = {
   fontSize: '20px',

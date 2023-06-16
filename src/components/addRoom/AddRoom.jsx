@@ -1,7 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
-  Container, Grid, TextField, Button, Card, CardContent, Typography,
+  Container,
+  Grid,
+  TextField,
+  Button,
+  Card,
+  CardContent,
+  Typography,
+  Snackbar,
 } from '@mui/material';
 import { useAddNewRoomMutation } from '../../services/apiService';
 import { getRoomsList } from '../../redux/mainPage/roomsSlice';
@@ -26,27 +33,15 @@ const AddRoom = () => {
     image: null,
   });
 
+  const [nameError, setNameError] = useState('');
+  const [descriptionError, setDescriptionError] = useState('');
+
   const dispatch = useDispatch();
 
   const [addNewRoom, { isLoading }] = useAddNewRoomMutation();
 
-  const handleSubmission =  (formData) => {
-    try {
-      const { data } = addNewRoom(formData);
-      dispatch(getRoomsList(data));
-      setRoomData({
-        name: '',
-        price: '',
-        reservationPrice: '',
-        reservationFee: '',
-        rating: '',
-        description: '',
-        image: null,
-      });
-    } catch (error) {
-      console.error('Error adding new room:', error);
-    }
-  };
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setRoomData({ ...roomData, [e.target.name]: e.target.value });
@@ -64,19 +59,64 @@ const AddRoom = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const validateForm = () => {
+    let valid = true;
+
+    if (roomData.name.length < 3 || roomData.name.length > 55) {
+      setNameError('Name should be between 3 and 55 characters');
+      valid = false;
+    } else {
+      setNameError('');
+    }
+
+    if (roomData.description.length < 10 || roomData.description.length > 500) {
+      setDescriptionError('Description should be between 10 and 500 characters');
+      valid = false;
+    } else {
+      setDescriptionError('');
+    }
+
+    return valid;
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!validateForm()) {
+      return;
+    }
+
     const formData = new FormData();
-    formData.append('name', roomData.name);
-    formData.append('full_price', roomData.price);
-    formData.append('reservation_price', roomData.reservationPrice);
-    formData.append('reservation_fee', roomData.reservationFee);
-    formData.append('rating', roomData.rating);
-    formData.append('description', roomData.description);
+    formData.append('room[name]', roomData.name);
+    formData.append('room[full_price]', roomData.price);
+    formData.append('room[reservation_price]', roomData.reservationPrice);
+    formData.append('room[reservation_fee]', roomData.reservationFee);
+    formData.append('room[rating]', roomData.rating);
+    formData.append('room[description]', roomData.description);
     formData.append('image', roomData.image);
 
-    handleSubmission(formData);
+    try {
+      const { data } = await addNewRoom(formData);
+      dispatch(getRoomsList(data));
+      setRoomData({
+        name: '',
+        price: '',
+        reservationPrice: '',
+        reservationFee: '',
+        rating: '',
+        description: '',
+        image: null,
+      });
+      setSuccessMessage('Room created successfully.');
+    } catch (error) {
+      console.error('Error adding new room:', error);
+      setErrorMessage('Failed to create room. Please try again.');
+    }
+  };
+
+  const handleSnackbarClose = () => {
+    setSuccessMessage('');
+    setErrorMessage('');
   };
 
   return (
@@ -91,10 +131,9 @@ const AddRoom = () => {
               Add New Room
             </Typography>
             <form onSubmit={handleSubmit}>
-              <Grid container spacing={1}>
-                <Grid xs={12} item>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
                   <TextField
-                    placeholder="Enter room name"
                     label="Name"
                     variant="outlined"
                     fullWidth
@@ -102,13 +141,14 @@ const AddRoom = () => {
                     name="name"
                     value={roomData.name}
                     onChange={handleChange}
+                    error={!!nameError}
+                    helperText={nameError}
                   />
                 </Grid>
-                <Grid xs={12} sm={6} item>
+                <Grid item xs={12} sm={6}>
                   <TextField
-                    placeholder="Enter full Price"
-                    label="Price"
                     type="number"
+                    label="Price"
                     variant="outlined"
                     fullWidth
                     required
@@ -117,10 +157,9 @@ const AddRoom = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid xs={12} sm={6} item>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     type="number"
-                    placeholder="Reservation Price"
                     label="Reservation Price"
                     variant="outlined"
                     fullWidth
@@ -130,11 +169,10 @@ const AddRoom = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid xs={12} sm={6} item>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     type="number"
-                    placeholder="Enter Reservation Fee"
-                    label="Reservation Price"
+                    label="Reservation Fee"
                     variant="outlined"
                     fullWidth
                     required
@@ -143,10 +181,9 @@ const AddRoom = () => {
                     onChange={handleChange}
                   />
                 </Grid>
-                <Grid xs={12} sm={6} item>
+                <Grid item xs={12} sm={6}>
                   <TextField
                     type="number"
-                    placeholder="Between 1 to 5"
                     label="Rating"
                     variant="outlined"
                     fullWidth
@@ -161,13 +198,14 @@ const AddRoom = () => {
                     label="Description"
                     multiline
                     rows={4}
-                    placeholder="Type your description here"
                     variant="outlined"
                     fullWidth
                     required
                     name="description"
                     value={roomData.description}
                     onChange={handleChange}
+                    error={!!descriptionError}
+                    helperText={descriptionError}
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -195,6 +233,12 @@ const AddRoom = () => {
           </CardContent>
         </Card>
       </Grid>
+      <Snackbar
+        open={!!successMessage || !!errorMessage}
+        autoHideDuration={4000}
+        onClose={handleSnackbarClose}
+        message={successMessage || errorMessage}
+      />
     </Container>
   );
 };

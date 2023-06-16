@@ -12,11 +12,11 @@ body {
     sans-serif;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
-.discoverLink{
+.discoverLink {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -24,11 +24,11 @@ a{
 
 .roomImg {
   width: 70%;
-  border-radius: 50%;
+  object-fit: contain;
   margin-left: 20px;
 }
 
-.back-btn{
+.back-btn {
   margin-bottom: 20px;
-  margin-top: 0px;
+  margin-top: 0;
 }

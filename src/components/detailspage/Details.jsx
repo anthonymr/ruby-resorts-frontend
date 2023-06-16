@@ -1,13 +1,15 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { Typography, Box, Button, Container } from '@mui/material';
+import {
+  Typography, Box, Button, Container,
+} from '@mui/material';
 import { ArrowCircleRightOutlined, CallEndSharp } from '@mui/icons-material';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import Rating from './Rating';
 import PriceTable from './PriceTable';
 import { getRoomDetails } from '../../redux/detailsPage/detailsSlice';
-import {useGetRoomDetailQuery} from '../../services/apiService';
+import { useGetRoomDetailQuery } from '../../services/apiService';
 import {
   roomName,
   detailsBox,
@@ -27,7 +29,7 @@ const Details = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { roomId } = useParams();
-  const { data} = useGetRoomDetailQuery(roomId);
+  const { data } = useGetRoomDetailQuery(roomId);
 
   const handleReservationClick = () => {
     navigate(`/newreservepage/${roomId}`);
@@ -66,7 +68,7 @@ const Details = () => {
             </Box>
           </Box>
           <Box sx={ratingBox}>
-            <Link to="/mainpage" className='discoverLink'>
+            <Link to="/mainpage" className="discoverLink">
               <Typography variant="p" sx={discoverBtn}>
                 Discover More Rooms
               </Typography>
@@ -86,7 +88,7 @@ const Details = () => {
           </Box>
         </Box>
       </Container>
-      <button type="button" className='carousel-button-left back-btn' onClick={() => navigate(-1)}>
+      <button type="button" className="carousel-button-left back-btn" onClick={() => navigate(-1)}>
         <ArrowLeftOutlinedIcon />
       </button>
     </Box>

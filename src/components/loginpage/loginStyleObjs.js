@@ -14,6 +14,22 @@ const loginPageStyle = {
   alignItems: 'center',
 };
 
+export const signupPageStyle = {
+  width: {
+    xs: '100%',
+    sm: '80%',
+    md: '85%',
+    lg: '88%',
+  },
+  minHeight: '100vh',
+  margin: '0 auto',
+  padding: { xs: '10% 0 0', sm: '0' },
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: { xs: 'start', sm: 'center' },
+  alignItems: 'center',
+};
+
 export const loginFormContainerStyle = {
   marginTop: '2rem',
   display: 'grid',
@@ -38,6 +54,17 @@ export const loginTextFieldStyle = {
 
   '.MuiOutlinedInput-notchedOutline': {
     border: 'none',
+  },
+
+  '.MuiInputLabel-root': {
+    color: '#96bf01 !important',
+    textAlign: 'center',
+  },
+  '& .MuiInputLabel-shrink': {
+    color: '#96bf01 !important',
+    width: '100%',
+    textAlign: 'center',
+    padding: '0.5rem',
   },
 };
 

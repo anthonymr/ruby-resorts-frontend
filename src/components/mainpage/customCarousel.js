@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, CircularProgress, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
@@ -28,7 +28,7 @@ const responsive = {
 };
 
 const CustomCarousel = () => {
-  const { rooms } = useSelector((state) => state.rooms);
+  const { rooms, status } = useSelector((state) => state.rooms);
   const getStepCount = () => {
     if (window.innerWidth <= 900) {
       return Math.ceil(rooms.length / 1) - 1;
@@ -40,10 +40,7 @@ const CustomCarousel = () => {
   };
   const stepCount = getStepCount();
   const ButtonGroup = ({
-    next,
-    previous,
-    goToSlide,
-    ...rest
+    next, previous, goToSlide, ...rest
   }) => {
     const {
       carouselState: { currentSlide },
@@ -88,6 +85,13 @@ const CustomCarousel = () => {
     previous: (e) => e,
     goToSlide: (e) => e,
   };
+  if (status === 'loading') {
+    return (
+      <Box>
+        <CircularProgress color="secondary" />
+      </Box>
+    );
+  }
   return (
     <Carousel
       arrows={false}

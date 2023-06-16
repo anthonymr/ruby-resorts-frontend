@@ -6,12 +6,10 @@ import {
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ReservationForm from './reservationForm';
 import bgImage from '../../styles/images/room1.jpg';
-import { MenuAltWhiteIcon, ArrowLeftWhiteIcon } from '../../utilities/icons';
-import { useGetHotelsListQuery } from '../../services/apiService';
-import { addHotelList } from '../../redux/newReservePage/citiesSlice';
+import { ArrowLeftWhiteIcon } from '../../utilities/icons';
 
 const NewReservePage = () => {
   const { authStatus } = useSelector((state) => state.user);
@@ -22,16 +20,15 @@ const NewReservePage = () => {
     }
   }, [navigate, authStatus]);
 
-  const dispatch = useDispatch();
-  const { data, refetch } = useGetHotelsListQuery('hotelList');
-  useEffect(() => {
-    refetch();
-    if (data) dispatch(addHotelList(data));
-  }, [data, dispatch, refetch]);
   return (
     <Box
       sx={{
-        width: '100%',
+        width: {
+          xs: '100%',
+          sm: '80%',
+          md: '85%',
+          lg: '88%',
+        },
         minHeight: '100vh',
         overflow: 'auto',
         background: `url(${bgImage}) no-repeat center`,
@@ -41,19 +38,7 @@ const NewReservePage = () => {
         border: { xs: '0.6rem solid #ffffff', md: '1rem solid #ffffff' },
       }}
     >
-      <Button
-        sx={{
-          border: 'none',
-          position: 'absolute',
-          left: '1rem',
-          top: '1rem',
-          padding: '0.5rem 0',
-        }}
-      >
-        <MenuAltWhiteIcon />
-      </Button>
-
-      <Link to="/">
+      <Link to="/mainpage">
         <Button
           sx={{
             border: 'none',

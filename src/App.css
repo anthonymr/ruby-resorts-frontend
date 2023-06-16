@@ -2,6 +2,16 @@
   text-align: center;
 }
 
+#signin-logo {
+  object-fit: contain;
+  width: 10rem;
+  height: 10rem;
+}
+
+#signup-link-text {
+  color: #454545;
+}
+
 #nav-panel-list a {
   width: 100%;
   text-decoration: none;
@@ -38,7 +48,12 @@
 }
 
 .carousel-button-group {
-  display: none;
+  top: 85%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .carousel-button-left,
@@ -105,12 +120,7 @@
 
 @media screen and (min-width: 600px) {
   .carousel-button-group {
-    position: absolute;
     top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
   }
 
   .corousel-item-pic-container img {
@@ -130,6 +140,12 @@
     width: 8rem;
   }
 
+  #signin-logo {
+    object-fit: contain;
+    width: 14rem;
+    height: 14rem;
+  }
+
   #nav-social-icons svg {
     height: 20px;
     width: 20px;
@@ -140,5 +156,11 @@
   .corousel-item-pic-container img {
     height: 10rem;
     width: 10rem;
+  }
+
+  #signin-logo {
+    object-fit: contain;
+    width: 16rem;
+    height: 16rem;
   }
 }

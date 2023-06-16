@@ -1,5 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { Box, Button, Drawer } from '@mui/material';
+import { addUserInfo } from '../../redux/login/userSlice';
+import {
+  useGetHotelsListQuery,
+  useGetRoomsListQuery,
+  useGetUserInfoQuery,
+} from '../../services/apiService';
+import { getRoomsList } from '../../redux/mainPage/roomsSlice';
+import { addHotelList } from '../../redux/newReservePage/citiesSlice';
 import { MenuAltGreenIcon } from '../../utilities/icons';
 import NavigationItems from './navigationItems';
 
@@ -8,6 +17,28 @@ const NavigationPanel = () => {
   const handleToggleDrawer = () => {
     setMobileMenu((prevState) => !prevState);
   };
+
+  const dispatch = useDispatch();
+  const { data, refetch } = useGetUserInfoQuery('userDetails');
+  useEffect(() => {
+    refetch();
+    if (data) dispatch(addUserInfo(data));
+  }, [data, dispatch, refetch]);
+
+  const { data: roomsData = [], refetch: roomsRefetch } = useGetRoomsListQuery('roomsList');
+  useEffect(() => {
+    roomsRefetch();
+    if (roomsData) {
+      dispatch(getRoomsList(roomsData));
+    }
+  }, [roomsData, dispatch, roomsRefetch]);
+
+  const { data: hotelsData = [] } = useGetHotelsListQuery('hotelsList');
+  useEffect(() => {
+    if (hotelsData) {
+      dispatch(addHotelList(hotelsData));
+    }
+  }, [hotelsData, dispatch]);
 
   const mobileDrawer = (
     <Box

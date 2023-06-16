@@ -1,14 +1,9 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   roomDetails: {},
   isLoading: true,
 };
-
-
 
 const detailsSlice = createSlice({
   name: 'details',
@@ -17,7 +12,7 @@ const detailsSlice = createSlice({
     getRoomDetails: (state, { payload }) => {
       const newState = { ...state, roomDetails: payload, status: 'completed' };
       return newState;
-    }
+    },
   },
 });
 
