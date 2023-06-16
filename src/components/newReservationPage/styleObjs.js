@@ -42,6 +42,7 @@ export const datePickerStyle = {
   '.MuiOutlinedInput-notchedOutline': {
     borderRadius: '50px',
   },
+
   '.MuiSvgIcon-root ': {
     fill: 'white !important',
   },
@@ -62,6 +63,15 @@ export const textFieldStyle = {
   '.MuiOutlinedInput-notchedOutline': {
     borderRadius: '50px',
   },
+};
+
+export const usernameFieldStyle = {
+  border: '2px solid #ffffff',
+  borderRadius: '50px',
+  color: '#ffffff',
+  fontWeight: '800',
+  padding: '1rem 0rem',
+  width: { xs: '15rem', md: '13rem' },
 };
 
 export const menuItemStyle = {

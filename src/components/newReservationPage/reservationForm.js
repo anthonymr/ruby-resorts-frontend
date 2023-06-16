@@ -1,12 +1,7 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import {
-  Select,
-  MenuItem,
-  Button,
-  Box,
-  Typography,
-  TextField,
+  Select, MenuItem, Button, Box, Typography,
 } from '@mui/material';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -18,8 +13,10 @@ import selectStyle, {
   innerFormContainer,
   menuItemStyle,
   selectContainerStyle,
-  textFieldStyle,
+  usernameFieldStyle,
 } from './styleObjs';
+import { useAddNewReservationMutation } from '../../services/apiService';
+import ConfirmationDialog from '../confrimationDialog';
 
 const ReservationForm = () => {
   const { roomId } = useParams();
@@ -31,7 +28,23 @@ const ReservationForm = () => {
   const [fromDate, setFromDate] = useState(dayjs());
   const [toDate, setToDate] = useState(dayjs().add(1, 'day'));
   const [errorMsg, setErrorMsg] = useState(' ');
-  // const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+  const [addNewReservation, status] = useAddNewReservationMutation();
+  const navigate = useNavigate();
+  const confirmMsg = 'Are you sure you want to proceed with the booking?';
+  const [formdata, setFormdata] = useState({});
+
+  useEffect(() => {
+    if (status.isError) {
+      setErrorMsg('Something went wrong. Please try again later');
+    }
+
+    if (status.isSuccess) {
+      setTimeout(() => {
+        navigate('/myreservations');
+      }, 1000);
+    }
+  }, [navigate, status]);
 
   const handleRoomChange = (e) => {
     setRoom(e.target.value);
@@ -41,16 +54,34 @@ const ReservationForm = () => {
     setLocation(e.target.value);
   };
 
+  const handleOk = () => {
+    addNewReservation(formdata);
+    setIsOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsOpen(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrorMsg(' ');
     const roomId = parseInt(room, 10);
     const hotelId = parseInt(location, 10);
+    const from = fromDate.format('YYYY/MM/DD');
+    const to = toDate.format('YYYY/MM/DD');
     if (roomId === 0) setErrorMsg('Please select a Suite');
     else if (hotelId === 0) setErrorMsg('Please select a Location');
-    console.log(fromDate.format('YYYY/MM/DD'));
-    console.log(toDate.format('YYYY/MM/DD'));
-    // navigate('/');
+    else {
+      const data = {
+        room_id: roomId,
+        hotel_id: hotelId,
+        start_date: from,
+        end_date: to,
+      };
+      setFormdata(data);
+      setIsOpen(true);
+    }
   };
 
   return (
@@ -58,17 +89,11 @@ const ReservationForm = () => {
       <form id="reservation-form" method="post" onSubmit={handleSubmit}>
         <Box sx={innerFormContainer}>
           <Box sx={selectContainerStyle}>
-            <TextField
-              id="username-input"
-              defaultValue={userinfo.username}
-              sx={textFieldStyle}
-              InputProps={{
-                inputProps: { style: { padding: '1rem' } },
-                readOnly: true,
-              }}
-            />
+            <Box sx={usernameFieldStyle}>{userinfo.username}</Box>
+
             <Select
               value={room}
+              name="roomId"
               id="rooms-list"
               sx={selectStyle}
               onChange={handleRoomChange}
@@ -85,6 +110,7 @@ const ReservationForm = () => {
 
             <Select
               value={location}
+              name="hotelId"
               id="cities-list"
               sx={selectStyle}
               onChange={handleLocationChange}
@@ -101,6 +127,7 @@ const ReservationForm = () => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 id="from-date-picker"
+                name="fromDate"
                 sx={datePickerStyle}
                 label="From"
                 format="YYYY/MM/DD"
@@ -108,8 +135,10 @@ const ReservationForm = () => {
                 maxDate={fromDate.add(45, 'day')}
                 onChange={(newFromDate) => setFromDate(newFromDate)}
               />
+
               <DatePicker
                 id="to-date-picker"
+                name="fromDate"
                 sx={datePickerStyle}
                 label="To"
                 format="YYYY/MM/DD"
@@ -130,7 +159,28 @@ const ReservationForm = () => {
           </Button>
         </Box>
       </form>
-      <Typography variant="h6" color="text.first" sx={{ marginTop: '1rem' }}>
+      <ConfirmationDialog
+        ctext={confirmMsg}
+        isOpen={isOpen}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      />
+      {status.isSuccess && (
+        <Typography
+          variant="h6"
+          fontWeight={700}
+          color="text.first"
+          sx={{ marginTop: '1rem' }}
+        >
+          Reservation is successful
+        </Typography>
+      )}
+      <Typography
+        variant="h6"
+        fontWeight={700}
+        color="text.error"
+        sx={{ marginTop: '2rem' }}
+      >
         {errorMsg}
       </Typography>
     </>

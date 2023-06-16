@@ -10,8 +10,17 @@ const roomsSlice = createSlice({
       const newState = { ...state, rooms: payload, status: 'completed' };
       return newState;
     },
+    deleteFromList: (state, { payload }) => {
+      const newRooms = [...state.rooms];
+      newRooms.splice(
+        newRooms.findIndex((i) => i.id === payload),
+        1,
+      );
+      const newState = { ...state, rooms: newRooms };
+      return newState;
+    },
   },
 });
 
-export const { getRoomsList } = roomsSlice.actions;
+export const { getRoomsList, deleteFromList } = roomsSlice.actions;
 export default roomsSlice.reducer;

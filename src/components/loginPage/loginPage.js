@@ -1,29 +1,28 @@
 import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import {
-  Box,
-  Typography,
-  TextField,
-  Button,
+  Box, Typography, TextField, Button,
 } from '@mui/material';
 import loginPageStyle, {
   loginFormContainerStyle,
   loginSubmitBtn,
   loginTextFieldStyle,
 } from './loginStyleObjs';
-import { fetchUserToken } from '../../redux/login/userSlice';
+import { useAuthenticateUserMutation } from '../../services/apiService';
+import { saveLoginToken } from '../../redux/login/userSlice';
+import logo from '../../styles/images/app_logo.svg';
 
 const LoginPage = () => {
-  const dispatch = useDispatch();
-  const { authStatus, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
-
+  const [authenticateUser, response] = useAuthenticateUserMutation();
+  const dispatch = useDispatch();
   useEffect(() => {
-    if (authStatus === 'loggedin') {
+    if (response.isSuccess) {
+      dispatch(saveLoginToken(response.data));
       navigate('/mainpage');
     }
-  }, [navigate, authStatus]);
+  }, [dispatch, response, navigate]);
 
   const [loginCredentials, setLoginCredentials] = useState({
     username: '',
@@ -32,7 +31,7 @@ const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchUserToken(loginCredentials));
+    authenticateUser(loginCredentials);
   };
 
   const handleCredentialsChange = (e) => {
@@ -45,6 +44,9 @@ const LoginPage = () => {
   };
   return (
     <Box sx={loginPageStyle}>
+      <Box>
+        <img src={logo} alt="Ruby Resorts Main logo" id="signin-logo" />
+      </Box>
       <Typography
         variant="h4"
         letterSpacing="3px"
@@ -80,7 +82,20 @@ const LoginPage = () => {
           </Button>
         </Box>
       </form>
-      <Typography variant="h6" color="text.fourth">{error}</Typography>
+      <Typography variant="h6" sx={{ margin: '1rem' }} fontWeight={700} color="text.fourth">
+        Not a Member? Please &nbsp;
+        <Link to="signup" id="signup-link-text">Sign Up</Link>
+      </Typography>
+      {response.isError && (
+        <Typography
+          variant="h6"
+          fontWeight={700}
+          color="text.error"
+          sx={{ margin: '1rem' }}
+        >
+          {response.error.data.errors}
+        </Typography>
+      )}
     </Box>
   );
 };
