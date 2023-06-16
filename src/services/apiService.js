@@ -10,10 +10,27 @@ export const appApi = createApi({
         headers.set('Authorization', `Bearer ${token}`);
         return headers;
       }
+      headers.set('Content', 'Content-Type: application/json');
       return headers;
     },
   }),
   endpoints: (builder) => ({
+    // api endpoint to authenticate user using JWT
+    authenticateUser: builder.mutation({
+      query: (payload) => ({
+        url: 'authentication',
+        method: 'POST',
+        body: payload,
+      }),
+    }),
+    // api endpoint to sign up a new user
+    createUserSignUp: builder.mutation({
+      query: (payload) => ({
+        url: 'users',
+        method: 'POST',
+        body: payload,
+      }),
+    }),
     // api endpoint to get user's info
     getUserInfo: builder.query({
       query: () => ({
@@ -37,7 +54,6 @@ export const appApi = createApi({
     }),
 
     // api endpoint to post new room
-
     addNewRoom: builder.mutation({
       query: (payload) => ({
         url: 'rooms',
@@ -47,7 +63,7 @@ export const appApi = createApi({
     }),
 
     // api endpoint to delete a room
-    deleteRoom: builder.query({
+    deleteRoom: builder.mutation({
       query: (roomId) => ({
         url: `rooms/${roomId}`,
         method: 'DELETE',
@@ -69,7 +85,7 @@ export const appApi = createApi({
       }),
     }),
     // api endpoint to get post new reservation
-    addNewReservation: builder.query({
+    addNewReservation: builder.mutation({
       query: (payload) => ({
         url: 'reservations',
         method: 'POST',
@@ -78,7 +94,7 @@ export const appApi = createApi({
     }),
 
     // api endpoint to delete user token
-    deleteUserToken: builder.query({
+    deleteUserToken: builder.mutation({
       query: () => ({
         url: 'authentication',
         method: 'DELETE',
@@ -88,13 +104,15 @@ export const appApi = createApi({
 });
 
 export const {
+  useAuthenticateUserMutation,
+  useCreateUserSignUpMutation,
   useGetUserInfoQuery,
   useGetRoomsListQuery,
   useGetRoomDetailQuery,
   useAddNewRoomMutation,
-  useDeleteRoomQuery,
+  useDeleteRoomMutation,
   useGetHotelsListQuery,
   useGetReservationListQuery,
-  useAddNewReservationQuery,
-  useDeleteUserTokenQuery,
+  useAddNewReservationMutation,
+  useDeleteUserTokenMutation,
 } = appApi;
