@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import {
   Typography,
   Button,
@@ -11,16 +12,25 @@ import {
   TableRow,
   Paper,
   Box,
+  CircularProgress,
 } from '@mui/material';
 import { useDeleteRoomMutation } from '../../services/apiService';
 import { deleteFromList } from '../../redux/mainPage/roomsSlice';
 import ConfirmationDialog from '../confrimationDialog';
 
 const DeleteRoom = () => {
-  const { rooms } = useSelector((state) => state.rooms);
+  const { rooms, status } = useSelector((state) => state.rooms);
   const [roomId, setRoomId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [deleteRoom, response] = useDeleteRoomMutation('delteRoom');
+
+  const { authStatus } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (authStatus !== 'loggedin') {
+      navigate('/');
+    }
+  }, [navigate, authStatus]);
 
   const confirmation = 'Are you sure you want to delete?';
   const handleOk = () => {
@@ -41,6 +51,19 @@ const DeleteRoom = () => {
     setRoomId(roomId);
     setIsOpen(true);
   };
+
+  if (status === 'loading') {
+    return (
+      <Box
+        sx={{
+          minHeight: '100vh',
+          margin: '25% auto',
+        }}
+      >
+        <CircularProgress color="secondary" />
+      </Box>
+    );
+  }
 
   return (
     <Box

@@ -1,5 +1,10 @@
 import {
-  Box, Button, List, ListItem, Typography,
+  Box,
+  Button,
+  List,
+  ListItem,
+  Typography,
+  CircularProgress,
 } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,7 +20,9 @@ import logoImage from '../../styles/images/app_logo.svg';
 import { useDeleteUserTokenMutation } from '../../services/apiService';
 
 const NavigationItems = () => {
-  const { authStatus, userinfo } = useSelector((state) => state.user);
+  const { authStatus, userinfo, dataFetched } = useSelector(
+    (state) => state.user,
+  );
   const loggedin = authStatus === 'loggedin';
   const isAdmin = userinfo.role === 'admin';
   const [deleteUserToken, status] = useDeleteUserTokenMutation();
@@ -49,7 +56,7 @@ const NavigationItems = () => {
         >
           <img id="nav-app-logo" src={logoImage} alt="Ruby resorts logo" />
         </Box>
-        {loggedin && (
+        {dataFetched ? (
           <Typography
             variant="h6"
             color="text.secondary"
@@ -58,6 +65,10 @@ const NavigationItems = () => {
           >
             {userinfo.username}
           </Typography>
+        ) : (
+          <Box sx={{ width: '100%' }}>
+            <CircularProgress color="secondary" />
+          </Box>
         )}
         <List id="nav-panel-list">
           {loggedin && (

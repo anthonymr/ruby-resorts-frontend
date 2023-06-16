@@ -8,6 +8,7 @@ const initialState = {
   userinfo: {},
   error: '',
   authStatus: accessToken ? 'loggedin' : 'loggedout',
+  dataFetched: false,
 };
 
 const userSlice = createSlice({
@@ -24,7 +25,10 @@ const userSlice = createSlice({
       return newState;
     },
     addUserInfo: (state, { payload }) => {
-      state.userinfo = payload;
+      const newState = { ...state };
+      newState.userinfo = payload;
+      newState.dataFetched = true;
+      return newState;
     },
     logoutUser: (state) => {
       localStorage.removeItem('accessToken');
@@ -34,6 +38,7 @@ const userSlice = createSlice({
         userinfo: {},
         error: '',
         authStatus: 'loggedout',
+        dataFetched: 'false',
       };
     },
   },

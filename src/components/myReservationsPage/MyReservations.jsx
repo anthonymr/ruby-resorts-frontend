@@ -1,12 +1,22 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Typography, Box, Divider } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import {
+  Typography, Box, Divider, CircularProgress,
+} from '@mui/material';
 import dayjs from 'dayjs';
 import { useGetReservationListQuery } from '../../services/apiService';
 import { getReservationsList } from '../../redux/myReservationsPage/reservationsSlice';
 
 const MyReservations = () => {
-  const { reservations } = useSelector((state) => state.reservations);
+  const { reservations, status } = useSelector((state) => state.reservations);
+  const { authStatus } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (authStatus !== 'loggedin') {
+      navigate('/');
+    }
+  }, [navigate, authStatus]);
 
   const dispatch = useDispatch();
   const { data, refetch } = useGetReservationListQuery('reservationsList');
@@ -16,6 +26,19 @@ const MyReservations = () => {
   }, [data, dispatch, refetch]);
 
   const isEmpty = reservations.length === 0;
+
+  if (status === 'loading') {
+    return (
+      <Box
+        sx={{
+          minHeight: '100vh',
+          margin: '25% auto',
+        }}
+      >
+        <CircularProgress color="secondary" />
+      </Box>
+    );
+  }
 
   return (
     <Box
