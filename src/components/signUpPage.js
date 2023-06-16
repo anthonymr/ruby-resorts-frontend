@@ -58,6 +58,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 3, maxLength: 55 }}
           />
           <TextField
             name="email"
@@ -66,6 +67,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 5, maxLength: 55 }}
           />
           <TextField
             name="username"
@@ -73,6 +75,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 3, maxLength: 55 }}
           />
           <TextField
             name="password"
@@ -81,6 +84,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 6, maxLength: 55 }}
           />
           <TextField
             name="confirmPassword"
@@ -89,6 +93,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 6, maxLength: 55 }}
           />
           <Button
             type="submit"
