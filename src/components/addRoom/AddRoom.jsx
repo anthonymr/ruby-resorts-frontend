@@ -44,8 +44,18 @@ const AddRoom = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
-    setRoomData({ ...roomData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+  
+    if (['price', 'reservationPrice', 'reservationFee', 'rating'].includes(name)) {
+      const numericValue = Number(value);
+      if (numericValue <= 0) {
+        return;
+      }
+    }
+  
+    setRoomData({ ...roomData, [name]: value });
   };
+  
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
