@@ -24,7 +24,7 @@ const roomsSlice = createSlice({
       newRooms.push(payload);
       const newState = { ...state, rooms: newRooms };
       return newState;
-    }
+    },
   },
 });
 

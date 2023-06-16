@@ -45,7 +45,7 @@ const AddRoom = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-  
+
     if (['price', 'reservationPrice', 'reservationFee'].includes(name)) {
       const numericValue = Number(value);
       if (numericValue <= 0) {
@@ -57,12 +57,9 @@ const AddRoom = () => {
         return;
       }
     }
-  
+
     setRoomData({ ...roomData, [name]: value });
   };
-  
-  
-  
 
   const handleImageChange = async (e) => {
     const file = e.target.files[0];
@@ -126,7 +123,6 @@ const AddRoom = () => {
       });
       setSuccessMessage('Room created successfully.');
     } catch (error) {
-      console.error('Error adding new room:', error);
       setErrorMessage('Failed to create room. Please try again.');
     }
   };
