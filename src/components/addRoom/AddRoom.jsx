@@ -11,7 +11,7 @@ import {
   Snackbar,
 } from '@mui/material';
 import { useAddNewRoomMutation } from '../../services/apiService';
-import { getRoomsList } from '../../redux/mainPage/roomsSlice';
+import { addRoomReducer } from '../../redux/mainPage/roomsSlice';
 
 async function fileToBase64(file) {
   return new Promise((resolve, reject) => {
@@ -46,15 +46,22 @@ const AddRoom = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
   
-    if (['price', 'reservationPrice', 'reservationFee', 'rating'].includes(name)) {
+    if (['price', 'reservationPrice', 'reservationFee'].includes(name)) {
       const numericValue = Number(value);
       if (numericValue <= 0) {
+        return;
+      }
+    } else if (name === 'rating') {
+      const numericValue = Number(value);
+      if (numericValue < 0 || numericValue > 5) {
         return;
       }
     }
   
     setRoomData({ ...roomData, [name]: value });
   };
+  
+  
   
 
   const handleImageChange = async (e) => {
@@ -107,7 +114,7 @@ const AddRoom = () => {
 
     try {
       const { data } = await addNewRoom(formData);
-      dispatch(getRoomsList(data));
+      dispatch(addRoomReducer(data));
       setRoomData({
         name: '',
         price: '',
