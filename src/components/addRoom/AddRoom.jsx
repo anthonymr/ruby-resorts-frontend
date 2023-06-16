@@ -84,7 +84,9 @@ const AddRoom = () => {
     }
 
     if (roomData.description.length < 10 || roomData.description.length > 500) {
-      setDescriptionError('Description should be between 10 and 500 characters');
+      setDescriptionError(
+        'Description should be between 10 and 500 characters',
+      );
       valid = false;
     } else {
       setDescriptionError('');
@@ -133,13 +135,41 @@ const AddRoom = () => {
   };
 
   return (
-    <Container maxWidth="sm">
-      <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}>
-
+    <Container
+      sx={{
+        width: {
+          xs: '100%',
+          sm: '80%',
+          md: '85%',
+          lg: '88%',
+        },
+        minHeight: '100vh',
+        margin: '0 auto',
+        padding: { xs: '25% 0 0', sm: '0' },
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: { xs: 'start', sm: 'center' },
+        alignItems: 'center',
+        position: 'relative',
+      }}
+    >
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        alignItems="center"
+        style={{ minHeight: '100vh' }}
+      >
         <Card style={{ maxWidth: 450, padding: '20px 5px' }}>
           <CardContent>
-            <Typography sx={{ fontWeight: 'bold', fontSize: '30px' }} gutterBottom variant="h5">
-              Add New Room
+            <Typography
+              variant="h4"
+              fontWeight={900}
+              color="black"
+              letterSpacing="3px"
+              sx={{ margin: '2rem' }}
+            >
+              ADD NEW ROOM
             </Typography>
             <form onSubmit={handleSubmit}>
               <Grid container spacing={2}>
@@ -221,6 +251,7 @@ const AddRoom = () => {
                 </Grid>
                 <Grid item xs={12}>
                   <input
+                    id="file-upload-input"
                     type="file"
                     name="image"
                     accept="image/*"
@@ -233,7 +264,11 @@ const AddRoom = () => {
                     variant="contained"
                     color="secondary"
                     fullWidth
-                    sx={{ borderRadius: '20px', color: 'white', fontSize: '20px' }}
+                    sx={{
+                      borderRadius: '20px',
+                      color: 'white',
+                      fontSize: '20px',
+                    }}
                     disabled={isLoading}
                   >
                     {isLoading ? 'Adding...' : 'Submit'}
