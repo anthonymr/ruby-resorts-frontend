@@ -19,8 +19,14 @@ const roomsSlice = createSlice({
       const newState = { ...state, rooms: newRooms };
       return newState;
     },
+    addRoomReducer: (state, { payload }) => {
+      const newRooms = [...state.rooms];
+      newRooms.push(payload);
+      const newState = { ...state, rooms: newRooms };
+      return newState;
+    },
   },
 });
 
-export const { getRoomsList, deleteFromList } = roomsSlice.actions;
+export const { getRoomsList, deleteFromList, addRoomReducer } = roomsSlice.actions;
 export default roomsSlice.reducer;
