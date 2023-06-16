@@ -136,7 +136,7 @@ const AddRoom = () => {
     <Container maxWidth="sm">
       <Grid container spacing={2} justifyContent="center" alignItems="center" style={{ minHeight: '100vh' }}>
 
-      <Card style={{ maxWidth: 450, padding: '20px 5px' }}>
+        <Card style={{ maxWidth: 450, padding: '20px 5px' }}>
           <CardContent>
             <Typography sx={{ fontWeight: 'bold', fontSize: '30px' }} gutterBottom variant="h5">
               Add New Room
