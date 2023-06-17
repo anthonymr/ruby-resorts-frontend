@@ -85,7 +85,7 @@ const AddRoom = () => {
 
     if (roomData.description.length < 10 || roomData.description.length > 500) {
       setDescriptionError(
-        'Description should be between 10 and 500 characters'
+        'Description should be between 10 and 500 characters',
       );
       valid = false;
     } else {
@@ -153,17 +153,17 @@ const AddRoom = () => {
       <Grid
         container
         spacing={2}
-        justifyContent='center'
-        alignItems='center'
+        justifyContent="center"
+        alignItems="center"
         style={{ minHeight: '100vh' }}
       >
         <Card style={{ maxWidth: 450, padding: '20px 5px' }}>
           <CardContent>
             <Typography
-              variant='h4'
+              variant="h4"
               fontWeight={900}
-              color='black'
-              letterSpacing='3px'
+              color="black"
+              letterSpacing="3px"
               sx={{ margin: '2rem' }}
             >
               ADD NEW ROOM
@@ -172,11 +172,11 @@ const AddRoom = () => {
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <TextField
-                    label='Name'
-                    variant='outlined'
+                    label="Name"
+                    variant="outlined"
                     fullWidth
                     required
-                    name='name'
+                    name="name"
                     value={roomData.name}
                     onChange={handleChange}
                     error={!!nameError}
@@ -185,61 +185,61 @@ const AddRoom = () => {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    type='number'
-                    label='Price'
-                    variant='outlined'
+                    type="number"
+                    label="Price"
+                    variant="outlined"
                     fullWidth
                     required
-                    name='price'
+                    name="price"
                     value={roomData.price}
                     onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    type='number'
-                    label='Reservation Price'
-                    variant='outlined'
+                    type="number"
+                    label="Reservation Price"
+                    variant="outlined"
                     fullWidth
                     required
-                    name='reservationPrice'
+                    name="reservationPrice"
                     value={roomData.reservationPrice}
                     onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    type='number'
-                    label='Reservation Fee'
-                    variant='outlined'
+                    type="number"
+                    label="Reservation Fee"
+                    variant="outlined"
                     fullWidth
                     required
-                    name='reservationFee'
+                    name="reservationFee"
                     value={roomData.reservationFee}
                     onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    type='number'
-                    label='Rating'
-                    variant='outlined'
+                    type="number"
+                    label="Rating"
+                    variant="outlined"
                     fullWidth
                     required
-                    name='rating'
+                    name="rating"
                     value={roomData.rating}
                     onChange={handleChange}
                   />
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
-                    label='Description'
+                    label="Description"
                     multiline
                     rows={4}
-                    variant='outlined'
+                    variant="outlined"
                     fullWidth
                     required
-                    name='description'
+                    name="description"
                     value={roomData.description}
                     onChange={handleChange}
                     error={!!descriptionError}
@@ -253,16 +253,16 @@ const AddRoom = () => {
                       type="file"
                       name="image"
                       accept="image/*"
-                      className='upload-image-input'
+                      className="upload-image-input"
                       onChange={handleImageChange}
                     />
                   </div>
                 </Grid>
                 <Grid item xs={12}>
                   <Button
-                    type='submit'
-                    variant='contained'
-                    color='secondary'
+                    type="submit"
+                    variant="contained"
+                    color="secondary"
                     fullWidth
                     sx={{
                       borderRadius: '20px',

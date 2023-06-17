@@ -10,7 +10,7 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -32,8 +32,6 @@ a {
   margin-top: 5rem;
 }
 
-
-
 .back-btn {
   margin-bottom: 20px;
   margin-top: 0;
@@ -51,7 +49,6 @@ a {
 @media screen and (min-width: 1200px) {
   .roomImg {
     width: 80%;
-
   }
 }
 
@@ -88,6 +85,6 @@ a {
 }
 
 ::-webkit-file-upload-button:hover {
-  background: #6F8426;
+  background: #6f8426;
   color: white;
 }
