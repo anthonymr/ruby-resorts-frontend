@@ -74,6 +74,7 @@ const LoginPage = () => {
       <form id="login-form" onSubmit={handleSubmit}>
         <Box sx={loginFormContainerStyle}>
           <TextField
+            id="username"
             name="username"
             label="Username"
             sx={loginTextFieldStyle}
@@ -81,6 +82,7 @@ const LoginPage = () => {
             onChange={handleCredentialsChange}
           />
           <TextField
+            id="password"
             name="password"
             type="password"
             label="password"

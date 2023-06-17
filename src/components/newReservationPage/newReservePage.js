@@ -14,7 +14,7 @@ import { getRoomsList } from '../../redux/mainPage/roomsSlice';
 import { addHotelList } from '../../redux/newReservePage/citiesSlice';
 import ReservationForm from './reservationForm';
 import bgImage from '../../styles/images/room1.jpg';
-import { ArrowLeftWhiteIcon } from '../../utilities/icons';
+import { ArrowLeftWhiteIcon, MenuAltWhiteIcon } from '../../utilities/icons';
 
 const NewReservePage = () => {
   const { authStatus } = useSelector((state) => state.user);
@@ -60,6 +60,17 @@ const NewReservePage = () => {
         border: { xs: '0.6rem solid #ffffff', md: '1rem solid #ffffff' },
       }}
     >
+      <Button
+        sx={{
+          border: 'none',
+          position: 'absolute',
+          left: '1rem',
+          top: '1rem',
+          padding: '0.5rem 0',
+        }}
+      >
+        <MenuAltWhiteIcon />
+      </Button>
       <Link to="/mainpage">
         <Button
           sx={{
