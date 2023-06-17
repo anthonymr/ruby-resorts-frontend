@@ -8,7 +8,7 @@ it('renders correctly', () => {
     .create(
       <Router>
         <Rating />
-      </Router>
+      </Router>,
     )
     .toJSON();
   expect(rating).toMatchSnapshot();
