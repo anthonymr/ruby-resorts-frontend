@@ -1,8 +1,13 @@
 import {
-  Box, Button, Typography, Divider,
+  Box,
+  Button,
+  Typography,
+  Divider,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   useGetHotelsListQuery,
@@ -17,7 +22,16 @@ import bgImage from '../../styles/images/room1.jpg';
 import { ArrowLeftWhiteIcon, MenuAltWhiteIcon } from '../../utilities/icons';
 
 const NewReservePage = () => {
-  const { authStatus } = useSelector((state) => state.user);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const { authStatus, userinfo } = useSelector((state) => state.user);
+  const isAdmin = userinfo.role === 'admin';
   const navigate = useNavigate();
   useEffect(() => {
     if (authStatus !== 'loggedin') {
@@ -61,6 +75,10 @@ const NewReservePage = () => {
       }}
     >
       <Button
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
         sx={{
           border: 'none',
           position: 'absolute',
@@ -71,6 +89,53 @@ const NewReservePage = () => {
       >
         <MenuAltWhiteIcon />
       </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <Link to="/mainpage">
+          <MenuItem
+            sx={{ fontWeight: 800, color: '#96bf01' }}
+            onClick={handleClose}
+          >
+            SUITES
+          </MenuItem>
+        </Link>
+        <Link to="/myreservations">
+          <MenuItem
+            sx={{ fontWeight: 800, color: '#96bf01' }}
+            onClick={handleClose}
+          >
+            MY BOOKINGS
+          </MenuItem>
+        </Link>
+        {isAdmin && (
+          <Link to="/add">
+            <MenuItem
+              sx={{ fontWeight: 800, color: '#96bf01' }}
+              onClick={handleClose}
+            >
+              ADD SUITE
+            </MenuItem>
+          </Link>
+        )}
+        {isAdmin && (
+          <Link to="/delete">
+            <MenuItem
+              sx={{ fontWeight: 800, color: '#96bf01' }}
+              onClick={handleClose}
+            >
+              DELETE SUITE
+            </MenuItem>
+          </Link>
+        )}
+      </Menu>
+
       <Link to="/mainpage">
         <Button
           sx={{
