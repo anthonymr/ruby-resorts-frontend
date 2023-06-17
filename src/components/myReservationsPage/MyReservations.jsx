@@ -72,7 +72,7 @@ const MyReservations = () => {
         sx={{
           overflow: 'scroll',
           margin: '0 auto',
-          height: '50vh',
+          height: { xs: '85vh', md: '50vh' },
           width: '90%',
         }}
       >
