@@ -204,17 +204,17 @@ exports[`snapshot tests for components testing mainpage snapshot 1`] = `
   className="MuiBox-root css-1355w3l"
 >
   <h4
-    className="MuiTypography-root MuiTypography-h4 css-2v2kkj-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-h4 css-1czt6dy-MuiTypography-root"
   >
     OUR SUITES
   </h4>
   <p
-    className="MuiTypography-root MuiTypography-body1 css-1my41j3-MuiTypography-root"
+    className="MuiTypography-root MuiTypography-body1 css-j9p9dg-MuiTypography-root"
   >
     Please select a Suite
   </p>
   <div
-    className="MuiBox-root css-hsv9sy"
+    className="MuiBox-root css-6f39vj"
   />
   <div
     className="main-carousel-container"
@@ -249,6 +249,38 @@ exports[`snapshot tests for components testing mainpage snapshot 1`] = `
       </span>
     </div>
   </div>
+</div>
+`;
+
+exports[`snapshot tests for components testing my reservations page 1`] = `
+<div
+  className="MuiBox-root css-1esp0ir"
+>
+  <span
+    className="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorSecondary css-1szo49z-MuiCircularProgress-root"
+    role="progressbar"
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  >
+    <svg
+      className="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+        cx={44}
+        cy={44}
+        fill="none"
+        r={20.2}
+        strokeWidth={3.6}
+        style={Object {}}
+      />
+    </svg>
+  </span>
 </div>
 `;
 

@@ -97,6 +97,7 @@ const ReservationForm = () => {
               id="rooms-list"
               sx={selectStyle}
               onChange={handleRoomChange}
+              data-testid="suite-select"
             >
               <MenuItem value={0}>
                 <em>Suite..</em>
@@ -114,6 +115,7 @@ const ReservationForm = () => {
               id="cities-list"
               sx={selectStyle}
               onChange={handleLocationChange}
+              data-testid="location-select"
             >
               <MenuItem value={0}>
                 <em>Location..</em>
