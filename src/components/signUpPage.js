@@ -19,8 +19,19 @@ const SignUpPage = () => {
 
   const [createUserSignUp, response] = useCreateUserSignUpMutation();
   useEffect(() => {
-    if (response.isSuccess) setSuccessMsg('Sign up successful. Go to Login Page');
-    if (response.isError) setErrorMsg(response.error.data.errors.join(' '));
+    if (response.isSuccess) {
+      setSuccessMsg('Sign up successful. Go to Login Page');
+      setTimeout(() => {
+        setSuccessMsg('');
+      }, 2500);
+    }
+
+    if (response.isError) {
+      setErrorMsg(response.error.data.errors.join(' '));
+      setTimeout(() => {
+        setErrorMsg('');
+      }, 2500);
+    }
   }, [response]);
 
   const handleCredentialsChange = (e) => {
@@ -31,6 +42,9 @@ const SignUpPage = () => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setErrorMsg("Passwords don't match. Please try again");
+      setTimeout(() => {
+        setErrorMsg('');
+      }, 2500);
     } else {
       delete formData.confirmPassword;
       createUserSignUp(formData);

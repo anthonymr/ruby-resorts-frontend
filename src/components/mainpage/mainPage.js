@@ -37,17 +37,24 @@ const MainPage = () => {
         fontWeight={900}
         color="black"
         letterSpacing="3px"
+        sx={{ margin: { xs: '1rem', md: '0.2rem' } }}
       >
         OUR SUITES
       </Typography>
-      <Typography variant="body1" fontWeight={600} color="text.third">
+      <Typography
+        variant="body1"
+        fontWeight={600}
+        color="text.third"
+        sx={{ margin: { xs: '1rem', md: '0.2rem' } }}
+      >
         Please select a Suite
       </Typography>
       <Box
         sx={{
           borderBottom: '2px dotted #a1a1a1',
-          width: '10%',
-          margin: { md: '1rem 0', xl: '3rem 0' },
+          width: { xs: '25%', md: '10%' },
+          margin: { xs: '1rem 0', xl: '1.5rem 0' },
+          display: { xs: 'none', md: 'block' },
         }}
       />
       <div className="main-carousel-container">

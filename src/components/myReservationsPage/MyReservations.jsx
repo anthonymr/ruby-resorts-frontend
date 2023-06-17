@@ -49,12 +49,12 @@ const MyReservations = () => {
           md: '85%',
           lg: '88%',
         },
-        minHeight: '100vh',
+        height: '100vh',
         margin: '0 auto',
-        padding: { xs: '25% 0 0', sm: '0' },
+        padding: { xs: '15% 0', sm: '0' },
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: { xs: 'start', sm: 'center' },
+        justifyContent: { xs: 'start', md: 'center' },
         alignItems: 'center',
         position: 'relative',
       }}
@@ -70,85 +70,94 @@ const MyReservations = () => {
       </Typography>
       <Box
         sx={{
+          overflow: 'scroll',
+          margin: '0 auto',
+          height: '50vh',
           width: '90%',
         }}
       >
-        {isEmpty && (
-          <Typography variant="h5" color="text.fourth" fontWeight={700}>
-            You have no previous Bookings with us. Please head to &quot;Book
-            Now&quot; to book your first stay with us.
-          </Typography>
-        )}
-        {reservations.map((reservation) => (
-          <Box key={reservation.id}>
-            <Box
-              sx={{
-                display: 'grid',
-                gridTemplateColumns: {
-                  xs: '1fr',
-                  md: '1fr 1fr',
-                  lg: '0.7fr 1.3fr 1.5fr 0.5fr',
-                  gap: { xs: '0.5rem', md: '2rem' },
-                  padding: '1rem 0',
-                },
-              }}
-            >
-              <Typography
-                variant="h6"
-                color="text.second"
-                fontWeight={700}
+        <Box
+          sx={{
+            width: '90%',
+          }}
+        >
+          {isEmpty && (
+            <Typography variant="h5" color="text.fourth" fontWeight={700}>
+              You have no previous Bookings with us. Please head to &quot;Book
+              Now&quot; to book your first stay with us.
+            </Typography>
+          )}
+          {reservations.map((reservation) => (
+            <Box key={reservation.id}>
+              <Box
                 sx={{
-                  textAlign: { xs: 'center', md: 'left' },
-                  padding: '0.5rem',
+                  display: 'grid',
+                  gridTemplateColumns: {
+                    xs: '1fr',
+                    md: '1fr 1fr',
+                    lg: '0.7fr 1.3fr 1.5fr 0.5fr',
+                    gap: { xs: '0.5rem', md: '2rem' },
+                    padding: '1rem 0',
+                  },
                 }}
               >
-                {`${reservation.room.name} Suite`}
-              </Typography>
-              <Typography
-                variant="h6"
-                color="text.second"
-                fontWeight={700}
+                <Typography
+                  variant="h6"
+                  color="text.second"
+                  fontWeight={700}
+                  sx={{
+                    textAlign: { xs: 'center', md: 'left' },
+                    padding: '0.5rem',
+                  }}
+                >
+                  {`${reservation.room.name} Suite`}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="text.second"
+                  fontWeight={700}
+                  sx={{
+                    textAlign: { xs: 'center', md: 'left' },
+                    padding: '0.5rem',
+                  }}
+                >
+                  {`@ ${reservation.hotel.name}, ${reservation.hotel.city}`}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="text.fourth"
+                  fontWeight={700}
+                  sx={{
+                    textAlign: { xs: 'center', md: 'left' },
+                    padding: '0.5rem',
+                  }}
+                >
+                  {`${dayjs(reservation.start_date).format(
+                    'DD-MMM-YYYY',
+                  )} to ${dayjs(reservation.end_date).format('DD-MMM-YYYY')}`}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="text.fourth"
+                  fontWeight={800}
+                  sx={{
+                    textAlign: { xs: 'center', md: 'left' },
+                    padding: '0.5rem',
+                  }}
+                >
+                  {`Price: € ${reservation.amount}`}
+                </Typography>
+              </Box>
+              <Divider
                 sx={{
-                  textAlign: { xs: 'center', md: 'left' },
-                  padding: '0.5rem',
+                  borderBottom: '1px dashed #a1a1a1 ',
+                  width: { xs: '70%', md: '100%' },
+                  margin: '0 auto',
                 }}
-              >
-                {`@ ${reservation.hotel.name}, ${reservation.hotel.city}`}
-              </Typography>
-              <Typography
-                variant="h6"
-                color="text.fourth"
-                fontWeight={700}
-                sx={{
-                  textAlign: { xs: 'center', md: 'left' },
-                  padding: '0.5rem',
-                }}
-              >
-                {`${dayjs(reservation.start_date).format(
-                  'DD-MMM-YYYY',
-                )} to ${dayjs(reservation.end_date).format('DD-MMM-YYYY')}`}
-              </Typography>
-              <Typography
-                variant="h6"
-                color="text.fourth"
-                fontWeight={800}
-                sx={{
-                  textAlign: { xs: 'center', md: 'left' },
-                  padding: '0.5rem',
-                }}
-              >
-                {`Price: € ${reservation.amount}`}
-              </Typography>
+              />
             </Box>
-            <Divider
-              sx={{
-                borderBottom: '1px dashed #a1a1a1 ',
-                width: { xs: '70%', md: '100%' },
-                margin: '0 auto',
-              }}
-            />
-          </Box>
-        ))}
+          ))}
+        </Box>
       </Box>
     </Box>
   );
