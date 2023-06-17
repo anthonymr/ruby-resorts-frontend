@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
 import { fireEvent } from '@testing-library/react';
-import { renderWithProviders } from '../../../testutils/wrappers';
+import { renderWithProviders } from '../../testutils/wrappers';
 import DeleteRoom from '../../components/deleteRoomPage/DeleteRoom';
 
 describe('Delete Room Page', () => {

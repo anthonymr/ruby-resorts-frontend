@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import roomsReducer from '../src/redux/mainPage/roomsSlice';
-import detailsReducer from '../src/redux/detailsPage/detailsSlice';
-import citiesReducer from '../src/redux/newReservePage/citiesSlice';
-import userReducer from '../src/redux/login/userSlice';
-import reservationsReducer from '../src/redux/myReservationsPage/reservationsSlice';
-import { appApi } from '../src/services/apiService';
+import roomsReducer from '../redux/mainPage/roomsSlice';
+import detailsReducer from '../redux/detailsPage/detailsSlice';
+import citiesReducer from '../redux/newReservePage/citiesSlice';
+import userReducer from '../redux/login/userSlice';
+import reservationsReducer from '../redux/myReservationsPage/reservationsSlice';
+import { appApi } from '../services/apiService';
 
 const initialsStateData = {
   rooms: {

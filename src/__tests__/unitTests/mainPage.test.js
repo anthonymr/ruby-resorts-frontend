@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
-import { renderWithProviders } from '../../../testutils/wrappers';
+import { renderWithProviders } from '../../testutils/wrappers';
 import MainPage from '../../components/mainPage/mainPage';
 import CustomCarousel from '../../components/mainPage/customCarousel';
 

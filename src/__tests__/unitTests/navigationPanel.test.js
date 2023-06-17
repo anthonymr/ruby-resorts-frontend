@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
 import NavigationPanel from '../../components/navigation/navigationPanel';
-import { renderWithProviders } from '../../../testutils/wrappers';
+import { renderWithProviders } from '../../testutils/wrappers';
 
 describe('Navigation Panel', () => {
   it('navigation panel to have logo', () => {
