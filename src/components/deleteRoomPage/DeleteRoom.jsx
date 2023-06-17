@@ -16,7 +16,7 @@ import {
 } from '@mui/material';
 import { useDeleteRoomMutation } from '../../services/apiService';
 import { deleteFromList } from '../../redux/mainPage/roomsSlice';
-import ConfirmationDialog from '../confrimationDialog';
+import ConfirmationDialog from '../confirmationDialog';
 
 const DeleteRoom = () => {
   const { rooms, status } = useSelector((state) => state.rooms);

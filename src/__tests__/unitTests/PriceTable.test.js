@@ -1,4 +1,4 @@
-import { render } from '../../--test--/test-utils'; // Import the custom render function
+import { render } from './test-utils'; // Import the custom render function
 import PriceTable from '../../components/detailspage/PriceTable';
 
 it('renders correctly', () => {

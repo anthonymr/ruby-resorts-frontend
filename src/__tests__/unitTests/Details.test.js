@@ -1,5 +1,5 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render } from '../../--test--/test-utils';
+import { render } from './test-utils';
 import Details from '../../components/detailspage/Details';
 
 it('renders correctly', () => {

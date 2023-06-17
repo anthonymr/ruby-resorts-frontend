@@ -1,4 +1,4 @@
-import { render } from '../../--test--/test-utils'; // Import the custom render function
+import { render } from './test-utils'; // Import the custom render function
 import AddRoom from '../../components/addRoom/AddRoom';
 
 it('renders correctly', () => {

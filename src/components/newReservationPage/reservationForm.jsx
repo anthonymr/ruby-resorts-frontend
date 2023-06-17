@@ -16,7 +16,7 @@ import selectStyle, {
   usernameFieldStyle,
 } from './styleObjs';
 import { useAddNewReservationMutation } from '../../services/apiService';
-import ConfirmationDialog from '../confrimationDialog';
+import ConfirmationDialog from '../confirmationDialog';
 
 const ReservationForm = () => {
   const { roomId } = useParams();
