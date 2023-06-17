@@ -24,10 +24,11 @@ a {
 }
 
 .roomImg {
-  width: 15rem;
+  width: 20rem;
   object-fit: cover;
   margin-left: 20px;
-  height: 15rem;
+  margin-right: 20px;
+  height: 20rem;
   border-radius: 50%;
   margin-top: 5rem;
 }
@@ -39,22 +40,19 @@ a {
 
 @media screen and (min-width: 900px) {
   .roomImg {
-    width: 70%;
+    width: 75%;
     height: 80vh;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 0;
   }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 2000px) {
   .roomImg {
     width: 80%;
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .roomImg {
-    width: 85%;
+    height: 80vh;
+    object-fit: cover;
+    border-radius: 0;
   }
 }
 
@@ -70,7 +68,7 @@ a {
   font-size: 1rem;
   background: white;
   border-radius: 50px;
-  box-shadow: 5px 5px 10px black;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   width: 300px;
   outline: none;
 }
