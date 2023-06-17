@@ -24,20 +24,30 @@ function RadialSeparators({ count, style }) {
 }
 
 RadialSeparators.propTypes = {
-  count: PropTypes.number.isRequired,
+  count: PropTypes.number,
   style: PropTypes.shape({
     background: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+RadialSeparators.defaultProps = {
+  count: 0,
+  style: {},
 };
 Separator.propTypes = {
-  turns: PropTypes.number.isRequired,
+  turns: PropTypes.number,
   style: PropTypes.shape({
     background: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string,
-  }).isRequired,
+  }),
+};
+
+Separator.defaultProps = {
+  turns: 0,
+  style: {},
 };
 
 export default RadialSeparators;
