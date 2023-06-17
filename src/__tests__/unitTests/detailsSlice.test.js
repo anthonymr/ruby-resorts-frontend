@@ -1,4 +1,4 @@
-import detailsReducer, { getRoomDetails } from '../redux/detailsPage/detailsSlice';
+import detailsReducer, { getRoomDetails } from '../../redux/detailsPage/detailsSlice';
 
 describe('detailsSlice', () => {
   describe('reducer', () => {
