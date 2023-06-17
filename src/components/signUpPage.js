@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {
   Box, Typography, TextField, Button,
@@ -18,12 +18,14 @@ const SignUpPage = () => {
   const [errorMsg, setErrorMsg] = useState('');
 
   const [createUserSignUp, response] = useCreateUserSignUpMutation();
+  const navigate = useNavigate();
   useEffect(() => {
     if (response.isSuccess) {
-      setSuccessMsg('Sign up successful. Go to Login Page');
+      setSuccessMsg('Sign up successful. Please login now');
       setTimeout(() => {
         setSuccessMsg('');
-      }, 2500);
+        navigate('/');
+      }, 1000);
     }
 
     if (response.isError) {
