@@ -70,7 +70,7 @@ const MyReservations = () => {
       </Typography>
       <Box
         sx={{
-          overflow: 'scroll',
+          overflowY: 'scroll',
           margin: '0 auto',
           height: { xs: '85vh', md: '50vh' },
           width: '90%',

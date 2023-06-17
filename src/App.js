@@ -9,7 +9,7 @@ import ReservePage from './components/newReservationPage/newReservePage';
 import Details from './components/detailspage/Details';
 import AddRoom from './components/addRoom/AddRoom';
 import DeleteRoom from './components/deleteRoomPage/DeleteRoom';
-import MyReservations from './components/myReservationsPage/MyReservations';
+import MyReservations from './components/myReservationsPage/myReservations';
 
 const App = () => (
   <Box
