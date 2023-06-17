@@ -8,7 +8,7 @@ describe('My Reservations Page', () => {
     const { getByText } = renderWithProviders(
       <BrowserRouter>
         <MyReservations />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(getByText('YOUR BOOKINGS')).toBeInTheDocument();
   });
@@ -17,9 +17,8 @@ describe('My Reservations Page', () => {
     const { getByText } = renderWithProviders(
       <BrowserRouter>
         <MyReservations />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(getByText('@ Ruby Amsterdam, Amsterdam')).toBeInTheDocument();
   });
-
 });

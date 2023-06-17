@@ -9,7 +9,7 @@ describe('Main Page', () => {
     const { getByText } = renderWithProviders(
       <BrowserRouter>
         <MainPage />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(getByText('OUR SUITES')).toBeInTheDocument();
   });
@@ -18,7 +18,7 @@ describe('Main Page', () => {
     const { getByText } = renderWithProviders(
       <BrowserRouter>
         <MainPage />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(getByText('Please select a Suite')).toBeInTheDocument();
   });
@@ -27,7 +27,7 @@ describe('Main Page', () => {
     const { container } = renderWithProviders(
       <BrowserRouter>
         <CustomCarousel />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(container.querySelector('ul')).toBeInTheDocument();
   });

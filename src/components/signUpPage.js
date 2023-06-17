@@ -34,7 +34,7 @@ const SignUpPage = () => {
         setErrorMsg('');
       }, 2500);
     }
-  }, [response]);
+  }, [response, navigate]);
 
   const handleCredentialsChange = (e) => {
     const newData = { ...formData, [e.target.name]: e.target.value };

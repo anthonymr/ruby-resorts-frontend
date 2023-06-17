@@ -1,15 +1,15 @@
 import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
+import { fireEvent } from '@testing-library/react';
 import { renderWithProviders } from '../../../testutils/wrappers';
 import DeleteRoom from '../../components/deleteRoomPage/DeleteRoom';
-import { fireEvent } from '@testing-library/react';
 
 describe('Delete Room Page', () => {
   it('page has placeholder text content', () => {
     const { getByText } = renderWithProviders(
       <BrowserRouter>
         <DeleteRoom />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(getByText('DELETE A SUITE')).toBeInTheDocument();
   });
@@ -17,7 +17,7 @@ describe('Delete Room Page', () => {
     const { getByText, getAllByRole } = renderWithProviders(
       <BrowserRouter>
         <DeleteRoom />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(getByText('Test Suite')).toBeInTheDocument();
     expect(getAllByRole('button').length).toBe(1);
@@ -27,16 +27,16 @@ describe('Delete Room Page', () => {
     const { getAllByRole } = renderWithProviders(
       <BrowserRouter>
         <DeleteRoom />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     expect(getAllByRole('button').length).toBe(1);
   });
 
   it('Clicking a delete button opens confirmation popup', () => {
-    const { getByText ,getAllByRole } = renderWithProviders(
+    const { getByText, getAllByRole } = renderWithProviders(
       <BrowserRouter>
         <DeleteRoom />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     fireEvent.click(getAllByRole('button')[0]);
     expect(getByText('Are you sure you want to delete?')).toBeInTheDocument();

@@ -20,13 +20,13 @@ const initialsStateData = {
   },
   cities: {
     hotels: [
-        {
-          id: 1,
-          name: 'Ruby Test Hotel',
-          city: 'Test City',
-          created_at: '2023-06-16T03:22:52.703Z',
-          updated_at: '2023-06-16T03:22:52.703Z',
-        },
+      {
+        id: 1,
+        name: 'Ruby Test Hotel',
+        city: 'Test City',
+        created_at: '2023-06-16T03:22:52.703Z',
+        updated_at: '2023-06-16T03:22:52.703Z',
+      },
     ],
   },
   user: {
@@ -100,22 +100,19 @@ const initialsStateData = {
   },
 };
 
-export const setMockStore = (preloadedState) => {
-  return configureStore({
-    reducer: {
-      rooms: roomsReducer,
-      cities: citiesReducer,
-      user: userReducer,
-      [appApi.reducerPath]: appApi.reducer,
-      details: detailsReducer,
-      reservations: reservationsReducer,
-    },
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({
-        serializableCheck: false,
-      }).concat(appApi.middleware),
-    preloadedState,
-  });
-};
+export const setMockStore = (preloadedState) => configureStore({
+  reducer: {
+    rooms: roomsReducer,
+    cities: citiesReducer,
+    user: userReducer,
+    [appApi.reducerPath]: appApi.reducer,
+    details: detailsReducer,
+    reservations: reservationsReducer,
+  },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false,
+  }).concat(appApi.middleware),
+  preloadedState,
+});
 
 export default initialsStateData;

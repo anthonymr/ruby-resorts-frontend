@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
+import { fireEvent, screen } from '@testing-library/react';
 import { renderWithRouter } from '../../../testutils/wrappers';
 import NewReservePage from '../../components/newReservationPage/newReservePage';
-import { fireEvent, screen } from '@testing-library/react';
 
 describe('New Reservation Page', () => {
   it('New Reservation page has placeholder text', () => {
@@ -33,5 +33,4 @@ describe('New Reservation Page', () => {
     fireEvent.click(screen.getByText('Book Now'));
     expect(getByText('Please select a Suite')).toBeInTheDocument();
   });
-
 });

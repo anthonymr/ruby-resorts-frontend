@@ -1,12 +1,12 @@
 import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import store from '../redux/store.js';
-import MainPage from '../components/mainpage/mainPage.js';
-import DeleteRoom from '../components/deleteRoomPage/DeleteRoom.jsx';
-import MyReservations from '../components/myReservationsPage/MyReservations.jsx';
-import LoginPage from '../components/loginPage/loginPage.js';
-import SignUpPage from '../components/signUpPage.js';
+import store from '../redux/store';
+import MainPage from '../components/mainpage/mainPage';
+import DeleteRoom from '../components/deleteRoomPage/DeleteRoom';
+import MyReservations from '../components/myReservationsPage/MyReservations';
+import LoginPage from '../components/loginPage/loginPage';
+import SignUpPage from '../components/signUpPage';
 
 describe('snapshot tests for components', () => {
   it('testing mainpage snapshot', () => {
@@ -16,7 +16,7 @@ describe('snapshot tests for components', () => {
           <Provider store={store}>
             <MainPage />
           </Provider>
-        </BrowserRouter>
+        </BrowserRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -28,7 +28,7 @@ describe('snapshot tests for components', () => {
           <Provider store={store}>
             <LoginPage />
           </Provider>
-        </BrowserRouter>
+        </BrowserRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -40,7 +40,7 @@ describe('snapshot tests for components', () => {
           <Provider store={store}>
             <DeleteRoom />
           </Provider>
-        </BrowserRouter>
+        </BrowserRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -52,7 +52,7 @@ describe('snapshot tests for components', () => {
           <Provider store={store}>
             <SignUpPage />
           </Provider>
-        </BrowserRouter>
+        </BrowserRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -65,7 +65,7 @@ describe('snapshot tests for components', () => {
           <Provider store={store}>
             <MyReservations />
           </Provider>
-        </BrowserRouter>
+        </BrowserRouter>,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
