@@ -1,6 +1,6 @@
 import { Box, CircularProgress, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
@@ -101,35 +101,41 @@ const CustomCarousel = () => {
     >
       {rooms.map((room) => (
         <div className="corousel-item" key={room.id}>
-          <NavLink to={`/details/${room.id}`}>
+          <Link to={`/details/${room.id}`} style={{ textDecoration: 'none' }}>
             <div className="corousel-item-pic-container">
               <img src={room.image_url} alt="room" />
             </div>
-          </NavLink>
-
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              width: { xs: '90%', md: '80%', xl: '65%' },
-              margin: '0 auto',
-            }}
-          >
-            <Typography variant="h6" fontWeight={700} letterSpacing="1px">
-              {room.name}
-            </Typography>
             <Box
               sx={{
-                borderBottom: '2px dotted #a1a1a1',
-                width: { xs: '45%', xl: '40%' },
-                margin: '0.8rem 0 0.4rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: { xs: '90%', md: '80%', xl: '65%' },
+                margin: '0 auto',
               }}
-            />
-            <Typography variant="body1" color="text.third">
-              {room.description}
-            </Typography>
-          </Box>
+            >
+              <Typography
+                variant="h6"
+                fontWeight={700}
+                letterSpacing="1px"
+                textDecoration="none"
+                color="text.second"
+              >
+                {room.name}
+              </Typography>
+              <Box
+                sx={{
+                  borderBottom: '2px dotted #a1a1a1',
+                  width: { xs: '45%', xl: '40%' },
+                  margin: '1.3rem 0',
+                }}
+              />
+              <Typography variant="body1" color="text.third">
+                {room.description}
+              </Typography>
+            </Box>
+          </Link>
+
           <Box
             id="round-icons-container"
             sx={{

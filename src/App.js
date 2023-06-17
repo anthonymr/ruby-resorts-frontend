@@ -21,7 +21,6 @@ const App = () => (
   >
     <Routes>
       <Route element={<Layout />}>
-        <Route path="/newreservepage/:roomId" element={<ReservePage />} />
         <Route path="/mainpage" element={<MainPage />} />
         <Route exact path="/details/:roomId" element={<Details />} />
         <Route exact path="/add" element={<AddRoom />} />
@@ -30,6 +29,7 @@ const App = () => (
       </Route>
       <Route index element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/newreservepage/:roomId" element={<ReservePage />} />
     </Routes>
   </Box>
 );

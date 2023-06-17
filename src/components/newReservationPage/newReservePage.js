@@ -3,16 +3,35 @@ import {
   Button,
   Typography,
   Divider,
+  Menu,
+  MenuItem,
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  useGetHotelsListQuery,
+  useGetRoomsListQuery,
+  useGetUserInfoQuery,
+} from '../../services/apiService';
+import { addUserInfo } from '../../redux/login/userSlice';
+import { getRoomsList } from '../../redux/mainPage/roomsSlice';
+import { addHotelList } from '../../redux/newReservePage/citiesSlice';
 import ReservationForm from './reservationForm';
 import bgImage from '../../styles/images/room1.jpg';
-import { ArrowLeftWhiteIcon } from '../../utilities/icons';
+import { ArrowLeftWhiteIcon, MenuAltWhiteIcon } from '../../utilities/icons';
 
 const NewReservePage = () => {
-  const { authStatus } = useSelector((state) => state.user);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const { authStatus, userinfo } = useSelector((state) => state.user);
+  const isAdmin = userinfo.role === 'admin';
   const navigate = useNavigate();
   useEffect(() => {
     if (authStatus !== 'loggedin') {
@@ -20,15 +39,32 @@ const NewReservePage = () => {
     }
   }, [navigate, authStatus]);
 
+  const dispatch = useDispatch();
+  const { data, refetch } = useGetUserInfoQuery('userDetails');
+  useEffect(() => {
+    refetch();
+    if (data) dispatch(addUserInfo(data));
+  }, [data, dispatch, refetch]);
+
+  const { data: roomsData = [], refetch: roomsRefetch } = useGetRoomsListQuery('roomsList');
+  useEffect(() => {
+    roomsRefetch();
+    if (roomsData) {
+      dispatch(getRoomsList(roomsData));
+    }
+  }, [roomsData, dispatch, roomsRefetch]);
+
+  const { data: hotelsData = [] } = useGetHotelsListQuery('hotelsList');
+  useEffect(() => {
+    if (hotelsData) {
+      dispatch(addHotelList(hotelsData));
+    }
+  }, [hotelsData, dispatch]);
+
   return (
     <Box
       sx={{
-        width: {
-          xs: '100%',
-          sm: '80%',
-          md: '85%',
-          lg: '88%',
-        },
+        width: '100%',
         minHeight: '100vh',
         overflow: 'auto',
         background: `url(${bgImage}) no-repeat center`,
@@ -38,6 +74,68 @@ const NewReservePage = () => {
         border: { xs: '0.6rem solid #ffffff', md: '1rem solid #ffffff' },
       }}
     >
+      <Button
+        aria-controls={open ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onClick={handleClick}
+        sx={{
+          border: 'none',
+          position: 'absolute',
+          left: '1rem',
+          top: '1rem',
+          padding: '0.5rem 0',
+        }}
+      >
+        <MenuAltWhiteIcon />
+      </Button>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <Link to="/mainpage">
+          <MenuItem
+            sx={{ fontWeight: 800, color: '#96bf01' }}
+            onClick={handleClose}
+          >
+            SUITES
+          </MenuItem>
+        </Link>
+        <Link to="/myreservations">
+          <MenuItem
+            sx={{ fontWeight: 800, color: '#96bf01' }}
+            onClick={handleClose}
+          >
+            MY BOOKINGS
+          </MenuItem>
+        </Link>
+        {isAdmin && (
+          <Link to="/add">
+            <MenuItem
+              sx={{ fontWeight: 800, color: '#96bf01' }}
+              onClick={handleClose}
+            >
+              ADD SUITE
+            </MenuItem>
+          </Link>
+        )}
+        {isAdmin && (
+          <Link to="/delete">
+            <MenuItem
+              sx={{ fontWeight: 800, color: '#96bf01' }}
+              onClick={handleClose}
+            >
+              DELETE SUITE
+            </MenuItem>
+          </Link>
+        )}
+      </Menu>
+
       <Link to="/mainpage">
         <Button
           sx={{

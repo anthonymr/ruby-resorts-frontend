@@ -2,7 +2,11 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  Box, Typography, TextField, Button,
+  Box,
+  Typography,
+  TextField,
+  Button,
+  CircularProgress,
 } from '@mui/material';
 import loginPageStyle, {
   loginFormContainerStyle,
@@ -42,6 +46,18 @@ const LoginPage = () => {
       setLoginCredentials({ ...loginCredentials, password: e.target.value });
     }
   };
+
+  if (response.isLoading) {
+    return (
+      <Box sx={loginPageStyle}>
+        <Box>
+          <img src={logo} alt="Ruby Resorts Main logo" id="signin-logo" />
+        </Box>
+        <CircularProgress color="secondary" />
+      </Box>
+    );
+  }
+
   return (
     <Box sx={loginPageStyle}>
       <Box>
@@ -59,6 +75,7 @@ const LoginPage = () => {
         <Box sx={loginFormContainerStyle}>
           <TextField
             id="username"
+            name="username"
             label="Username"
             sx={loginTextFieldStyle}
             required
@@ -66,6 +83,7 @@ const LoginPage = () => {
           />
           <TextField
             id="password"
+            name="password"
             type="password"
             label="password"
             sx={loginTextFieldStyle}
@@ -82,9 +100,16 @@ const LoginPage = () => {
           </Button>
         </Box>
       </form>
-      <Typography variant="h6" sx={{ margin: '1rem' }} fontWeight={700} color="text.fourth">
+      <Typography
+        variant="h6"
+        sx={{ margin: '1rem' }}
+        fontWeight={700}
+        color="text.fourth"
+      >
         Not a Member? Please &nbsp;
-        <Link to="signup" id="signup-link-text">Sign Up</Link>
+        <Link to="signup" id="signup-link-text">
+          Sign Up
+        </Link>
       </Typography>
       {response.isError && (
         <Typography

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {
   Box, Typography, TextField, Button,
@@ -18,10 +18,23 @@ const SignUpPage = () => {
   const [errorMsg, setErrorMsg] = useState('');
 
   const [createUserSignUp, response] = useCreateUserSignUpMutation();
+  const navigate = useNavigate();
   useEffect(() => {
-    if (response.isSuccess) setSuccessMsg('Sign up successful. Go to Login Page');
-    if (response.isError) setErrorMsg(response.error.data.errors.join(' '));
-  }, [response]);
+    if (response.isSuccess) {
+      setSuccessMsg('Sign up successful. Please login now');
+      setTimeout(() => {
+        setSuccessMsg('');
+        navigate('/');
+      }, 1000);
+    }
+
+    if (response.isError) {
+      setErrorMsg(response.error.data.errors.join(' '));
+      setTimeout(() => {
+        setErrorMsg('');
+      }, 2500);
+    }
+  }, [response, navigate]);
 
   const handleCredentialsChange = (e) => {
     const newData = { ...formData, [e.target.name]: e.target.value };
@@ -31,6 +44,9 @@ const SignUpPage = () => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setErrorMsg("Passwords don't match. Please try again");
+      setTimeout(() => {
+        setErrorMsg('');
+      }, 2500);
     } else {
       delete formData.confirmPassword;
       createUserSignUp(formData);
@@ -58,6 +74,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 3, maxLength: 55 }}
           />
           <TextField
             name="email"
@@ -66,6 +83,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 5, maxLength: 55 }}
           />
           <TextField
             name="username"
@@ -73,6 +91,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 3, maxLength: 55 }}
           />
           <TextField
             name="password"
@@ -81,6 +100,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 6, maxLength: 55 }}
           />
           <TextField
             name="confirmPassword"
@@ -89,6 +109,7 @@ const SignUpPage = () => {
             sx={loginTextFieldStyle}
             required
             onChange={handleCredentialsChange}
+            inputProps={{ minLength: 6, maxLength: 55 }}
           />
           <Button
             type="submit"
