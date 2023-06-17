@@ -137,21 +137,18 @@ const AddRoom = () => {
   return (
     <Container
       sx={{
-        width: {
-          xs: '100%',
-          sm: '80%',
-          md: '85%',
-          lg: '88%',
-        },
+        maxWidth: '100%',
         minHeight: '100vh',
         margin: '0 auto',
-        padding: { xs: '25% 0 0', sm: '0' },
+        padding: { xs: '25% 0 0', sm: '2rem' },
         display: 'flex',
         flexDirection: 'column',
         justifyContent: { xs: 'start', sm: 'center' },
         alignItems: 'center',
         position: 'relative',
+        overflowX: 'hidden',
       }}
+      disableGutters
     >
       <Grid
         container
@@ -250,13 +247,16 @@ const AddRoom = () => {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <input
-                    id="file-upload-input"
-                    type="file"
-                    name="image"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  />
+                  <div>
+                    <input
+                      id="file-upload-input"
+                      type="file"
+                      name="image"
+                      accept="image/*"
+                      className="upload-image-input"
+                      onChange={handleImageChange}
+                    />
+                  </div>
                 </Grid>
                 <Grid item xs={12}>
                   <Button
