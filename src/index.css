@@ -10,6 +10,7 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
+    overflow-x: hidden;
 }
 
 a {
@@ -31,6 +32,8 @@ a {
   margin-top: 5rem;
 }
 
+
+
 .back-btn {
   margin-bottom: 20px;
   margin-top: 0;
@@ -43,4 +46,48 @@ a {
     object-fit: contain;
     border-radius: 0;
   }
+}
+
+@media screen and (min-width: 1200px) {
+  .roomImg {
+    width: 80%;
+
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  .roomImg {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .css-1cz631b-MuiContainer-root {
+    max-width: 100% !important;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+.upload-image-input {
+  font-size: 1rem;
+  background: white;
+  border-radius: 50px;
+  box-shadow: 5px 5px 10px black;
+  width: 300px;
+  outline: none;
+}
+
+::-webkit-file-upload-button {
+  color: white;
+  background: #96bf01;
+  padding: 20px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+}
+
+::-webkit-file-upload-button:hover {
+  background: #6F8426;
+  color: white;
 }

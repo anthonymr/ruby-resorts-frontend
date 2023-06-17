@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@mui/material';
-import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-progressbar';
+import {
+  CircularProgressbarWithChildren,
+  buildStyles,
+} from 'react-circular-progressbar';
 import RadialSeparators from './RadialSeparator';
 import 'react-circular-progressbar/dist/styles.css';
 
