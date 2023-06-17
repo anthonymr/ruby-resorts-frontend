@@ -2,7 +2,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material';
 import Layout from './components/layout';
-import MainPage from './components/mainpage/mainPage';
+import MainPage from './components/mainPage/mainPage';
 import LoginPage from './components/loginPage/loginPage';
 import SignUpPage from './components/signUpPage';
 import ReservePage from './components/newReservationPage/newReservePage';
