@@ -14,7 +14,7 @@ describe('Navigation Panel', () => {
     const { store } = renderWithProviders(
       <BrowserRouter>
         <NavigationPanel />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     await waitFor(() => {
       const userInfo = store.getState().user.userinfo;
@@ -26,10 +26,10 @@ describe('Navigation Panel', () => {
     const { store } = renderWithProviders(
       <BrowserRouter>
         <NavigationPanel />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     await waitFor(() => {
-      const rooms = store.getState().rooms.rooms;
+      const { rooms } = store.getState().rooms;
       expect(rooms.length).toBe(2);
     });
   });
@@ -38,10 +38,10 @@ describe('Navigation Panel', () => {
     const { store } = renderWithProviders(
       <BrowserRouter>
         <NavigationPanel />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     await waitFor(() => {
-      const hotels = store.getState().cities.hotels;
+      const { hotels } = store.getState().cities;
       expect(hotels.length).toBe(1);
     });
   });
@@ -50,11 +50,10 @@ describe('Navigation Panel', () => {
     const { getAllByText } = renderWithProviders(
       <BrowserRouter>
         <NavigationPanel />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     await waitFor(() => {
       expect(getAllByText('testuser').length).toBe(2);
     });
   });
-
 });

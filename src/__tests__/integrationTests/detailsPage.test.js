@@ -16,7 +16,7 @@ describe('Details Page', () => {
         <Routes>
           <Route path="/details/:roomId" element={<Details />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     await waitFor(() => {
       const roomDetail = store.getState().details.roomDetails;
@@ -29,11 +29,10 @@ describe('Details Page', () => {
         <Routes>
           <Route path="/details/:roomId" element={<Details />} />
         </Routes>
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     await waitFor(() => {
       expect(getByText('Server Test Suite 1')).toBeInTheDocument();
     });
   });
-
 });

@@ -12,10 +12,10 @@ afterAll(() => server1.close());
 
 describe('Delete Room Page', () => {
   it('test deleteFromList reducer and action.', async () => {
-    const { store } = renderWithProviders(
+    const { store, getByText } = renderWithProviders(
       <BrowserRouter>
         <DeleteRoom />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     const button = screen.getAllByText('Delete', { selector: 'button' })[0];
     userEvent.click(button);
@@ -24,6 +24,7 @@ describe('Delete Room Page', () => {
     await waitFor(() => {
       const { rooms } = store.getState().rooms;
       expect(rooms.length).toBe(0);
+      expect(getByText('Suite deleted successfully!!')).toBeInTheDocument();
     });
   });
 });

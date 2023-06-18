@@ -46,6 +46,19 @@ export const detailsData = {
   image_url: 'some image url',
 };
 
+export const newRoomData = {
+  id: 1,
+  name: 'Server New Test Suite',
+  description: 'Description of new test suite',
+  full_price: '250.0',
+  reservation_price: '200.0',
+  reservation_fee: '10.0',
+  rating: 5,
+  created_at: '2023-06-17T12:15:02.876Z',
+  updated_at: '2023-06-17T12:15:02.887Z',
+  image_url: 'some image url',
+};
+
 export const reservationsData = [
   {
     id: 1,

@@ -14,7 +14,7 @@ describe('My Reservations Page', () => {
     const { store } = renderWithProviders(
       <BrowserRouter>
         <MyReservations />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     await waitFor(() => {
       const { reservations } = store.getState().reservations;
@@ -27,7 +27,7 @@ describe('My Reservations Page', () => {
     const { getByText } = renderWithProviders(
       <BrowserRouter>
         <MyReservations />
-      </BrowserRouter>
+      </BrowserRouter>,
     );
     await waitFor(() => {
       expect(getByText('@ Test Hotel, Test City')).toBeInTheDocument();
