@@ -1,8 +1,9 @@
-import { screen, waitFor } from '@testing-library/react';
+import { waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 import { BrowserRouter } from 'react-router-dom';
 import { renderWithProviders } from '../../testutils/wrappers';
-import NavigationPanel from '../../components/navigation/navigationPanel';
 import { server1 } from '../../testutils/mockServers';
+import NavigationPanel from '../../components/navigation/navigationPanel';
 
 beforeAll(() => server1.listen());
 afterEach(() => server1.resetHandlers());
@@ -42,6 +43,17 @@ describe('Navigation Panel', () => {
     await waitFor(() => {
       const hotels = store.getState().cities.hotels;
       expect(hotels.length).toBe(1);
+    });
+  });
+
+  it('test fetched username is rendered in Navigation Panel', async () => {
+    const { getAllByText } = renderWithProviders(
+      <BrowserRouter>
+        <NavigationPanel />
+      </BrowserRouter>
+    );
+    await waitFor(() => {
+      expect(getAllByText('testuser').length).toBe(2);
     });
   });
 
