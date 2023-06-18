@@ -34,12 +34,11 @@ const PriceTable = () => {
   const reservationFee = parseFloat(roomDetails.reservation_fee);
   const reservationPrice = parseFloat(roomDetails.reservation_price);
 
-  const totalAmount =
-    Number.isNaN(fullPrice) ||
-    Number.isNaN(reservationFee) ||
-    Number.isNaN(reservationPrice)
-      ? 0
-      : fullPrice + reservationFee + reservationPrice;
+  const totalAmount = Number.isNaN(fullPrice)
+    || Number.isNaN(reservationFee)
+    || Number.isNaN(reservationPrice)
+    ? 0
+    : fullPrice + reservationFee + reservationPrice;
 
   const rows = [
     createData('Price', roomDetails.full_price),
@@ -54,10 +53,10 @@ const PriceTable = () => {
         <TableBody>
           {rows.map((row) => (
             <StyledTableRow key={row.name}>
-              <StyledTableCell component='th' scope='row'>
+              <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align='right'>{row.value}</StyledTableCell>
+              <StyledTableCell align="right">{row.value}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
