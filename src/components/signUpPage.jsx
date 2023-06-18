@@ -25,7 +25,7 @@ const SignUpPage = () => {
       setTimeout(() => {
         setSuccessMsg('');
         navigate('/');
-      }, 1000);
+      }, 3000);
     }
 
     if (response.isError) {

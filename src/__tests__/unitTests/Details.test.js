@@ -1,13 +1,12 @@
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render } from './test-utils'; // Import the custom render function
-import DeleteRoom from '../components/deleteRoomPage/DeleteRoom';
+import { render } from '../../testutils/test-utils';
+import Details from '../../components/detailspage/Details';
 
 it('renders correctly', () => {
   const { asFragment } = render(
     <Router>
-      <DeleteRoom />
+      <Details />
     </Router>,
-
   );
   expect(asFragment()).toMatchSnapshot();
 });

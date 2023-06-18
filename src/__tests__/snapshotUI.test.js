@@ -2,9 +2,9 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import store from '../redux/store';
-import MainPage from '../components/mainpage/mainPage';
+import MainPage from '../components/mainPage/mainPage';
 import DeleteRoom from '../components/deleteRoomPage/DeleteRoom';
-import MyReservations from '../components/myReservationsPage/MyReservations';
+import MyReservations from '../components/myReservationsPage/myReservations';
 import LoginPage from '../components/loginPage/loginPage';
 import SignUpPage from '../components/signUpPage';
 

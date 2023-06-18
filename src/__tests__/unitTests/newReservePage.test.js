@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, screen } from '@testing-library/react';
-import { renderWithRouter } from '../../../testutils/wrappers';
+import { renderWithRouter } from '../../testutils/wrappers';
 import NewReservePage from '../../components/newReservationPage/newReservePage';
 
 describe('New Reservation Page', () => {

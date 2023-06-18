@@ -1,9 +1,8 @@
-/*eslint-disable*/
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
-import initialStateData from './mockStoreData';
-import { setMockStore } from './mockStoreData';
+import initialStateData, { setMockStore } from './mockStoreData';
 
 export function renderWithProviders(
   ui,
@@ -11,9 +10,12 @@ export function renderWithProviders(
     preloadedState = initialStateData,
     store = setMockStore(preloadedState),
     ...renderOptions
-  } = {}
+  } = {},
 ) {
   function Wrapper({ children }) {
+    Wrapper.propTypes = {
+      children: PropTypes.node.isRequired,
+    };
     return <Provider store={store}>{children}</Provider>;
   }
 
@@ -26,9 +28,12 @@ export const renderWithRouter = (
     preloadedState = initialStateData,
     store = setMockStore(preloadedState),
     ...renderOptions
-  } = {}
+  } = {},
 ) => {
   function Wrapper({ children }) {
+    Wrapper.propTypes = {
+      children: PropTypes.node.isRequired,
+    };
     return (
       <MemoryRouter initialEntries={['/newreservepage/0']}>
         <Provider store={store}>

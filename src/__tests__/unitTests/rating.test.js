@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Rating from '../components/detailspage/Rating';
+import Rating from '../../components/detailspage/Rating';
 
 it('renders correctly', () => {
   const rating = renderer
