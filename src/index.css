@@ -68,11 +68,14 @@ a {
   font-size: 1rem;
   background: white;
   border-radius: 50px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px, rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
   width: 300px;
   outline: none;
 }
 
+::file-selector-button,
 ::-webkit-file-upload-button {
   color: white;
   background: #96bf01;
