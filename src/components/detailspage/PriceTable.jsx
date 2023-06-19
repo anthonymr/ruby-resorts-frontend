@@ -30,7 +30,6 @@ const PriceTable = () => {
     return { name, value };
   }
 
-  
   const reservationFee = parseFloat(roomDetails.reservation_fee);
   const reservationPrice = parseFloat(roomDetails.reservation_price);
 

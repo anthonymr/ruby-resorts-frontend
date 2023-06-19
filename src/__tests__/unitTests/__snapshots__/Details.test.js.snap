@@ -21,7 +21,7 @@ exports[`renders correctly 1`] = `
         <span
           class="MuiTypography-root MuiTypography-p css-1r5jnfa-MuiTypography-root"
         >
-          Reservation Price $
+          Full Price $
         </span>
         <div
           class="MuiBox-root css-0"
@@ -42,7 +42,7 @@ exports[`renders correctly 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
                     scope="row"
                   >
-                    Price
+                    Reservation Price
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
