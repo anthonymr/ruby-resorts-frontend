@@ -1,7 +1,15 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
-    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family:
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
   overflow-x: hidden;
 }
 
@@ -26,14 +34,15 @@ a {
 .back-btn {
   position: absolute;
   bottom: 1rem;
-  color: #ffffff;
+  color: #fff;
 }
 
 .upload-image-input {
   font-size: 1rem;
   background: white;
   border-radius: 50px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+  box-shadow:
+    rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
   width: 300px;
   outline: none;
@@ -54,8 +63,8 @@ a {
   color: white;
 }
 
-.details-span{
-font-weight: 400;
+.details-span {
+  font-weight: 400;
 }
 
 @media screen and (min-width: 600px) {
