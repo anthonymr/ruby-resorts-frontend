@@ -3,10 +3,10 @@
 exports[`renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+    class="MuiTableContainer-root css-rorn0c-MuiTableContainer-root"
   >
     <table
-      class="MuiTable-root css-1idx2ff-MuiTable-root"
+      class="MuiTable-root css-gh8rj1-MuiTable-root"
     >
       <tbody
         class="MuiTableBody-root css-apqrd9-MuiTableBody-root"

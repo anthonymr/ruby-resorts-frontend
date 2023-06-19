@@ -19,9 +19,7 @@ import {
   revervationBtn,
   discoverBtn,
   arrow,
-  apr,
   aprLeft,
-  aprRight,
   mainBox,
 } from './styles';
 
@@ -46,24 +44,28 @@ const Details = () => {
         <img
           className="roomImg"
           src={roomDetails.image_url}
-          alt=""
+          alt="interior of the suite"
         />
+
         <Box sx={rightBox}>
-          <Typography variant="h3" sx={roomName}>
-            {roomDetails.name}
-          </Typography>
-          <Typography variant="p" sx={reservationprice}>
-            Full Price $
-            {roomDetails.full_price}
-          </Typography>
-          <Box>
-            <PriceTable />
-            <Box sx={apr}>
-              <Typography sx={aprLeft} varient="p">
-                5.9% APR
+          <Box
+            sx={{
+              width: '90%',
+            }}
+          >
+            <Box>
+              <Typography variant="h3" sx={roomName}>
+                {roomDetails.name}
               </Typography>
-              <Typography sx={aprRight} varient="p">
-                Representative
+              <Typography variant="h6" sx={reservationprice}>
+                Full Price $
+                {roomDetails.full_price}
+              </Typography>
+              <PriceTable />
+              <Typography sx={aprLeft} varient="h5">
+                5.9% APR
+                {'  '}
+                <span className="details-span">Representative</span>
               </Typography>
             </Box>
           </Box>
@@ -88,7 +90,11 @@ const Details = () => {
           </Box>
         </Box>
       </Container>
-      <button type="button" className="carousel-button-left back-btn" onClick={() => navigate(-1)}>
+      <button
+        type="button"
+        className="carousel-button-left back-btn"
+        onClick={() => navigate(-1)}
+      >
         <ArrowLeftOutlinedIcon />
       </button>
     </Box>

@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="MuiBox-root css-1mf35eq"
+  className="MuiBox-root css-167yxyd"
 >
   <div
     data-test-id="CircularProgressbarWithChildren"

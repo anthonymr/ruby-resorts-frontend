@@ -1,15 +1,7 @@
 body {
   margin: 0;
-  font-family:
-    'Segoe UI',
-    'Roboto',
-    'Oxygen',
-    'Ubuntu',
-    'Cantarell',
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   overflow-x: hidden;
 }
 
@@ -24,52 +16,24 @@ a {
 }
 
 .roomImg {
-  width: 20rem;
   object-fit: cover;
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 20rem;
+  width: 17rem;
+  height: 17rem;
   border-radius: 50%;
-  margin-top: 5rem;
+  margin: 5rem 0;
 }
 
 .back-btn {
-  margin-bottom: 20px;
-  margin-top: 0;
-}
-
-@media screen and (min-width: 900px) {
-  .roomImg {
-    width: 75%;
-    height: 80vh;
-    object-fit: cover;
-    border-radius: 0;
-  }
-}
-
-@media screen and (min-width: 2000px) {
-  .roomImg {
-    width: 80%;
-    height: 80vh;
-    object-fit: cover;
-    border-radius: 0;
-  }
-}
-
-@media (min-width: 1200px) {
-  .css-1cz631b-MuiContainer-root {
-    max-width: 100% !important;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
+  position: absolute;
+  bottom: 1rem;
+  color: #ffffff;
 }
 
 .upload-image-input {
   font-size: 1rem;
   background: white;
   border-radius: 50px;
-  box-shadow:
-    rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
+  box-shadow: rgba(50, 50, 93, 0.25) 0 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0 8px 16px -8px;
   width: 300px;
   outline: none;
@@ -88,4 +52,17 @@ a {
 ::-webkit-file-upload-button:hover {
   background: #6f8426;
   color: white;
+}
+
+.details-span{
+font-weight: 400;
+}
+
+@media screen and (min-width: 600px) {
+  .roomImg {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
 }
