@@ -38,8 +38,18 @@
 
 **Ruby Resorts Front End** is the Front End project for Ruby Resorts Final Capstone Project. The front end is developed using React and Redux Toolkit. We used RTK queries to handle GET, POST, and DELETE queries to and from the Ruby Resorts backend API. We used JWT tokens to authorize users in the front end. A JWT token will be generated every time a user logs in and saved in the Redux store and the token is persisted in local storage. A regular user can signup, then log in with a username and password. The user can see a list of Suites on the main page, can see details of each suite, will be able to reserve a suite, and can access their past reservations. An admin user will be able to create a new suite and delete an existing suite.
 
+### Project's back-end
 The back end part of the project can be found in this repo. [Ruby Resorts Backend](https://github.com/anthonymr/ruby-resorts-backend)
 
+
+### API Design
+
+Here you can find the project's initial [API design](readme-res/API.md)
+
+### Project ERD diagram
+
+<img src="readme-res/erd_diagram_ruby_resort.png" alt="ERD diagram" width="600"  height="auto" />
+<br/>
 
 ## 🛠 Built With <a name="built-with"></a>
 
