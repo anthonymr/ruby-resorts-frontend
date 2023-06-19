@@ -30,18 +30,17 @@ const PriceTable = () => {
     return { name, value };
   }
 
-  const fullPrice = parseFloat(roomDetails.full_price);
+  
   const reservationFee = parseFloat(roomDetails.reservation_fee);
   const reservationPrice = parseFloat(roomDetails.reservation_price);
 
-  const totalAmount = Number.isNaN(fullPrice)
-    || Number.isNaN(reservationFee)
+  const totalAmount = Number.isNaN(reservationFee)
     || Number.isNaN(reservationPrice)
     ? 0
-    : fullPrice + reservationFee + reservationPrice;
+    : reservationFee + reservationPrice;
 
   const rows = [
-    createData('Price', roomDetails.full_price),
+    createData('Reservation Price', roomDetails.reservation_price),
     createData('Transaction fee', roomDetails.reservation_fee),
     createData('Total amount', totalAmount),
     createData('Cancelation Fee', '30%'),
