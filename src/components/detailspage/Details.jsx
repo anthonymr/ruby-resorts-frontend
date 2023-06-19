@@ -53,8 +53,8 @@ const Details = () => {
             {roomDetails.name}
           </Typography>
           <Typography variant="p" sx={reservationprice}>
-            Reservation Price $
-            {roomDetails.reservation_price}
+            Full Price $
+            {roomDetails.full_price}
           </Typography>
           <Box>
             <PriceTable />
