@@ -18,7 +18,7 @@ exports[`renders correctly 1`] = `
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
             scope="row"
           >
-            Price
+            Reservation Price
           </th>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
@@ -49,7 +49,7 @@ exports[`renders correctly 1`] = `
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
           >
-            NaN
+            0
           </td>
         </tr>
         <tr

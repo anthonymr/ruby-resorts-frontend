@@ -21,7 +21,7 @@ exports[`renders correctly 1`] = `
         <span
           class="MuiTypography-root MuiTypography-p css-1r5jnfa-MuiTypography-root"
         >
-          Reservation Price $
+          Full Price $
         </span>
         <div
           class="MuiBox-root css-0"
@@ -42,7 +42,7 @@ exports[`renders correctly 1`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
                     scope="row"
                   >
-                    Price
+                    Reservation Price
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
@@ -73,7 +73,7 @@ exports[`renders correctly 1`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
                   >
-                    NaN
+                    0
                   </td>
                 </tr>
                 <tr
@@ -190,84 +190,35 @@ exports[`renders correctly 1`] = `
                     style="position: absolute; height: 100%; transform: rotate(0turn);"
                   >
                     <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
                     />
                   </div>
                   <div
-                    style="position: absolute; height: 100%; transform: rotate(0.08333333333333333turn);"
+                    style="position: absolute; height: 100%; transform: rotate(0.2turn);"
                   >
                     <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
                     />
                   </div>
                   <div
-                    style="position: absolute; height: 100%; transform: rotate(0.16666666666666666turn);"
+                    style="position: absolute; height: 100%; transform: rotate(0.4turn);"
                   >
                     <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
                     />
                   </div>
                   <div
-                    style="position: absolute; height: 100%; transform: rotate(0.25turn);"
+                    style="position: absolute; height: 100%; transform: rotate(0.6000000000000001turn);"
                   >
                     <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
                     />
                   </div>
                   <div
-                    style="position: absolute; height: 100%; transform: rotate(0.3333333333333333turn);"
+                    style="position: absolute; height: 100%; transform: rotate(0.8turn);"
                   >
                     <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
-                    />
-                  </div>
-                  <div
-                    style="position: absolute; height: 100%; transform: rotate(0.41666666666666663turn);"
-                  >
-                    <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
-                    />
-                  </div>
-                  <div
-                    style="position: absolute; height: 100%; transform: rotate(0.5turn);"
-                  >
-                    <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
-                    />
-                  </div>
-                  <div
-                    style="position: absolute; height: 100%; transform: rotate(0.5833333333333333turn);"
-                  >
-                    <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
-                    />
-                  </div>
-                  <div
-                    style="position: absolute; height: 100%; transform: rotate(0.6666666666666666turn);"
-                  >
-                    <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
-                    />
-                  </div>
-                  <div
-                    style="position: absolute; height: 100%; transform: rotate(0.75turn);"
-                  >
-                    <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
-                    />
-                  </div>
-                  <div
-                    style="position: absolute; height: 100%; transform: rotate(0.8333333333333333turn);"
-                  >
-                    <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
-                    />
-                  </div>
-                  <div
-                    style="position: absolute; height: 100%; transform: rotate(0.9166666666666666turn);"
-                  >
-                    <div
-                      style="background: rgb(255, 255, 255); width: 2px; height: 10%;"
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
                     />
                   </div>
                 </div>

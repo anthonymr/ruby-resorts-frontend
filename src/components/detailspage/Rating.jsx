@@ -31,10 +31,10 @@ const Rating = ({ rating }) => {
         })}
       >
         <RadialSeparators
-          count={12}
+          count={5}
           style={{
             background: '#fff',
-            width: '2px',
+            width: '3px',
             height: `${10}%`,
           }}
         />
