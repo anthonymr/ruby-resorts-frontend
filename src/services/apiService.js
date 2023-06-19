@@ -3,8 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const appApi = createApi({
   reducerPath: 'appApi',
   baseQuery: fetchBaseQuery({
-    // baseUrl: 'https://ruby-resorts-backend.onrender.com/api/v1/',
-    baseUrl: 'http://127.0.0.1:3000/api/v1',
+    baseUrl: 'https://ruby-resorts-backend.onrender.com/api/v1/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().user.accessToken;
       if (token) {
