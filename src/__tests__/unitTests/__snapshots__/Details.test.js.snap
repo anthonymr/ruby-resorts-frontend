@@ -3,123 +3,122 @@
 exports[`renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="MuiBox-root css-ak5haf"
+    class="MuiBox-root css-1ezxzkz"
   >
     <div
-      class="MuiContainer-root MuiContainer-maxWidthLg css-1cz631b-MuiContainer-root"
+      class="MuiContainer-root MuiContainer-maxWidthLg css-16chdws-MuiContainer-root"
     >
       <img
-        alt=""
+        alt="interior of the suite"
         class="roomImg"
       />
       <div
-        class="MuiBox-root css-10r4lgy"
+        class="MuiBox-root css-1rbp01k"
       >
-        <h3
-          class="MuiTypography-root MuiTypography-h3 css-1trb445-MuiTypography-root"
-        />
-        <span
-          class="MuiTypography-root MuiTypography-p css-1r5jnfa-MuiTypography-root"
-        >
-          Full Price $
-        </span>
         <div
-          class="MuiBox-root css-0"
+          class="MuiBox-root css-7822g1"
         >
           <div
-            class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+            class="MuiBox-root css-0"
           >
-            <table
-              class="MuiTable-root css-1idx2ff-MuiTable-root"
+            <h3
+              class="MuiTypography-root MuiTypography-h3 css-125ornw-MuiTypography-root"
+            />
+            <h6
+              class="MuiTypography-root MuiTypography-h6 css-dppiby-MuiTypography-root"
             >
-              <tbody
-                class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+              Full Price $
+            </h6>
+            <div
+              class="MuiTableContainer-root css-rorn0c-MuiTableContainer-root"
+            >
+              <table
+                class="MuiTable-root css-gh8rj1-MuiTable-root"
               >
-                <tr
-                  class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
+                <tbody
+                  class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                 >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
-                    scope="row"
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
                   >
-                    Reservation Price
-                  </th>
-                  <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
-                  />
-                </tr>
-                <tr
-                  class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
-                >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
-                    scope="row"
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Reservation Price
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    />
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
                   >
-                    Transaction fee
-                  </th>
-                  <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
-                  />
-                </tr>
-                <tr
-                  class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
-                >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
-                    scope="row"
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Transaction fee
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    />
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
                   >
-                    Total amount
-                  </th>
-                  <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Total amount
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    >
+                      0
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
                   >
-                    0
-                  </td>
-                </tr>
-                <tr
-                  class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
-                >
-                  <th
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
-                    scope="row"
-                  >
-                    Cancelation Fee
-                  </th>
-                  <td
-                    class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
-                  >
-                    30%
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div
-            class="MuiBox-root css-1nvaqrm"
-          >
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Cancelation Fee
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    >
+                      30%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <p
-              class="MuiTypography-root MuiTypography-body1 css-ndaqpv-MuiTypography-root"
-              varient="p"
+              class="MuiTypography-root MuiTypography-body1 css-1495mji-MuiTypography-root"
+              varient="h5"
             >
-              5.9% APR
-            </p>
-            <p
-              class="MuiTypography-root MuiTypography-body1 css-17893no-MuiTypography-root"
-              varient="p"
-            >
-              Representative
+              5.9% APR  
+              <span
+                class="details-span"
+              >
+                Representative
+              </span>
             </p>
           </div>
         </div>
         <div
-          class="MuiBox-root css-1a78bhu"
+          class="MuiBox-root css-11yvj5x"
         >
           <a
             class="discoverLink"
             href="/mainpage"
           >
             <span
-              class="MuiTypography-root MuiTypography-p css-1dq3t5l-MuiTypography-root"
+              class="MuiTypography-root MuiTypography-p css-13r7zsy-MuiTypography-root"
             >
               Discover More Rooms
             </span>
@@ -136,7 +135,7 @@ exports[`renders correctly 1`] = `
             </svg>
           </a>
           <div
-            class="MuiBox-root css-1mf35eq"
+            class="MuiBox-root css-167yxyd"
           >
             <div
               data-test-id="CircularProgressbarWithChildren"
@@ -226,7 +225,7 @@ exports[`renders correctly 1`] = `
             </div>
           </div>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1k4tqnp-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1qssj0y-MuiButtonBase-root-MuiButton-root"
             tabindex="0"
             type="button"
           >

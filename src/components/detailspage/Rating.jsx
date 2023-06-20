@@ -18,7 +18,12 @@ const Rating = ({ rating }) => {
   }
 
   return (
-    <Box sx={{ width: 100, height: 100 }}>
+    <Box
+      sx={{
+        width: { xs: '5rem', md: '3rem', lg: '5rem' },
+        height: { xs: '5rem', md: '3rem', lg: '5rem' },
+      }}
+    >
       <CircularProgressbarWithChildren
         value={rating}
         text={`${rating}`}

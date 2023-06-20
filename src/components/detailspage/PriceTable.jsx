@@ -5,7 +5,6 @@ import TableBody from '@mui/material/TableBody';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 import { detailsTable } from './styles';
 
 const StyledTableCell = styled(TableCell)(() => ({
@@ -46,7 +45,7 @@ const PriceTable = () => {
   ];
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer>
       <Table sx={detailsTable}>
         <TableBody>
           {rows.map((row) => (
