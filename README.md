@@ -60,6 +60,7 @@ We are a team of four members for this project.
 ## Application's admin credentials for evaluation
 
 Please use the following credentials for evaluation
+  <br />
   username : admin
   <br />
   password : admin123
