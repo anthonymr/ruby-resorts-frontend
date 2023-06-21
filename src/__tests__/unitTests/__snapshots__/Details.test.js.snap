@@ -1,0 +1,288 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiBox-root css-1ezxzkz"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg css-16chdws-MuiContainer-root"
+    >
+      <img
+        alt="interior of the suite"
+        class="roomImg"
+      />
+      <div
+        class="MuiBox-root css-1rbp01k"
+      >
+        <div
+          class="MuiBox-root css-7822g1"
+        >
+          <div
+            class="MuiBox-root css-0"
+          >
+            <h3
+              class="MuiTypography-root MuiTypography-h3 css-125ornw-MuiTypography-root"
+            />
+            <h6
+              class="MuiTypography-root MuiTypography-h6 css-dppiby-MuiTypography-root"
+            >
+              Full Price $
+            </h6>
+            <div
+              class="MuiTableContainer-root css-rorn0c-MuiTableContainer-root"
+            >
+              <table
+                class="MuiTable-root css-gh8rj1-MuiTable-root"
+              >
+                <tbody
+                  class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+                >
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
+                  >
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Reservation Price
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    />
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
+                  >
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Transaction fee
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    />
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
+                  >
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Total amount
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    >
+                      0
+                    </td>
+                  </tr>
+                  <tr
+                    class="MuiTableRow-root css-kxwusg-MuiTableRow-root"
+                  >
+                    <th
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1y7quc6-MuiTableCell-root"
+                      scope="row"
+                    >
+                      Cancelation Fee
+                    </th>
+                    <td
+                      class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-f9hqh2-MuiTableCell-root"
+                    >
+                      30%
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p
+              class="MuiTypography-root MuiTypography-body1 css-1495mji-MuiTypography-root"
+              varient="h5"
+            >
+              5.9% APR  
+              <span
+                class="details-span"
+              >
+                Representative
+              </span>
+            </p>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root css-11yvj5x"
+        >
+          <a
+            class="discoverLink"
+            href="/mainpage"
+          >
+            <span
+              class="MuiTypography-root MuiTypography-p css-13r7zsy-MuiTypography-root"
+            >
+              Discover More Rooms
+            </span>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-7ksnoo-MuiSvgIcon-root"
+              data-testid="ArrowCircleRightOutlinedIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10 10-4.48 10-10zM4 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8-8-3.58-8-8zm12 0-4 4-1.41-1.41L12.17 13H8v-2h4.17l-1.59-1.59L12 8l4 4z"
+              />
+            </svg>
+          </a>
+          <div
+            class="MuiBox-root css-167yxyd"
+          >
+            <div
+              data-test-id="CircularProgressbarWithChildren"
+            >
+              <div
+                style="position: relative; width: 100%; height: 100%;"
+              >
+                <svg
+                  class="CircularProgressbar "
+                  data-test-id="CircularProgressbar"
+                  viewBox="0 0 100 100"
+                >
+                  <path
+                    class="CircularProgressbar-trail"
+                    d="
+      M 50,50
+      m 0,-45
+      a 45,45 0 1 1 0,90
+      a 45,45 0 1 1 0,-90
+    "
+                    fill-opacity="0"
+                    stroke-width="10"
+                    style="stroke-linecap: butt; stroke-dasharray: 282.7433388230814px 282.7433388230814px; stroke-dashoffset: 0px;"
+                  />
+                  <path
+                    class="CircularProgressbar-path"
+                    d="
+      M 50,50
+      m 0,-45
+      a 45,45 0 1 1 0,90
+      a 45,45 0 1 1 0,-90
+    "
+                    fill-opacity="0"
+                    stroke-width="10"
+                    style="stroke: #96bf01; stroke-linecap: butt; stroke-dasharray: 282.7433388230814px 282.7433388230814px; stroke-dashoffset: 0px;"
+                  />
+                  <text
+                    class="CircularProgressbar-text"
+                    style="fill: #96bf01;"
+                    x="50"
+                    y="50"
+                  >
+                    5
+                  </text>
+                </svg>
+                <div
+                  data-test-id="CircularProgressbarWithChildren__children"
+                  style="position: absolute; width: 100%; height: 100%; margin-top: -100%; display: flex; flex-direction: column; justify-content: center; align-items: center;"
+                >
+                  <div
+                    style="position: absolute; height: 100%; transform: rotate(0turn);"
+                  >
+                    <div
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
+                    />
+                  </div>
+                  <div
+                    style="position: absolute; height: 100%; transform: rotate(0.2turn);"
+                  >
+                    <div
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
+                    />
+                  </div>
+                  <div
+                    style="position: absolute; height: 100%; transform: rotate(0.4turn);"
+                  >
+                    <div
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
+                    />
+                  </div>
+                  <div
+                    style="position: absolute; height: 100%; transform: rotate(0.6000000000000001turn);"
+                  >
+                    <div
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
+                    />
+                  </div>
+                  <div
+                    style="position: absolute; height: 100%; transform: rotate(0.8turn);"
+                  >
+                    <div
+                      style="background: rgb(255, 255, 255); width: 3px; height: 10%;"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium css-1qssj0y-MuiButtonBase-root-MuiButton-root"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="CallEndSharpIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="m3.68 16.07 3.92-3.11V9.59c2.85-.93 5.94-.93 8.8 0v3.38l3.91 3.1L24 12.39c-6.41-7.19-17.59-7.19-24 0l3.68 3.68z"
+                />
+              </svg>
+            </span>
+            Book Now
+            <span
+              class="MuiButton-endIcon MuiButton-iconSizeMedium css-9tj150-MuiButton-endIcon"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                data-testid="ArrowCircleRightOutlinedIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12s4.48 10 10 10 10-4.48 10-10zM4 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8-8-3.58-8-8zm12 0-4 4-1.41-1.41L12.17 13H8v-2h4.17l-1.59-1.59L12 8l4 4z"
+                />
+              </svg>
+            </span>
+            <span
+              class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+    <button
+      class="carousel-button-left back-btn"
+      type="button"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        data-testid="ArrowLeftOutlinedIcon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="m14 7-5 5 5 5V7z"
+        />
+      </svg>
+    </button>
+  </div>
+</DocumentFragment>
+`;

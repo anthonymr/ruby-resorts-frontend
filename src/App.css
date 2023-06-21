@@ -1,0 +1,166 @@
+#App {
+  text-align: center;
+}
+
+#signin-logo {
+  object-fit: contain;
+  width: 10rem;
+  height: 10rem;
+}
+
+#signup-link-text {
+  color: #454545;
+}
+
+#nav-panel-list a {
+  width: 100%;
+  text-decoration: none;
+  color: #454545;
+  font-weight: 800;
+  padding: 1rem;
+}
+
+#nav-panel-list a.active {
+  background-color: #96bf01;
+  color: #fff;
+}
+
+#nav-app-logo {
+  height: 15vh;
+  width: 100%;
+  object-fit: contain;
+}
+
+#nav-social-icons path {
+  fill: #454545;
+}
+
+.carousel-button-left svg,
+.carousel-button-right svg {
+  height: 32px;
+  width: 32px;
+}
+
+#nav-social-icons svg {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+}
+
+.carousel-button-group {
+  top: 85%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.carousel-button-left,
+.carousel-button-right {
+  width: 3rem;
+  padding: 1rem 2rem;
+  background: #96bf01;
+  border-radius: 0;
+  cursor: pointer;
+  border: none;
+  display: flex;
+}
+
+.carousel-button-left {
+  justify-content: center;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.carousel-button-right {
+  justify-content: center;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.main-carousel-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.corousel-item-pic-container {
+  margin: 1rem 0;
+}
+
+.corousel-item-pic-container img {
+  border-radius: 50%;
+  height: 13rem;
+  width: 13rem;
+  object-fit: cover;
+}
+
+.disable-button {
+  background: #a1a1a1;
+}
+
+#round-icons-container svg {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+}
+
+#round-icons-container path {
+  fill: #a1a1a1;
+}
+
+#reservation-form {
+  margin-top: 3rem;
+}
+
+#cities-list,
+#rooms-list {
+  padding: 0.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .carousel-button-group {
+    top: 50%;
+  }
+
+  .corousel-item-pic-container img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  #round-icons-container svg {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .corousel-item-pic-container img {
+    height: 8rem;
+    width: 8rem;
+  }
+
+  #signin-logo {
+    object-fit: contain;
+    width: 14rem;
+    height: 14rem;
+  }
+
+  #nav-social-icons svg {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .corousel-item-pic-container img {
+    height: 10rem;
+    width: 10rem;
+  }
+
+  #signin-logo {
+    object-fit: contain;
+    width: 16rem;
+    height: 16rem;
+  }
+}
