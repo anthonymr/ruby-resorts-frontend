@@ -12,25 +12,32 @@
 
 # 📗 Table of Contents
 
-- [📖 About the Project](#about-project)
-  - [📖 Kanban Boards](#Kanban-boards)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Ruby Resorts FE ](#-ruby-resorts-fe-)
+    - [Project's back-end](#projects-back-end)
+  - [Team members](#team-members)
+  - [Application's admin credentials for evaluation](#applications-admin-credentials-for-evaluation)
+    - [API Documentation](#api-documentation)
+    - [API Design](#api-design)
+    - [Project ERD diagram](#project-erd-diagram)
+  - [Kanban Boards ](#kanban-boards-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+  - [👥 Authors ](#-authors-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 
@@ -39,8 +46,23 @@
 
 **Ruby Resorts Front End** is the Front End project for Ruby Resorts Final Capstone Project. The front end is developed using React and Redux Toolkit. We used RTK queries to handle GET, POST, and DELETE queries to and from the Ruby Resorts backend API. We used JWT tokens to authorize users in the front end. A JWT token will be generated every time a user logs in and saved in the Redux store and the token is persisted in local storage. A regular user can signup, then log in with a username and password. The user can see a list of Suites on the main page, can see details of each suite, will be able to reserve a suite, and can access their past reservations. An admin user will be able to create a new suite and delete an existing suite.
 
+
 ### Project's back-end
 The back end part of the project can be found in this repo. [Ruby Resorts Backend](https://github.com/anthonymr/ruby-resorts-backend)
+
+## Team members
+We are a team of four members for this project.
+- Anthony Martin
+- Ghulam Subbhani
+- Raphael Okolo
+- Ram Kumar Karuppusamy
+  
+## Application's admin credentials for evaluation
+
+Please use the following credentials for evaluation
+  username : admin
+  <br />
+  password : admin123
 
 ### API Documentation
 
